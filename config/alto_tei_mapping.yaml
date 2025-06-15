@@ -241,6 +241,7 @@ element_creation:
 tei_structure:
   root_element: "TEI"
   namespace: "http://www.tei-c.org/ns/1.0"
+  include_facsimile: true
   
   header:
     required: true
