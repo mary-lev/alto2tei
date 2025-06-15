@@ -64,7 +64,7 @@ Within processed zones, lines are classified according to their semantic functio
 | `CustomLine:signature` | Technical marks/signatures | `<fw type="signature">` | Standalone |
 | `DefaultLine` | Regular text | Add to `<p>` | Current paragraph |
 
-## 🔧 Configuration
+## Configuration
 
 ### YAML Structure
 
@@ -166,35 +166,6 @@ Based on analysis of your ALTO files:
 - `HeadingLine`: 3 files (13 instances) - Section headers
 - `CustomLine:signature`: 7 files (7 instances) - Signatures
 
-## 🔧 Extension and Validation Tools
-
-### Configuration Testing
-
-```bash
-# Test your configuration file for errors
-python test_config.py
-
-# Test custom configuration
-python test_config.py my_custom_config.yaml
-
-# Example output:
-✅ Configuration file loaded successfully
-✅ Rule engine initialized successfully
-
-📊 Configuration Summary:
-   Block types: 6
-   Line types: 6
-   Footnote patterns: 10
-
-📋 Block types:
-   MainZone: process_lines
-   NumberingZone: skip_content, extract_page_number
-   GraphicZone: skip_content
-   ...
-
-✅ Configuration is valid!
-🎉 Ready to convert ALTO files!
-```
 
 ### Adding New ALTO Types
 
