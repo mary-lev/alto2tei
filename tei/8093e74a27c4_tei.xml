@@ -52,17 +52,17 @@
   <text>
     <body>
       <pb n="12" facs="8093e74a27c4.jpeg" />
-      <head facs="#tl1" rend="header">ЯВЛЕНІЕ VI.</head>
+      <head rend="header" facs="#tl1">ЯВЛЕНІЕ VI.</head>
       <p facs="#tl2">ЛИСКА и СЕНТАЛМЪ.</p>
-      <speaker facs="#tl3" rend="speaker">ЛИСКА.</speaker>
+      <speaker rend="speaker" facs="#tl3">ЛИСКА.</speaker>
       <p facs="#tl4">Какъ ему сказать? Какую ужасную<lb facs="#tl5" />ведомость должна я ...</p>
-      <speaker facs="#tl6" rend="speaker">СЕНТАЛМЪ.</speaker>
+      <speaker rend="speaker" facs="#tl6">СЕНТАЛМЪ.</speaker>
       <p facs="#tl7">Ахъ, любезная Лиза! судьба моя<lb facs="#tl8" />рѣшилась! я теряю Юлію невозврат-<lb facs="#tl9" />но... и нынѣ... Гдѣ она? должно<lb facs="#tl10" />мнѣ съ нею поговорить, и умереть у<lb facs="#tl11" />ногъ ея. Гдѣ она?</p>
-      <speaker facs="#tl12" rend="speaker">ЛИСКА.</speaker>
+      <speaker rend="speaker" facs="#tl12">ЛИСКА.</speaker>
       <p facs="#tl13">Состояніе ея не меньше вашего<lb facs="#tl14" />жалостно... Она плачетъ, она въ отчая-<lb facs="#tl15" />ніи; но щастіе безъ поправки. Воору-<lb facs="#tl16" />житесь, сударь! всемъ терпѣніемъ : Юлія<lb facs="#tl17" />васъ не увидитъ, и сія печаль для ней<lb facs="#tl18" />изъ всѣхъ несноснѣйшая. Она заклина-<lb facs="#tl19" />етъ васъ сохранять дни ваши, и вѣрить,<lb facs="#tl20" />что она вѣчно васъ не забудетъ; но<lb facs="#tl21" />притомъ требуетъ, чтобъ вы оставили<lb facs="#tl22" />вашъ замокъ, и не дѣлали неблаго-<lb facs="#tl23" />пристойности въ стараніи увидѣть ее,<lb facs="#tl24" />или переговорить съ нею.</p>
-      <speaker facs="#tl25" rend="speaker">СЕНТАЛМЪ.</speaker>
+      <speaker rend="speaker" facs="#tl25">СЕНТАЛМЪ.</speaker>
       <p facs="#tl26">Ахъ, Лиза! мнѣ нужно сказать<lb facs="#tl27" />ей только одно слово. Я увѣренъ въ<lb facs="#tl28" />непреодолимости моего нещастія, и<lb facs="#tl29" />что нѣтъ мнѣ никакой надежды. Но</p>
-      <fw facs="#tl30" type="catchword">чтобъ</fw>
+      <fw type="catchword" facs="#tl30">чтобъ</fw>
     </body>
   </text>
 </TEI>

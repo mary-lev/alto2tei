@@ -51,9 +51,9 @@
   <text>
     <body>
       <pb n="26" facs="0aefed141cd6.jpeg" />
-      <head facs="#tl2" rend="header">ЯВЛЕНІЕ ІV.</head>
+      <head rend="header" facs="#tl2">ЯВЛЕНІЕ ІV.</head>
       <p facs="#tl3">КИРЪ и ХРИЗАНФЪ</p>
-      <speaker facs="#tl4" rend="speaker">ХРИЗАНФЪ.</speaker>
+      <speaker rend="speaker" facs="#tl4">ХРИЗАНФЪ.</speaker>
       <lg type="verse">
         <l facs="#tl5">Исполнилъ волю я твою и повелѣнье,</l>
         <l facs="#tl6">Я пленнымъ учинилъ ужъ всѣмъ освобожденье.</l>
@@ -66,20 +66,19 @@
         <l facs="#tl13">Въ печали не взяла нималой перемѣны ,</l>
         <l facs="#tl14">Какъ прежде взоръ смущенъ такъ нынѣ огорченный.</l>
       </lg>
-      <speaker facs="#tl15" rend="speaker">КИРЪ.</speaker>
+      <speaker rend="speaker" facs="#tl15">КИРЪ.</speaker>
       <lg type="verse">
         <l facs="#tl16">Араспу ввѣрилъ я Пантеи чистоту,</l>
         <l facs="#tl17">Покой и жизнь ея здоровье красоту ;</l>
         <l facs="#tl18">Которой сохранять ту свято обѣщался ;</l>
         <l facs="#tl19">Но толькобъ въ самомъ онъ такъ дѣлѣ оказался.</l>
       </lg>
-      <speaker facs="#tl20" rend="speaker">ХРИЗАНФЪ.</speaker>
+      <speaker rend="speaker" facs="#tl20">ХРИЗАНФЪ.</speaker>
       <lg type="verse">
         <l facs="#tl21">Коль зыблется всегда кипящихъ младость лѣтъ;</l>
         <l facs="#tl22">Въ поползновенномъ семъ надежды дѣлѣ нѣтъ.</l>
       </lg>
-      <speaker facs="#tl23" rend="speaker">КИРЪ.</speaker>
-      <p facs="#tl30">хри-</p>
+      <speaker rend="speaker" facs="#tl23">КИРЪ.</speaker>
       <lg type="verse">
         <l facs="#tl24">Но много увѣрялъ о твердости онъ духа ,</l>
         <l facs="#tl25">Что слабы заглушить слова прелестны слуха ,</l>
@@ -88,6 +87,7 @@
         <l facs="#tl28">Не можетъ ослѣпить краса хоть рѣдка въ свѣтѣ.</l>
         <l facs="#tl29">Толь быть непобѣдимъ хотѣлъ въ своемъ предметѣ.</l>
       </lg>
+      <fw type="catchword" facs="#tl30">хри-</fw>
     </body>
   </text>
 </TEI>

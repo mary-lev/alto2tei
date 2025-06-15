@@ -32,11 +32,11 @@
   <text>
     <body>
       <pb n="74" facs="2849e78d34f5.jpeg" />
-      <head facs="#tl2" rend="header">ГЛАВА ІІІ.</head>
-      <head facs="#tl3" rend="header">Приходъ Зизима на островъ Ро-</head>
-      <head facs="#tl4" rend="header">досъ. Принятїе здѣланное Ро-</head>
-      <head facs="#tl5" rend="header">доскимъ Княземъ. Пребыванїе</head>
-      <head facs="#tl6" rend="header">его на семъ островѣ.</head>
+      <head rend="header" facs="#tl2">ГЛАВА ІІІ.</head>
+      <head rend="header" facs="#tl3">Приходъ Зизима на островъ Ро-</head>
+      <head rend="header" facs="#tl4">досъ. Принятїе здѣланное Ро-</head>
+      <head rend="header" facs="#tl5">доскимъ Княземъ. Пребыванїе</head>
+      <head rend="header" facs="#tl6">его на семъ островѣ.</head>
       <p facs="#tl7">Между тѣмъ Зизимъ, преплывая съ опас-
       <lb />
       ностїю свирѣпѣющее волнами море, прибли-
@@ -70,7 +70,7 @@
       ся изъ корабля; то вдругъ поколебался воз-
       <lb />
       духъ отъ барабаннаго бою, трубнаго звука и</p>
-      <fw facs="#tl24" type="catchword">другаго</fw>
+      <fw type="catchword" facs="#tl24">другаго</fw>
       <p facs="#tl25">Баязетъ ІІ.<lb facs="#tl26" />въ 1482 го-<lb facs="#tl27" />ду по Р. Х.</p>
     </body>
   </text>

@@ -49,17 +49,17 @@
   <text>
     <body>
       <pb n="92" facs="fd5d9da28eba.jpeg" />
-      <speaker facs="#tl1" rend="speaker">МИХЕЙ.</speaker>
+      <speaker rend="speaker" facs="#tl1">МИХЕЙ.</speaker>
       <p facs="#tl2">Дочка твоя ушла, мой кормилецъ?</p>
-      <speaker facs="#tl3" rend="speaker">Г МАРСАНЖЪ.</speaker>
+      <speaker rend="speaker" facs="#tl3">Г МАРСАНЖЪ.</speaker>
       <p facs="#tl4">Можетъ быть я во вѣки ее не уви-<lb facs="#tl5" />жу... я очень нещастливъ! . . (Съ<lb facs="#tl6" />жаромъ) Михей! отдай дочь за Луку..<lb facs="#tl7" />я прошу тебя.. Сколькобъ терзала<lb facs="#tl8" />меня совѣсть, когдабъ примѣромъ сво-<lb facs="#tl9" />имъ вовлекъ я васъ въ ту пропасть,<lb facs="#tl10" />въ которую самъ опровергся! . . Доволь-<lb facs="#tl11" />ствуйтесь узнавать мои погрѣшности,<lb facs="#tl12" />но не подражайте имъ.</p>
-      <speaker facs="#tl13" rend="speaker">МИХЕЙ.</speaker>
+      <speaker rend="speaker" facs="#tl13">МИХЕЙ.</speaker>
       <p facs="#tl14">Исполню твою волю.. раскаянье<lb facs="#tl15" />твое чистосердечное; я остерегусь сдѣ-<lb facs="#tl16" />лать то же.</p>
-      <speaker facs="#tl17" rend="speaker">Г. МАРСАНЖЪ.</speaker>
+      <speaker rend="speaker" facs="#tl17">Г. МАРСАНЖЪ.</speaker>
       <p facs="#tl18">Ахъ, мой другъ! опасайся сего;<lb facs="#tl19" />ужасно приключить нещастіе.</p>
-      <speaker facs="#tl20" rend="speaker">МИХЕЙ.</speaker>
+      <speaker rend="speaker" facs="#tl20">МИХЕЙ.</speaker>
       <p facs="#tl21">Такъ! но очень весело сердцу рас-<lb facs="#tl22" />каяться. (Съ чувствительнымъ голосомъ)<lb facs="#tl23" />.. Хорошо! ты честной человѣкъ...<lb facs="#tl24" />Что ты ни дѣлай, а родился ты съ<lb facs="#tl25" />добрымъ сердцемъ... всѣ ваши барскіе<lb facs="#tl26" />обычьи не могли ево испортить. Не</p>
-      <fw facs="#tl27" type="catchword">пе-</fw>
+      <fw type="catchword" facs="#tl27">пе-</fw>
     </body>
   </text>
 </TEI>

@@ -77,7 +77,7 @@
         <l facs="#tl25">Твое богатство всѣмъ на счастье и отраду</l>
         <l facs="#tl26">Къ почтенїю наукъ , художествамъ въ награду.</l>
       </lg>
-      <fw facs="#tl28" type="catchword">Отеческїй</fw>
+      <fw type="catchword" facs="#tl28">Отеческїй</fw>
     </body>
   </text>
 </TEI>

@@ -60,8 +60,8 @@
   </facsimile>
   <text>
     <body>
-      <head facs="#tl1" rend="header">ИДИЛЛІЯ.</head>
-      <head facs="#tl2" rend="header">ЭРАСТЪ</head>
+      <head rend="header" facs="#tl1">ИДИЛЛІЯ.</head>
+      <head rend="header" facs="#tl2">ЭРАСТЪ</head>
       <p facs="#tl3">Эрастъ Ницестъ.</p>
       <lg type="verse">
         <l facs="#tl4">Въ прекрасный лѣтніи день блестяща Феба взоры</l>
@@ -101,7 +101,7 @@
         <l facs="#tl38">Пасемъ стада при насъ играющія нѣжно,</l>
         <l facs="#tl39">Печемся и блюдемъ мы ихъ всегда прилѣжно,</l>
       </lg>
-      <fw facs="#tl40" type="catchword">И естьли</fw>
+      <fw type="catchword" facs="#tl40">И естьли</fw>
     </body>
   </text>
 </TEI>

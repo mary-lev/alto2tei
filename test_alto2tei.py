@@ -322,7 +322,11 @@ class TestRuleEngine(unittest.TestCase):
         element.set('TAGREFS', 'LT74')
         line_type = self.converter.resolve_tag_type(element, self.tags_mapping, 'LT')
         mapping = self.rule_engine.get_line_mapping(line_type)
-        self.assertEqual(mapping['action'], 'add_to_paragraph')
+        # Test handles both simple and legacy format
+        if 'add_to_paragraph' in mapping:
+            self.assertTrue(mapping['add_to_paragraph'])
+        else:
+            self.assertEqual(mapping['action'], 'add_to_paragraph')
 
 
 class TestTagParsing(unittest.TestCase):
@@ -381,12 +385,12 @@ class TestLineProcessing(unittest.TestCase):
         state = {'current_p': None, 'current_lg': None}
         elements = []
         
-        config = {'action': 'add_to_paragraph'}
+        config = {'add_to_paragraph': True}
         
         # Process multiple lines
-        self.converter._process_line_by_config(config, 'First line', state, elements)
-        self.converter._process_line_by_config(config, 'Second line', state, elements)
-        self.converter._process_line_by_config(config, 'Third line', state, elements)
+        self.converter._process_line(config, 'First line', state, elements)
+        self.converter._process_line(config, 'Second line', state, elements)
+        self.converter._process_line(config, 'Third line', state, elements)
         
         # Finalize state
         if state['current_p'] is not None:
@@ -410,14 +414,14 @@ class TestLineProcessing(unittest.TestCase):
         elements = []
         
         config = {
-            'tei_element': 'l',
+            'element': 'l',
             'container': 'lg',
             'container_attributes': {'type': 'verse'}
         }
         
         # Process verse lines
-        self.converter._process_line_by_config(config, 'First verse line', state, elements)
-        self.converter._process_line_by_config(config, 'Second verse line', state, elements)
+        self.converter._process_line(config, 'First verse line', state, elements)
+        self.converter._process_line(config, 'Second verse line', state, elements)
         
         # Finalize state
         if state['current_lg'] is not None:
@@ -436,18 +440,18 @@ class TestLineProcessing(unittest.TestCase):
         elements = []
         
         # Create a paragraph first
-        para_config = {'action': 'add_to_paragraph'}
-        self.converter._process_line_by_config(para_config, 'Paragraph text', state, elements)
+        para_config = {'add_to_paragraph': True}
+        self.converter._process_line(para_config, 'Paragraph text', state, elements)
         
         # Ensure paragraph exists
         self.assertIsNotNone(state['current_p'])
         
         # Process header that should close paragraph
         header_config = {
-            'tei_element': 'head',
+            'element': 'head',
             'closes': ['paragraph']
         }
-        self.converter._process_line_by_config(header_config, 'Header text', state, elements)
+        self.converter._process_line(header_config, 'Header text', state, elements)
         
         # Paragraph should be closed and added to elements
         self.assertEqual(len(elements), 2)  # paragraph + header
@@ -1028,7 +1032,7 @@ class TestErrorHandling(unittest.TestCase):
         
         # Unknown line type should fall back to DefaultLine behavior
         unknown_config = self.converter.rule_engine.get_line_mapping('UnknownLineType')
-        self.converter._process_line_by_config(unknown_config, 'Test content', state, elements)
+        self.converter._process_line(unknown_config, 'Test content', state, elements)
         
         # Should create paragraph (default behavior)
         if state['current_p'] is not None:
@@ -1053,8 +1057,8 @@ class TestRegressionFixes(unittest.TestCase):
         state['current_p'] = ET.Element('p')
         
         # This should recognize the element exists despite falsy boolean value
-        config = {'action': 'add_to_paragraph'}
-        self.converter._process_line_by_config(config, 'Test content', state, elements)
+        config = {'add_to_paragraph': True}
+        self.converter._process_line(config, 'Test content', state, elements)
         
         # Should add to existing paragraph, not create new one
         self.assertIsNotNone(state['current_p'])
@@ -1066,13 +1070,13 @@ class TestRegressionFixes(unittest.TestCase):
         elements = []
         
         config = {
-            'tei_element': 'l',
+            'element': 'l',
             'container': 'lg',
             'container_attributes': {'type': 'verse'}
         }
         
         # Process verse line
-        self.converter._process_line_by_config(config, 'Verse line', state, elements)
+        self.converter._process_line(config, 'Verse line', state, elements)
         
         # Container should exist and have the line
         self.assertIsNotNone(state['current_lg'])

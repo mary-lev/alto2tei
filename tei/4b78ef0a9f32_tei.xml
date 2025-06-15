@@ -84,8 +84,8 @@
         <l facs="#tl26">мною.</l>
       </lg>
       <p facs="#tl27">Таковыя то я претерпѣлъ болѣз-<lb facs="#tl28" />ни, которыми мучитъ разлука! Я не и-<lb facs="#tl29" />мѣлъ тогда никакова другаго утѣше-<lb facs="#tl30" />нїя какъ толко что отъ времяни до<lb facs="#tl31" />времяни получалъ я писма, которыя</p>
-      <fw facs="#tl32" type="signature">Б 9</fw>
-      <fw facs="#tl33" type="catchword">мнѣ</fw>
+      <fw type="signature" facs="#tl32">Б 9</fw>
+      <fw type="catchword" facs="#tl33">мнѣ</fw>
     </body>
   </text>
 </TEI>

@@ -41,7 +41,6 @@ class ConfigurationLoader:
         """Get footnote pattern configuration"""
         return self.config.get('footnote_patterns', [])
     
-    
     def get_tei_structure(self) -> Dict[str, Any]:
         """Get TEI structure configuration"""
         return self.config.get('tei_structure', {})
@@ -198,14 +197,29 @@ class RuleEngine:
             if not isinstance(line_config, dict):
                 warnings.append(f"Line '{line_name}': Configuration must be a dictionary")
                 continue
-                
-            action = line_config.get('action', 'create_element')
-            if action not in valid_actions:
-                warnings.append(f"Line '{line_name}': Unknown action '{action}'. Valid: {valid_actions}")
             
-            # Check for required fields
-            if action == 'create_element' and 'tei_element' not in line_config:
-                warnings.append(f"Line '{line_name}': action 'create_element' requires 'tei_element'")
+            # Check if this is simple format
+            is_simple = any(flag in line_config for flag in ['add_to_paragraph', 'start_paragraph', 'element'])
+            
+            if is_simple:
+                # Validate simple format
+                if line_config.get('add_to_paragraph') and not line_config.get('fallback_element'):
+                    # This is optional, just a suggestion
+                    pass
+                elif line_config.get('start_paragraph') and 'element' not in line_config:
+                    warnings.append(f"Line '{line_name}': start_paragraph requires 'element' field")
+                elif 'element' in line_config and line_config.get('container') and 'container_attributes' not in line_config:
+                    # This is optional, just a suggestion
+                    pass
+            else:
+                # Validate legacy format
+                action = line_config.get('action', 'create_element')
+                if action not in valid_actions:
+                    warnings.append(f"Line '{line_name}': Unknown action '{action}'. Valid: {valid_actions}")
+                
+                # Check for required fields in legacy format
+                if action == 'create_element' and 'tei_element' not in line_config and 'element' not in line_config:
+                    warnings.append(f"Line '{line_name}': action 'create_element' requires 'tei_element' or 'element'")
         
         # Print warnings
         if warnings:
@@ -357,25 +371,6 @@ class AltoToTeiConverter:
         """Determine line type from TAGREFS"""
         return self.resolve_tag_type(textline, tags_mapping, 'LT', 'DefaultLine')
     
-    def _get_line_mapping(self, line_type: str) -> Dict[str, Any]:
-        """Get line mapping using rule engine"""
-        yaml_mapping = self.rule_engine.get_line_mapping(line_type)
-        # Convert YAML format to legacy format for compatibility
-        if yaml_mapping:
-            legacy_mapping = {
-                'element': yaml_mapping.get('tei_element', 'p'),
-                'rend': yaml_mapping.get('attributes', {}).get('rend', 'default'),
-                'action': yaml_mapping.get('action', 'create_element'),
-                'container': yaml_mapping.get('container'),
-                'container_attributes': yaml_mapping.get('container_attributes', {}),
-                'closes': yaml_mapping.get('closes', []),
-                'standalone': yaml_mapping.get('standalone', False)
-            }
-            return legacy_mapping
-        else:
-            # Fallback for unknown line types
-            return {'element': 'p', 'rend': 'default', 'action': 'create_element'}
-    
     def create_tei_header(self, alto_root: ET.Element) -> ET.Element:
         """Create TEI header from ALTO metadata"""
         header = ET.Element('teiHeader')
@@ -424,89 +419,148 @@ class AltoToTeiConverter:
         elif container_type == 'p' and not state.get('current_p'):
             state['current_p'] = ET.Element('p')
     
-    def _process_line_by_config(self, line_config: Dict, text_content: str, state: Dict, elements: List[ET.Element], zone_id: str = None) -> None:
-        """Process a line using YAML configuration rules"""
-        # Close containers as specified
+    def _process_line(self, line_config: Dict, text_content: str, 
+                     state: Dict, elements: List[ET.Element], 
+                     zone_id: str = None) -> None:
+        """
+        Process a line using simple, clear configuration rules.
+        
+        This approach is much easier to understand and maintain.
+        """
+        
+        # 1. Close containers - simple and obvious
         closes = line_config.get('closes', [])
         if closes:
-            self._close_containers(state, elements, closes)
+            self._close_containers_simple(closes, state, elements)
         
-        # Handle different actions
-        action = line_config.get('action', 'create_element')
+        # 2. Create element - direct and clear
+        element = self._create_element_simple(line_config, text_content, zone_id)
         
-        if action == 'start_paragraph':
-            # Close current paragraph if it exists
-            if state.get('current_p') is not None:
-                elements.append(state['current_p'])
-
-            # Start new paragraph
-            state['current_p'] = ET.Element('p')
-            state['current_p'].text = text_content
-            if zone_id:
-                state['current_p'].set('facs', f'#{zone_id}')
-            
-        elif action == 'add_to_paragraph':
-            # Add to existing or create new paragraph
-            if state.get('current_p') is not None:
-                # If preserving line breaks, add line break element and text
-                if self.rule_engine.should_preserve_line_breaks():
-                    if state['current_p'].text or len(state['current_p']) > 0:
-                        # Add line break element
-                        lb = self.rule_engine.create_line_break()
-                        if zone_id:
-                            lb.set('facs', f'#{zone_id}')
-                        state['current_p'].append(lb)
-                        # Add text after line break
-                        if len(state['current_p']) > 0:
-                            # Set tail text on the last element (the line break)
-                            state['current_p'][-1].tail = text_content
-                        else:
-                            state['current_p'].text = text_content
-                    else:
-                        state['current_p'].text = text_content
-                else:
-                    # Traditional behavior: join with spaces
-                    if state['current_p'].text:
-                        state['current_p'].text += " " + text_content
-                    else:
-                        state['current_p'].text = text_content
-            else:
-                state['current_p'] = ET.Element('p')
-                state['current_p'].text = text_content
-                if zone_id:
-                    state['current_p'].set('facs', f'#{zone_id}')
-                
-        else:
-            # Create standalone element or element in container
-            tei_element = line_config.get('tei_element', 'p')
-            
-            # Create the element
-            element = ET.Element(tei_element)
-            element.text = text_content
-            if zone_id:
-                element.set('facs', f'#{zone_id}')
-            
-            # Set attributes
-            attributes = line_config.get('attributes', {})
-            for attr, value in attributes.items():
-                element.set(attr, value)
-            
-            # Handle container requirements
-            container = line_config.get('container')
-            if container:
-                container_config = {
-                    'attributes': line_config.get('container_attributes', {})
-                }
-                self._ensure_container(state, container, container_config)
-                
-                if container == 'lg' and state.get('current_lg') is not None:
-                    state['current_lg'].append(element)
-                elif container == 'p' and state.get('current_p') is not None:
-                    state['current_p'].append(element)
-            else:
-                # Standalone element
-                elements.append(element)
+        # 3. Place element - simple rules
+        self._place_element_simple(element, line_config, state, elements)
     
+    def _close_containers_simple(self, close_list: List[str], state: Dict, 
+                                elements: List[ET.Element]) -> None:
+        """Simple container closing - crystal clear logic"""
+        
+        for container_type in close_list:
+            if container_type == 'paragraph' and state.get('current_p') is not None:
+                elements.append(state['current_p'])
+                state['current_p'] = None
+            elif container_type == 'poetry' and state.get('current_lg') is not None:
+                elements.append(state['current_lg'])
+                state['current_lg'] = None
+    
+    def _create_element_simple(self, config: Dict, text_content: str, 
+                              zone_id: str = None) -> ET.Element:
+        """Create element with simple, obvious logic"""
+        
+        # Get element name - simple fallback
+        element_name = config.get('element', config.get('tei_element', 'p'))
+        
+        # Create element
+        element = ET.Element(element_name)
+        element.text = text_content
+        
+        # Add attributes - simple copy
+        for attr, value in config.get('attributes', {}).items():
+            element.set(attr, value)
+        
+        # Add zone reference - simple and clear
+        if zone_id:
+            element.set('facs', f'#{zone_id}')
+        
+        return element
+    
+    def _place_element_simple(self, element: ET.Element, config: Dict,
+                             state: Dict, elements: List[ET.Element]) -> None:
+        """Place element according to simple, clear rules"""
+        
+        # Rule 1: Add to current paragraph (just add text, don't use element)
+        if config.get('add_to_paragraph'):
+            self._add_text_to_paragraph_simple(element.text, state, config, element.get('facs'))
+        
+        # Rule 2: Start new paragraph
+        elif config.get('start_paragraph'):
+            self._start_paragraph_simple(element, state, elements)
+        
+        # Rule 3: Add to container
+        elif config.get('container'):
+            self._add_to_container_simple(element, config, state)
+        
+        # Rule 4: Standalone element (default)
+        else:
+            elements.append(element)
+    
+    def _add_text_to_paragraph_simple(self, text_content: str, state: Dict, 
+                                      config: Dict, zone_id: str = None) -> None:
+        """Add text to current paragraph - simple logic"""
+        
+        # Create paragraph if needed
+        if state.get('current_p') is None:
+            fallback = config.get('fallback_element', 'p')
+            state['current_p'] = ET.Element(fallback)
+            if zone_id:
+                state['current_p'].set('facs', zone_id)
+        
+        # Add content with line breaks if needed
+        if self.rule_engine.should_preserve_line_breaks():
+            self._add_with_line_breaks_simple(text_content, state, zone_id)
+        else:
+            # Simple space joining
+            if state['current_p'].text:
+                state['current_p'].text += " " + text_content
+            else:
+                state['current_p'].text = text_content
+    
+    def _start_paragraph_simple(self, element: ET.Element, state: Dict,
+                               elements: List[ET.Element]) -> None:
+        """Start new paragraph - obvious logic"""
+        
+        # Close current paragraph if exists
+        if state.get('current_p') is not None:
+            elements.append(state['current_p'])
+        
+        # Start new paragraph
+        state['current_p'] = element
+    
+    def _add_to_container_simple(self, element: ET.Element, config: Dict,
+                                state: Dict) -> None:
+        """Add to container - clear container management"""
+        
+        container_name = config['container']
+        state_key = f'current_{container_name}'
+        
+        # Create container if needed
+        if not state.get(state_key):
+            container = ET.Element(container_name)
+            
+            # Add container attributes
+            for attr, value in config.get('container_attributes', {}).items():
+                container.set(attr, value)
+            
+            state[state_key] = container
+        
+        # Add element to container
+        state[state_key].append(element)
+    
+    def _add_with_line_breaks_simple(self, text_content: str, state: Dict, zone_id: str = None):
+        """Add content with line breaks - simplified version"""
+        
+        if state['current_p'].text or len(state['current_p']) > 0:
+            # Add line break element
+            lb = self.rule_engine.create_line_break()
+            if zone_id:
+                lb.set('facs', zone_id)
+            state['current_p'].append(lb)
+            # Set tail text on the last element (the line break)
+            if len(state['current_p']) > 0:
+                state['current_p'][-1].tail = text_content
+            else:
+                state['current_p'].text = text_content
+        else:
+            state['current_p'].text = text_content
+
     def convert_textblock(self, textblock: ET.Element, tags_mapping: Dict[str, str], zone_mapping: Dict[ET.Element, str] = None) -> List[ET.Element]:
         """Convert an ALTO TextBlock to TEI elements using YAML-driven rules"""
         elements = []
@@ -532,15 +586,27 @@ class AltoToTeiConverter:
             zone_id = zone_mapping.get(textline) if zone_mapping else None
 
             # Process line using configuration
-            self._process_line_by_config(line_config, text_content, state, elements, zone_id)
+            self._process_line(line_config, text_content, state, elements, zone_id)
         
-        # Add any remaining containers to elements
-        if state['current_p'] is not None:
-            elements.append(state['current_p'])
-        if state['current_lg'] is not None:
-            elements.append(state['current_lg'])
+        # Add any remaining containers to elements (handles both simple and legacy)
+        self._finalize_processing(state, elements)
         
         return elements
+    
+    def _finalize_processing(self, state: Dict, elements: List[ET.Element]) -> None:
+        """Finalize processing by adding any remaining open containers/elements"""
+        
+        # Handle legacy containers
+        if state.get('current_p') is not None:
+            elements.append(state['current_p'])
+        if state.get('current_lg') is not None:
+            elements.append(state['current_lg'])
+        
+        # Handle simple format containers (dynamic keys like current_lg, current_div, etc.)
+        for key, container in list(state.items()):
+            if key.startswith('current_') and key not in ['current_p', 'current_lg'] and container is not None:
+                elements.append(container)
+                state[key] = None
     
     def convert_alto_to_tei(self, alto_file: Path = None, alto_root: ET.Element = None) -> ET.Element:
         """Main conversion function"""
@@ -793,9 +859,6 @@ class AltoToTeiConverter:
         
         if not any([page_numbers_found, poetry_files, footnote_files]):
             print("📄 No page numbers, poetry, or footnotes detected in any files")
-    
-    
-    
     
     def save_tei(self, tei_root: ET.Element, output_file: Path) -> None:
         """Save TEI to file with proper formatting"""

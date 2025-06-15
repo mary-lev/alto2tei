@@ -1,11 +1,12 @@
 # ALTO to TEI Transformation Rules Configuration
-# Version: 1.0
-# Description: Defines how ALTO XML elements are converted to TEI format
+# Version: 2.0-simple
+# Description: Defines how ALTO XML elements are converted to TEI format (Simple Format)
 
 metadata:
-  version: "1.0"
-  description: "ALTO to TEI transformation rules"
-  author: "Generated from alto2tei.py"
+  version: "2.0-simple"
+  description: "ALTO to TEI transformation rules using simple format"
+  author: "Enhanced with simple configuration format"
+  format: "simple"
 
 # How to handle different ALTO block types
 block_types:     
@@ -54,7 +55,7 @@ block_types:
 line_types:
   HeadingLine:
     description: "Header lines"
-    tei_element: "head"
+    element: "head"
     attributes:
       rend: "header"
     closes:
@@ -64,15 +65,15 @@ line_types:
     
   "CustomLine:paragraph_start":
     description: "Beginning of paragraph - starts a new paragraph group"
-    action: "start_paragraph"
-    tei_element: "p"
+    start_paragraph: true
+    element: "p"
     closes:
       - "poetry"
 
     
   "CustomLine:verse":
     description: "Poetry lines"
-    tei_element: "l"
+    element: "l"
     container: "lg"
     container_attributes:
       type: "verse"
@@ -81,7 +82,7 @@ line_types:
 
   "CustomLine:speaker":
     description: "Speaker identification"
-    tei_element: "speaker"
+    element: "speaker"
     attributes:
       rend: "speaker"
     closes:
@@ -90,7 +91,7 @@ line_types:
     
   "CustomLine:catchword":
     description: "Catchwords"
-    tei_element: "fw"
+    element: "fw"
     attributes:
       type: "catchword"
     closes:
@@ -100,7 +101,7 @@ line_types:
 
   "CustomLine:signature":
     description: "Signatures"
-    tei_element: "fw"
+    element: "fw"
     attributes:
       type: "signature"
     closes:
@@ -110,7 +111,7 @@ line_types:
     
   DefaultLine:
     description: "Default line type"
-    action: "add_to_paragraph"
+    add_to_paragraph: true
     fallback_element: "p"
   
 

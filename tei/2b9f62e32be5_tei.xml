@@ -38,13 +38,13 @@
   </facsimile>
   <text>
     <body>
-      <head facs="#tl1" rend="header">ПОСТОЯННАЯ</head>
-      <head facs="#tl2" rend="header">ЛЮБОВЬ</head>
-      <head facs="#tl3" rend="header">съ</head>
-      <head facs="#tl4" rend="header">ПОМОЩІЮ</head>
-      <head facs="#tl5" rend="header">НЕВИННОСТИ.</head>
+      <head rend="header" facs="#tl1">ПОСТОЯННАЯ</head>
+      <head rend="header" facs="#tl2">ЛЮБОВЬ</head>
+      <head rend="header" facs="#tl3">съ</head>
+      <head rend="header" facs="#tl4">ПОМОЩІЮ</head>
+      <head rend="header" facs="#tl5">НЕВИННОСТИ.</head>
       <p facs="#tl6">Въ семъ свѣтѣ находится нѣ-<lb facs="#tl7" />которой счастливой островъ,<lb facs="#tl8" />неизвѣстной большой части<lb facs="#tl9" />смертныхъ. Воздухъ на немъ всегда<lb facs="#tl10" />чистъ и свѣтелъ, погоды неподверже-<lb facs="#tl11" />ны тѣмъ страннымъ перемѣнамъ, кои<lb facs="#tl12" />мы чувствуемъ въ нашемъ полушарѣ,<lb facs="#tl13" />поверхности водъ касаются одни лишъ<lb facs="#tl14" />Зефиры, и сердце счастливыхъ обита-<lb facs="#tl15" />телей сего блаженнаго жилища ни-<lb facs="#tl16" />когда не познало треволненій, возбуж-<lb facs="#tl17" />даемыхъ силою страстей и неумерен-</p>
-      <fw facs="#tl18" type="catchword">ными</fw>
+      <fw type="catchword" facs="#tl18">ными</fw>
     </body>
   </text>
 </TEI>
