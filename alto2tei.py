@@ -104,6 +104,10 @@ class RuleEngine:
     def should_preserve_line_breaks(self) -> bool:
         """Check if line breaks should be preserved in output"""
         return self.tei_structure.get('body', {}).get('preserve_line_breaks', False)
+
+    def should_include_facsimile(self) -> bool:
+        """Check if facsimile/zone output is enabled"""
+        return self.tei_structure.get('include_facsimile', True)
     
     def get_element_creation_config(self, element_type: str) -> Dict[str, Any]:
         """Get element creation configuration"""
@@ -156,7 +160,14 @@ class RuleEngine:
         # Handle additional kwargs that might override attributes
         if 'rend' in kwargs and kwargs['rend'] != 'header':
             element.set('rend', kwargs['rend'])
-        
+
+        # Allow arbitrary attribute overrides (e.g., facs)
+        for attr_name, attr_value in kwargs.items():
+            if attr_name in {'symbol', 'page_number', 'source_image', 'line_type', 'rend'}:
+                continue
+            if attr_name not in element.attrib:
+                element.set(attr_name, str(attr_value))
+
         return element
     
     def create_line_break(self) -> ET.Element:
@@ -413,7 +424,7 @@ class AltoToTeiConverter:
         elif container_type == 'p' and not state.get('current_p'):
             state['current_p'] = ET.Element('p')
     
-    def _process_line_by_config(self, line_config: Dict, text_content: str, state: Dict, elements: List[ET.Element]) -> None:
+    def _process_line_by_config(self, line_config: Dict, text_content: str, state: Dict, elements: List[ET.Element], zone_id: str = None) -> None:
         """Process a line using YAML configuration rules"""
         # Close containers as specified
         closes = line_config.get('closes', [])
@@ -427,10 +438,12 @@ class AltoToTeiConverter:
             # Close current paragraph if it exists
             if state.get('current_p') is not None:
                 elements.append(state['current_p'])
-            
+
             # Start new paragraph
             state['current_p'] = ET.Element('p')
             state['current_p'].text = text_content
+            if zone_id:
+                state['current_p'].set('facs', f'#{zone_id}')
             
         elif action == 'add_to_paragraph':
             # Add to existing or create new paragraph
@@ -440,6 +453,8 @@ class AltoToTeiConverter:
                     if state['current_p'].text or len(state['current_p']) > 0:
                         # Add line break element
                         lb = self.rule_engine.create_line_break()
+                        if zone_id:
+                            lb.set('facs', f'#{zone_id}')
                         state['current_p'].append(lb)
                         # Add text after line break
                         if len(state['current_p']) > 0:
@@ -458,6 +473,8 @@ class AltoToTeiConverter:
             else:
                 state['current_p'] = ET.Element('p')
                 state['current_p'].text = text_content
+                if zone_id:
+                    state['current_p'].set('facs', f'#{zone_id}')
                 
         else:
             # Create standalone element or element in container
@@ -466,6 +483,8 @@ class AltoToTeiConverter:
             # Create the element
             element = ET.Element(tei_element)
             element.text = text_content
+            if zone_id:
+                element.set('facs', f'#{zone_id}')
             
             # Set attributes
             attributes = line_config.get('attributes', {})
@@ -488,7 +507,7 @@ class AltoToTeiConverter:
                 # Standalone element
                 elements.append(element)
     
-    def convert_textblock(self, textblock: ET.Element, tags_mapping: Dict[str, str]) -> List[ET.Element]:
+    def convert_textblock(self, textblock: ET.Element, tags_mapping: Dict[str, str], zone_mapping: Dict[ET.Element, str] = None) -> List[ET.Element]:
         """Convert an ALTO TextBlock to TEI elements using YAML-driven rules"""
         elements = []
         state = {'current_p': None, 'current_lg': None}
@@ -509,9 +528,11 @@ class AltoToTeiConverter:
             # Get line type and its configuration
             line_type = self.get_line_type(textline, tags_mapping)
             line_config = self.rule_engine.get_line_mapping(line_type)
-            
+
+            zone_id = zone_mapping.get(textline) if zone_mapping else None
+
             # Process line using configuration
-            self._process_line_by_config(line_config, text_content, state, elements)
+            self._process_line_by_config(line_config, text_content, state, elements, zone_id)
         
         # Add any remaining containers to elements
         if state['current_p'] is not None:
@@ -540,6 +561,33 @@ class AltoToTeiConverter:
         # Add header
         header = self.create_tei_header(alto_root)
         tei_root.append(header)
+
+        zone_mapping = {}
+        if self.rule_engine.should_include_facsimile():
+            facsimile = ET.SubElement(tei_root, 'facsimile')
+            surface = ET.SubElement(facsimile, 'surface')
+            filename_elem = alto_root.find('.//alto:sourceImageInformation/alto:fileName', self.alto_ns)
+            if filename_elem is not None and filename_elem.text:
+                graphic = ET.SubElement(surface, 'graphic')
+                graphic.set('url', filename_elem.text)
+
+            text_lines = alto_root.findall('.//alto:TextLine', self.alto_ns)
+            for idx, tl in enumerate(text_lines, start=1):
+                try:
+                    hpos = int(tl.get('HPOS', 0))
+                    vpos = int(tl.get('VPOS', 0))
+                    width = int(tl.get('WIDTH', 0))
+                    height = int(tl.get('HEIGHT', 0))
+                except ValueError:
+                    continue
+                zone_id = f"tl{idx}"
+                zone_mapping[tl] = zone_id
+                zone_elem = ET.SubElement(surface, 'zone')
+                zone_elem.set('xml:id', zone_id)
+                zone_elem.set('ulx', str(hpos))
+                zone_elem.set('uly', str(vpos))
+                zone_elem.set('lrx', str(hpos + width))
+                zone_elem.set('lry', str(vpos + height))
         
         # Create text body
         text_elem = ET.SubElement(tei_root, 'text')
@@ -598,7 +646,7 @@ class AltoToTeiConverter:
                 continue
                 
             # Convert textblock to TEI elements
-            tei_elements = self.convert_textblock(textblock, tags_mapping)
+            tei_elements = self.convert_textblock(textblock, tags_mapping, zone_mapping)
             
             # Add elements to body
             for elem in tei_elements:

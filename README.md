@@ -245,6 +245,20 @@ python alto2tei.py --input manuscripts --output tei_files
 </TEI>
 ```
 
+### Line-Level Facsimile
+
+```xml
+<facsimile>
+  <surface>
+    <graphic url="page1.jpg"/>
+    <zone xml:id="tl1" ulx="10" uly="20" lrx="60" lry="30"/>
+    <zone xml:id="tl2" ulx="15" uly="35" lrx="70" lry="45"/>
+  </surface>
+</facsimile>
+
+<p facs="#tl1">Line one<lb facs="#tl2"/>Line two</p>
+```
+
 ### Processing Summary
 
 The converter provides detailed feedback:

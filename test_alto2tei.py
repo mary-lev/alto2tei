@@ -659,6 +659,57 @@ class TestLineBreakPreservation(unittest.TestCase):
         self.assertTrue('Third line of text' in (lb_elements[1].tail or ''))
 
 
+class TestFacsimileOutput(unittest.TestCase):
+    """Test facsimile zone generation and facs references"""
+
+    def setUp(self):
+        self.converter = AltoToTeiConverter()
+        self.ns = {'alto': 'http://www.loc.gov/standards/alto/ns-v4#'}
+
+    def create_simple_alto(self):
+        alto_root = ET.Element('{http://www.loc.gov/standards/alto/ns-v4#}alto')
+
+        # Source image
+        src_info = ET.SubElement(alto_root, '{http://www.loc.gov/standards/alto/ns-v4#}sourceImageInformation')
+        fname = ET.SubElement(src_info, '{http://www.loc.gov/standards/alto/ns-v4#}fileName')
+        fname.text = 'page1.jpg'
+
+        layout = ET.SubElement(alto_root, '{http://www.loc.gov/standards/alto/ns-v4#}Layout')
+        page = ET.SubElement(layout, '{http://www.loc.gov/standards/alto/ns-v4#}Page')
+        print_space = ET.SubElement(page, '{http://www.loc.gov/standards/alto/ns-v4#}PrintSpace')
+        block = ET.SubElement(print_space, '{http://www.loc.gov/standards/alto/ns-v4#}TextBlock')
+
+        line1 = ET.SubElement(block, '{http://www.loc.gov/standards/alto/ns-v4#}TextLine')
+        line1.set('HPOS', '10'); line1.set('VPOS', '20'); line1.set('WIDTH', '50'); line1.set('HEIGHT', '10')
+        string1 = ET.SubElement(line1, '{http://www.loc.gov/standards/alto/ns-v4#}String')
+        string1.set('CONTENT', 'Line one')
+
+        line2 = ET.SubElement(block, '{http://www.loc.gov/standards/alto/ns-v4#}TextLine')
+        line2.set('HPOS', '15'); line2.set('VPOS', '35'); line2.set('WIDTH', '55'); line2.set('HEIGHT', '10')
+        string2 = ET.SubElement(line2, '{http://www.loc.gov/standards/alto/ns-v4#}String')
+        string2.set('CONTENT', 'Line two')
+
+        return alto_root
+
+    def test_facsimile_zones_and_refs(self):
+        alto_root = self.create_simple_alto()
+        tei_root = self.converter.convert_alto_to_tei(alto_root=alto_root)
+
+        facs = tei_root.find('facsimile')
+        self.assertIsNotNone(facs)
+        surface = facs.find('surface')
+        zones = surface.findall('zone')
+        self.assertEqual(len(zones), 2)
+        self.assertEqual(zones[0].get('ulx'), '10')
+        self.assertEqual(zones[1].get('lry'), '45')
+
+        body = tei_root.find('text/body')
+        p = body.find('p')
+        self.assertEqual(p.get('facs'), '#tl1')
+        lb = p.find('lb')
+        self.assertEqual(lb.get('facs'), '#tl2')
+
+
 class TestRealWorldMultipleParagraphs(unittest.TestCase):
     """Test multiple paragraph handling with real ALTO files"""
     
@@ -851,6 +902,7 @@ def run_tests():
         TestTextBlockConversion,
         TestMultipleParagraphs,
         TestRunningTitleHandling,
+        TestFacsimileOutput,
         TestRealWorldMultipleParagraphs,
         TestIntegration,
         TestErrorHandling,
