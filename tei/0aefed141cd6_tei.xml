@@ -52,7 +52,7 @@
     <body>
       <pb n="26" facs="0aefed141cd6.jpeg" />
       <head rend="header" facs="#tl2">ЯВЛЕНІЕ ІV.</head>
-      <p facs="#tl3">КИРЪ и ХРИЗАНФЪ</p>
+      <stage type="onstage" facs="#tl3">КИРЪ и ХРИЗАНФЪ</stage>
       <speaker rend="speaker" facs="#tl4">ХРИЗАНФЪ.</speaker>
       <lg type="verse">
         <l facs="#tl5">Исполнилъ волю я твою и повелѣнье,</l>

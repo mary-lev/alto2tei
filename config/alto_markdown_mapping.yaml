@@ -1,0 +1,117 @@
+# ALTO to Markdown Conversion Configuration
+# This file defines how ALTO XML elements are converted to Markdown format
+
+metadata:
+  version: "1.0"
+  description: "ALTO to Markdown conversion rules"
+  format: "simple"
+
+# Block type processing rules
+block_types:
+  MainZone:
+    description: "Main content blocks"
+    process_lines: true
+    skip_content: false
+
+  MarginTextZone:
+    description: "Margin text content blocks"
+    process_lines: true
+    skip_content: false
+
+  NumberingZone:
+    description: "Page number blocks"
+    process_lines: false
+    skip_content: true
+    extract_page_number: true    
+  
+  RunningTitleZone:
+    description: "Running title blocks - preserved as headers"
+    process_lines: true
+    skip_content: false
+    markdown_format: "header"
+    template: "### {text}"
+
+  QuireMarksZone:
+    description: "Quire marks blocks"
+    process_lines: false
+    skip_content: true
+
+  Illustration:
+    description: "Illustration blocks - skipped in markdown"
+    process_lines: false
+    skip_content: true
+
+  DecorativeElement:
+    description: "Decorative elements - skipped in markdown"
+    process_lines: false
+    skip_content: true
+
+# Line type conversion rules
+line_types:
+  HeadingLine:
+    description: "Heading lines"
+    markdown_format: "heading"
+    template: "## {text}"
+    standalone: true
+    
+  "CustomLine:paragraph_start":
+    description: "Beginning of paragraph - starts a new paragraph group"
+    markdown_format: "paragraph_start"
+    template: "{text}"
+    starts_paragraph: true
+
+  "CustomLine:verse":
+    description: "Poetry lines"
+    markdown_format: "verse_line"
+    template: "> {text}"
+    container: "poetry_block"
+    container_separator: "\n"
+
+  "CustomLine:speaker":
+    description: "Speaker identification"
+    markdown_format: "bold"
+    template: "**{text}**"
+    standalone: true
+
+  "CustomLine:onstage":
+    description: "Stage directions or onstage text"
+    markdown_format: "italic"
+    template: "_{text}_"
+    standalone: true
+
+  "CustomLine:divider":
+    description: "Divider or separator lines"
+    markdown_format: "divider"
+    template: "---"
+    standalone: true
+    
+  "CustomLine:catchword":
+    description: "Catchwords"
+    markdown_format: "emphasis"
+    template: "*{text}*"
+    standalone: true
+
+  "CustomLine:signature":
+    description: "Signatures"
+    markdown_format: "code"
+    template: "`{text}`"
+    standalone: true
+    
+  DefaultLine:
+    description: "Default line type"
+    markdown_format: "paragraph"
+    template: "{text}"
+    add_to_paragraph: true
+
+# Markdown structure configuration
+markdown_structure:
+  paragraph_separator: "\n\n"
+  line_separator: "  \n"  # Two spaces + newline for markdown line breaks
+  container_separator: "\n\n"
+  preserve_line_breaks: true
+  
+# Page handling for markdown
+page_handling:
+  include_page_breaks: true
+  page_break_template: "\n\n---\n*Page {page_number}*\n---\n\n"
+  page_number_format: "simple"  # simple, roman, or skip

@@ -62,7 +62,7 @@
     <body>
       <head rend="header" facs="#tl1">ИДИЛЛІЯ.</head>
       <head rend="header" facs="#tl2">ЭРАСТЪ</head>
-      <p facs="#tl3">Эрастъ Ницестъ.</p>
+      <stage type="onstage" facs="#tl3">Эрастъ Ницестъ.</stage>
       <lg type="verse">
         <l facs="#tl4">Въ прекрасный лѣтніи день блестяща Феба взоры</l>
         <l facs="#tl5">Сіяли на лугахъ и позлащали горы:</l>

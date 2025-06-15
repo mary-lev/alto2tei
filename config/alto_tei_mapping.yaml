@@ -88,6 +88,27 @@ line_types:
     closes:
       - "paragraph"
       - "poetry"
+
+  "CustomLine:onstage":
+    description: "Stage directions or onstage text"
+    element: "stage"
+    attributes:
+      type: "onstage"
+    closes:
+      - "paragraph"
+      - "poetry"
+    standalone: true
+
+  "CustomLine:divider":
+    description: "Divider or separator lines"
+    element: "milestone"
+    attributes:
+      type: "divider"
+      unit: "section"
+    closes:
+      - "paragraph"
+      - "poetry"
+    standalone: true
     
   "CustomLine:catchword":
     description: "Catchwords"

@@ -53,7 +53,7 @@
     <body>
       <pb n="12" facs="8093e74a27c4.jpeg" />
       <head rend="header" facs="#tl1">ЯВЛЕНІЕ VI.</head>
-      <p facs="#tl2">ЛИСКА и СЕНТАЛМЪ.</p>
+      <stage type="onstage" facs="#tl2">ЛИСКА и СЕНТАЛМЪ.</stage>
       <speaker rend="speaker" facs="#tl3">ЛИСКА.</speaker>
       <p facs="#tl4">Какъ ему сказать? Какую ужасную<lb facs="#tl5" />ведомость должна я ...</p>
       <speaker rend="speaker" facs="#tl6">СЕНТАЛМЪ.</speaker>
