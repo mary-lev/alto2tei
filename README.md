@@ -96,7 +96,7 @@ line_types:
     closes:
       - "poetry"
   
-  "CustomLine:verse":  # Poetry with space in name
+  "CustomLine:verse":  # Poetry line
     description: "Poetry lines"
     tei_element: "l"
     container: "lg"
@@ -166,6 +166,46 @@ Based on analysis of your ALTO files:
 - `HeadingLine`: 3 files (13 instances) - Section headers
 - `CustomLine:signature`: 7 files (7 instances) - Signatures
 
+## 🔧 Extension and Validation Tools
+
+### Configuration Testing
+
+```bash
+# Test your configuration file for errors
+python test_config.py
+
+# Test custom configuration
+python test_config.py my_custom_config.yaml
+
+# Example output:
+✅ Configuration file loaded successfully
+✅ Rule engine initialized successfully
+
+📊 Configuration Summary:
+   Block types: 6
+   Line types: 6
+   Footnote patterns: 10
+
+📋 Block types:
+   MainZone: process_lines
+   NumberingZone: skip_content, extract_page_number
+   GraphicZone: skip_content
+   ...
+
+✅ Configuration is valid!
+🎉 Ready to convert ALTO files!
+```
+
+### Adding New ALTO Types
+
+See `EXTENDING_TYPES.md` for comprehensive guidance on:
+- Adding new block types (content, extraction, single element, skip patterns)
+- Adding new line types with custom actions
+- Real-world examples for newspapers, books, tables
+- Configuration patterns and best practices
+
+Example configurations available in `examples/new_types_examples.yaml`
+
 ## Usage
 
 ### Basic Conversion
@@ -194,6 +234,16 @@ Options:
   --help, -h       Show help message
 ```
 
+### Configuration Validation
+
+```bash
+# Test configuration before processing
+python test_config.py config/alto_tei_mapping.yaml
+
+# Test custom configuration
+python test_config.py examples/newspaper_config.yaml
+```
+
 ### Examples
 
 ```bash
@@ -206,6 +256,40 @@ python alto2tei.py -i alto -o tei -s _converted -c segmonto_config.yaml
 # Using flags
 python alto2tei.py --input manuscripts --output tei_files
 ```
+
+## 🚀 New Features
+
+### Line Break Formatting
+TEI files are now formatted with proper line breaks for enhanced readability:
+- Each `<lb/>` element appears on its own line
+- Proper indentation maintains XML structure
+- Improved visual formatting for manual review
+
+### Facsimile Zone Generation
+Automatic coordinate mapping from ALTO to TEI facsimile zones:
+- Line-level coordinate preservation
+- Zone references linking text to image regions
+- `facs` attributes on text elements
+
+### Configuration Validation
+Built-in validation system for YAML configurations:
+```bash
+# Validate configuration file
+python test_config.py config/alto_tei_mapping.yaml
+
+# Output shows validation results and statistics
+✅ Configuration is valid!
+📊 Configuration Summary:
+   Block types: 6
+   Line types: 6
+   Footnote patterns: 10
+```
+
+### Extensibility Framework
+Comprehensive system for adding new ALTO types without code changes:
+- Copy-paste examples for common document types
+- Detailed patterns for newspapers, books, tables
+- Step-by-step extension guide
 
 ## Output Features
 
@@ -245,7 +329,9 @@ python alto2tei.py --input manuscripts --output tei_files
 </TEI>
 ```
 
-### Line-Level Facsimile
+### Line-Level Facsimile (NEW)
+
+Automatic coordinate mapping preserves spatial relationships:
 
 ```xml
 <facsimile>
@@ -256,7 +342,24 @@ python alto2tei.py --input manuscripts --output tei_files
   </surface>
 </facsimile>
 
-<p facs="#tl1">Line one<lb facs="#tl2"/>Line two</p>
+<p facs="#tl1">Line one
+      <lb facs="#tl2"/>
+      Line two</p>
+```
+
+### Enhanced Formatting (NEW)
+
+Improved XML formatting makes files more readable:
+
+```xml
+<lg type="verse">
+  <l>First line of poetry
+      <lb/>
+  </l>
+  <l>Second line with better spacing
+      <lb/>
+  </l>
+</lg>
 ```
 
 ### Processing Summary
@@ -310,6 +413,12 @@ re                    # Regular expressions for footnote patterns
 glob                  # File pattern matching
 ```
 
+### New Files and Tools
+
+- `EXTENDING_TYPES.md` - Comprehensive guide for adding new ALTO types
+- `examples/new_types_examples.yaml` - Copy-paste configurations for common types
+- `test_config.py` - Configuration validation and testing tool
+
 ### Error Handling
 
 - **Graceful Fallbacks**: Falls back to hardcoded mappings if YAML fails
@@ -336,10 +445,21 @@ glob                  # File pattern matching
 When extending the converter:
 
 1. **Follow Segmonto**: Use standard Segmonto zone classifications
-2. **Update YAML**: Add new configurations to the YAML file
-3. **Test Thoroughly**: Verify TEI output validity
-4. **Document Changes**: Update this README for new features
-5. **Maintain Fallbacks**: Ensure hardcoded fallbacks remain functional
+2. **Use Extension Guide**: Refer to `EXTENDING_TYPES.md` for patterns
+3. **Test Configuration**: Use `python test_config.py` to validate YAML changes
+4. **Update YAML**: Add new configurations to the YAML file
+5. **Test Thoroughly**: Verify TEI output validity
+6. **Document Changes**: Update this README for new features
+7. **Maintain Fallbacks**: Ensure hardcoded fallbacks remain functional
+
+### Extension Workflow
+
+1. Identify the ALTO type you need to support
+2. Choose appropriate pattern from `EXTENDING_TYPES.md`
+3. Add configuration to `config/alto_tei_mapping.yaml`
+4. Test with `python test_config.py`
+5. Process sample files and verify TEI output
+6. Document your changes
 
 ## License
 

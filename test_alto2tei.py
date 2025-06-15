@@ -21,6 +21,19 @@ from typing import Dict, List, Any
 from alto2tei import AltoToTeiConverter, ConfigurationLoader, RuleEngine
 
 
+def get_element_text_content(element):
+    """Extract all text content from an element, including text on sub-elements"""
+    text_parts = []
+    if element.text:
+        text_parts.append(element.text)
+
+    for child in element:
+        if child.tail:
+            text_parts.append(child.tail)
+
+    return ' '.join(text_parts)
+
+
 class TestConfigurationLoader(unittest.TestCase):
     """Test YAML configuration loading and validation"""
     
@@ -85,6 +98,172 @@ class TestConfigurationLoader(unittest.TestCase):
             os.unlink(config_path)
 
 
+class TestConfigurationValidation(unittest.TestCase):
+    """Test configuration validation and warning system"""
+    
+    def test_valid_configuration_passes(self):
+        """Test that a valid configuration passes validation"""
+        valid_config = {
+            'block_types': {
+                'MainZone': {
+                    'process_lines': True,
+                    'skip_content': False
+                }
+            },
+            'line_types': {
+                'DefaultLine': {
+                    'action': 'add_to_paragraph',
+                    'fallback_element': 'p'
+                }
+            },
+            'footnote_patterns': [
+                {'pattern': r'^\\([0-9]+\\)\\s*', 'type': 'numeric'}
+            ]
+        }
+        
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as f:
+            import yaml
+            yaml.dump(valid_config, f)
+            config_path = f.name
+        
+        try:
+            loader = ConfigurationLoader(config_path)
+            rule_engine = RuleEngine(loader)  # This should not raise any errors
+            self.assertIsNotNone(rule_engine)
+        finally:
+            os.unlink(config_path)
+    
+    def test_conflicting_tei_element_validation(self):
+        """Test validation catches conflicting tei_element and process_lines settings"""
+        conflicting_config = {
+            'block_types': {
+                'ConflictingBlock': {
+                    'process_lines': False,
+                    'tei_element': 'div',  # Conflict: has tei_element but doesn't process lines
+                    'skip_content': True
+                }
+            },
+            'line_types': {
+                'DefaultLine': {
+                    'action': 'add_to_paragraph',
+                    'fallback_element': 'p'
+                }
+            },
+            'footnote_patterns': []
+        }
+        
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as f:
+            import yaml
+            yaml.dump(conflicting_config, f)
+            config_path = f.name
+        
+        try:
+            loader = ConfigurationLoader(config_path)
+            # This should still work but may produce warnings
+            rule_engine = RuleEngine(loader)
+            self.assertIsNotNone(rule_engine)
+        finally:
+            os.unlink(config_path)
+    
+    def test_unknown_action_validation(self):
+        """Test validation handles unknown line actions gracefully"""
+        unknown_action_config = {
+            'block_types': {
+                'MainZone': {
+                    'process_lines': True,
+                    'skip_content': False
+                }
+            },
+            'line_types': {
+                'UnknownActionLine': {
+                    'action': 'unknown_action_that_does_not_exist',
+                    'tei_element': 'p'
+                },
+                'DefaultLine': {
+                    'action': 'add_to_paragraph',
+                    'fallback_element': 'p'
+                }
+            },
+            'footnote_patterns': []
+        }
+        
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as f:
+            import yaml
+            yaml.dump(unknown_action_config, f)
+            config_path = f.name
+        
+        try:
+            loader = ConfigurationLoader(config_path)
+            rule_engine = RuleEngine(loader)
+            self.assertIsNotNone(rule_engine)
+        finally:
+            os.unlink(config_path)
+    
+    def test_missing_required_fields(self):
+        """Test handling of configuration with missing required fields"""
+        incomplete_config = {
+            'block_types': {
+                'IncompleteBlock': {
+                    # Missing process_lines and skip_content
+                }
+            },
+            'line_types': {
+                'IncompleteLine': {
+                    # Missing action or tei_element
+                }
+            },
+            'footnote_patterns': []
+        }
+        
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as f:
+            import yaml
+            yaml.dump(incomplete_config, f)
+            config_path = f.name
+        
+        try:
+            loader = ConfigurationLoader(config_path)
+            rule_engine = RuleEngine(loader)
+            # Should still work with defaults
+            self.assertIsNotNone(rule_engine)
+        finally:
+            os.unlink(config_path)
+    
+    def test_configuration_statistics(self):
+        """Test that configuration statistics are correctly calculated"""
+        test_config = {
+            'block_types': {
+                'MainZone': {'process_lines': True, 'skip_content': False},
+                'GraphicZone': {'process_lines': False, 'skip_content': True},
+                'NumberingZone': {'extract_page_number': True, 'skip_content': True}
+            },
+            'line_types': {
+                'DefaultLine': {'action': 'add_to_paragraph', 'fallback_element': 'p'},
+                'CustomLine:verse': {'tei_element': 'l', 'container': 'lg'},
+                'HeadingLine': {'tei_element': 'head', 'standalone': True}
+            },
+            'footnote_patterns': [
+                {'pattern': r'^\\([0-9]+\\)\\s*', 'type': 'numeric'},
+                {'pattern': r'^\\(\\*+\\)\\s*', 'type': 'asterisk'}
+            ]
+        }
+        
+        with tempfile.NamedTemporaryFile(mode='w', suffix='.yaml', delete=False) as f:
+            import yaml
+            yaml.dump(test_config, f)
+            config_path = f.name
+        
+        try:
+            loader = ConfigurationLoader(config_path)
+            rule_engine = RuleEngine(loader)
+            
+            # Check statistics
+            self.assertEqual(len(rule_engine.block_types), 3)
+            self.assertEqual(len(rule_engine.line_types), 3)
+            self.assertEqual(len(rule_engine.footnote_patterns), 2)
+        finally:
+            os.unlink(config_path)
+
+
 class TestRuleEngine(unittest.TestCase):
     """Test rule engine processing logic using real ALTO data"""
     
@@ -109,6 +288,7 @@ class TestRuleEngine(unittest.TestCase):
         # Create a real ConfigurationLoader with the parsed tags
         self.config_loader = ConfigurationLoader("config/alto_tei_mapping.yaml")
         self.rule_engine = RuleEngine(self.config_loader)
+        self.converter = AltoToTeiConverter()
         self.tags_mapping = tags_mapping
     
     def test_should_process_block(self):
@@ -116,7 +296,7 @@ class TestRuleEngine(unittest.TestCase):
         # Example: Check if a block with TAGREFS 'BT2' should be processed
         element = ET.Element('TextBlock')
         element.set('TAGREFS', 'BT2')
-        block_type = self.rule_engine.resolve_tag_type(element, self.tags_mapping, 'BT')
+        block_type = self.converter.resolve_tag_type(element, self.tags_mapping, 'BT')
         self.assertTrue(self.rule_engine.should_process_block(block_type))
     
     def test_should_skip_block(self):
@@ -124,7 +304,7 @@ class TestRuleEngine(unittest.TestCase):
         # Example: Check if a block with TAGREFS 'BT134' should be skipped
         element = ET.Element('TextBlock')
         element.set('TAGREFS', 'BT134')
-        block_type = self.rule_engine.resolve_tag_type(element, self.tags_mapping, 'BT')
+        block_type = self.converter.resolve_tag_type(element, self.tags_mapping, 'BT')
         self.assertTrue(self.rule_engine.should_skip_block(block_type))
     
     def test_should_extract_page_number(self):
@@ -132,7 +312,7 @@ class TestRuleEngine(unittest.TestCase):
         # Example: Check if a block with TAGREFS 'BT134' should extract page number
         element = ET.Element('TextBlock')
         element.set('TAGREFS', 'BT134')
-        block_type = self.rule_engine.resolve_tag_type(element, self.tags_mapping, 'BT')
+        block_type = self.converter.resolve_tag_type(element, self.tags_mapping, 'BT')
         self.assertTrue(self.rule_engine.should_extract_page_number(block_type))
     
     def test_get_line_mapping(self):
@@ -140,7 +320,7 @@ class TestRuleEngine(unittest.TestCase):
         # Example: Check line mapping for a line with TAGREFS 'LT74'
         element = ET.Element('TextLine')
         element.set('TAGREFS', 'LT74')
-        line_type = self.rule_engine.resolve_tag_type(element, self.tags_mapping, 'LT')
+        line_type = self.converter.resolve_tag_type(element, self.tags_mapping, 'LT')
         mapping = self.rule_engine.get_line_mapping(line_type)
         self.assertEqual(mapping['action'], 'add_to_paragraph')
 
@@ -214,7 +394,15 @@ class TestLineProcessing(unittest.TestCase):
         
         self.assertEqual(len(elements), 1)
         self.assertEqual(elements[0].tag, 'p')
-        self.assertEqual(elements[0].text, 'First line Second line Third line')
+        self.assertEqual(elements[0].text, 'First line')
+        
+        # Check that line breaks were added
+        lb_elements = elements[0].findall('.//lb')
+        self.assertEqual(len(lb_elements), 2)  # Two line breaks for three lines
+        
+        # Check tail text on line breaks
+        self.assertEqual(lb_elements[0].tail, 'Second line')
+        self.assertEqual(lb_elements[1].tail, 'Third line')
     
     def test_process_verse_lines(self):
         """Test processing verse lines into container"""
@@ -306,7 +494,8 @@ class TestTextBlockConversion(unittest.TestCase):
         self.assertEqual(len(elements), 1)
         self.assertEqual(elements[0].tag, 'p')
         expected_text = 'First sentence of paragraph. Second sentence of paragraph. Third sentence of paragraph.'
-        self.assertEqual(elements[0].text, expected_text)
+        actual_text = get_element_text_content(elements[0])
+        self.assertEqual(actual_text, expected_text)
     
     def test_convert_verse_textblock(self):
         """Test converting textblock with verse content"""
@@ -340,7 +529,7 @@ class TestTextBlockConversion(unittest.TestCase):
             ('Second verse line', 'LT79'),  # Verse
             ('Regular paragraph text.', 'LT74')  # Paragraph
         ]
-        
+
         textblock = self.create_alto_textblock(lines_data)
         tags_mapping = {
             'LT83': 'HeadingLine',
@@ -348,13 +537,13 @@ class TestTextBlockConversion(unittest.TestCase):
             'LT79': 'CustomLine:verse',
             'LT74': 'DefaultLine'
         }
-        
+
         elements = self.converter.convert_textblock(textblock, tags_mapping)
         
         # Should have: header, speaker, paragraph, verse container
         # Note: DefaultLine doesn't close poetry in YAML config, so verse container comes last
         self.assertEqual(len(elements), 4)
-        
+
         # Check header
         self.assertEqual(elements[0].tag, 'head')
         self.assertEqual(elements[0].text, 'Scene Title')
@@ -422,9 +611,12 @@ class TestMultipleParagraphs(unittest.TestCase):
         self.assertEqual(len(paragraphs), 3)
         
         # Check paragraph contents
-        self.assertEqual(paragraphs[0].text, 'First paragraph first line. First paragraph second line.')
-        self.assertEqual(paragraphs[1].text, 'Second paragraph first line. Second paragraph second line.')
-        self.assertEqual(paragraphs[2].text, 'Third paragraph single line.')
+        actual_text = get_element_text_content(paragraphs[0])
+        self.assertEqual(actual_text, 'First paragraph first line. First paragraph second line.')
+        actual_text2 = get_element_text_content(paragraphs[1])
+        self.assertEqual(actual_text2, 'Second paragraph first line. Second paragraph second line.')
+        actual_text3 = get_element_text_content(paragraphs[2])
+        self.assertEqual(actual_text3, 'Third paragraph single line.')
     
     def test_indentation_based_paragraphs(self):
         """Test paragraph detection based on indentation patterns"""
@@ -497,7 +689,8 @@ class TestMultipleParagraphs(unittest.TestCase):
         # Should remain as single paragraph (small variations don't count)
         self.assertEqual(len(paragraphs), 1)
         expected_text = 'Normal line with standard margin. Slight variation in margin. Another slight variation. Back to normal margin.'
-        self.assertEqual(paragraphs[0].text, expected_text)
+        actual_text = get_element_text_content(paragraphs[0])
+        self.assertEqual(actual_text, expected_text)
 
 
 class TestRunningTitleHandling(unittest.TestCase):
@@ -732,8 +925,8 @@ class TestRealWorldMultipleParagraphs(unittest.TestCase):
         # TODO: After implementing indentation detection, should create 3 paragraphs
         self.assertGreater(len(paragraphs), 0, "Should have paragraphs")
         
-        # Check that we have substantial content
-        content_paragraphs = [p for p in paragraphs if len(p.text or '') > 50]
+        # Check that we have substantial content (including line break tail text)
+        content_paragraphs = [p for p in paragraphs if len(get_element_text_content(p)) > 50]
         self.assertGreater(len(content_paragraphs), 0, "Should have substantial content")
         
         # TODO: Add specific checks for proper paragraph breaks after implementation
