@@ -329,4 +329,4 @@ When extending the converter:
 
 ## License
 
-This project supports scholarly digital humanities research and follows open scholarship principles.
+This project is licensed under the [MIT License](LICENSE).
