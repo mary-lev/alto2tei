@@ -1,0 +1,131 @@
+# ALTO to Plain Text Conversion Configuration
+# This file defines how ALTO XML elements are converted to plain text format
+# Focus: Simple content extraction with line separation
+
+metadata:
+  version: "1.0"
+  description: "ALTO to plain text conversion rules"
+  format: "simple_text"
+
+# Block type processing rules
+block_types:
+  MainZone:
+    description: "Main content blocks"
+    process_lines: true
+    skip_content: false
+
+  MarginTextZone:
+    description: "Margin text content blocks"
+    process_lines: true
+    skip_content: false
+
+  NumberingZone:
+    description: "Page number blocks - skip for clean text"
+    process_lines: false
+    skip_content: true
+  
+  RunningTitleZone:
+    description: "Running title blocks - preserved as separate lines"
+    process_lines: true
+    skip_content: false
+
+  QuireMarksZone:
+    description: "Quire marks blocks - skip for clean text"
+    process_lines: false
+    skip_content: true
+
+  Illustration:
+    description: "Illustration blocks - skip for text extraction"
+    process_lines: false
+    skip_content: true
+
+  DecorativeElement:
+    description: "Decorative elements - skip for text extraction"
+    process_lines: false
+    skip_content: true
+
+# Line type conversion rules - all just extract text content
+line_types:
+  HeadingLine:
+    description: "Heading lines"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "heading"       # Keep headings separate
+    
+  "CustomLine:paragraph_start":
+    description: "Beginning of paragraph"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "paragraph_start"  # Special type that starts new paragraphs
+
+  "CustomLine:verse":
+    description: "Poetry lines"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "verse"         # Verse lines - merge separately
+
+  "CustomLine:speaker":
+    description: "Speaker identification"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "speaker"       # Keep speakers separate
+
+  "CustomLine:onstage":
+    description: "Stage directions or onstage text"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "stage"         # Keep stage directions separate
+
+  "CustomLine:divider":
+    description: "Divider or separator lines - skip for clean text"
+    text_format: "skip"
+    template: ""
+    
+  "CustomLine:catchword":
+    description: "Catchwords - include for completeness"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "catchword"     # Keep catchwords separate
+
+  "CustomLine:signature":
+    description: "Signatures - include for completeness"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "signature"     # Keep signatures separate
+    
+  DefaultLine:
+    description: "Default line type"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "paragraph"     # Default lines should be merged into paragraphs
+
+# Text structure configuration
+text_structure:
+  line_separator: "\n"          # Each line on new line
+  paragraph_separator: "\n"     # No extra spacing between paragraphs
+  page_separator: "\n\n"        # Double line break between pages
+  preserve_line_order: true     # Keep original document order
+  
+# Line merging configuration
+line_merging:
+  enabled: false                # Enable line merging within paragraphs
+  merge_paragraph_lines: true   # Merge consecutive lines of same paragraph type
+  merge_verse_lines: false      # Keep verse lines separate (poetry structure)
+  paragraph_separator: "\n\n"   # Separator between merged paragraphs
+  line_joiner: " "              # How to join lines within paragraphs
+  
+# Hyphenation handling
+hyphenation:
+  enabled: true                 # Enable dehyphenation
+  hyphen_patterns:              # Patterns that indicate hyphenation
+    - "-$"                      # Lines ending with hyphen
+    - "—$"                      # Lines ending with em-dash
+    - "–$"                      # Lines ending with en-dash
+  word_break_chars: ["-", "—", "–"]  # Characters to remove when joining
+  preserve_explicit_hyphens: true    # Keep hyphens that aren't word breaks
+  
+# Page handling for text
+page_handling:
+  include_page_breaks: false    # No page markers in plain text
+  extract_page_numbers: false  # Skip page numbers for clean text
+  clean_output: true           # Remove empty lines and extra spacing

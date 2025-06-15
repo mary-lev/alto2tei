@@ -257,40 +257,6 @@ python alto2tei.py -i alto -o tei -s _converted -c segmonto_config.yaml
 python alto2tei.py --input manuscripts --output tei_files
 ```
 
-## 🚀 New Features
-
-### Line Break Formatting
-TEI files are now formatted with proper line breaks for enhanced readability:
-- Each `<lb/>` element appears on its own line
-- Proper indentation maintains XML structure
-- Improved visual formatting for manual review
-
-### Facsimile Zone Generation
-Automatic coordinate mapping from ALTO to TEI facsimile zones:
-- Line-level coordinate preservation
-- Zone references linking text to image regions
-- `facs` attributes on text elements
-
-### Configuration Validation
-Built-in validation system for YAML configurations:
-```bash
-# Validate configuration file
-python test_config.py config/alto_tei_mapping.yaml
-
-# Output shows validation results and statistics
-✅ Configuration is valid!
-📊 Configuration Summary:
-   Block types: 6
-   Line types: 6
-   Footnote patterns: 10
-```
-
-### Extensibility Framework
-Comprehensive system for adding new ALTO types without code changes:
-- Copy-paste examples for common document types
-- Detailed patterns for newspapers, books, tables
-- Step-by-step extension guide
-
 ## Output Features
 
 ### TEI Structure
@@ -329,7 +295,7 @@ Comprehensive system for adding new ALTO types without code changes:
 </TEI>
 ```
 
-### Line-Level Facsimile (NEW)
+### Line-Level Facsimile
 
 Automatic coordinate mapping preserves spatial relationships:
 
@@ -347,7 +313,7 @@ Automatic coordinate mapping preserves spatial relationships:
       Line two</p>
 ```
 
-### Enhanced Formatting (NEW)
+### Enhanced Formatting
 
 Improved XML formatting makes files more readable:
 
@@ -360,22 +326,6 @@ Improved XML formatting makes files more readable:
       <lb/>
   </l>
 </lg>
-```
-
-### Processing Summary
-
-The converter provides detailed feedback:
-
-```
-Converting ALTO files from 'alto' to 'tei'
-Found 98 XML files to process...
-[1/98] Processing: manuscript_001.xml
-Converted: manuscript_001.xml -> manuscript_001_tei.xml (Page: 1, Poetry: 12 lines)
-
-📊 Summary: 98 successful
-📄 Page numbers found: 98 files
-📝 Poetry detected: 15 files with verse content
-📋 Footnotes detected: 23 files with marginal notes
 ```
 
 ## Segmonto Ontology Benefits
@@ -413,26 +363,6 @@ re                    # Regular expressions for footnote patterns
 glob                  # File pattern matching
 ```
 
-### New Files and Tools
-
-- `EXTENDING_TYPES.md` - Comprehensive guide for adding new ALTO types
-- `examples/new_types_examples.yaml` - Copy-paste configurations for common types
-- `test_config.py` - Configuration validation and testing tool
-
-### Error Handling
-
-- **Graceful Fallbacks**: Falls back to hardcoded mappings if YAML fails
-- **File Validation**: Checks ALTO format before processing
-- **Detailed Logging**: Reports processing status and errors
-- **Skip Invalid Files**: Continues processing despite individual file errors
-
-### Performance
-
-- **Streaming Processing**: Processes files individually to manage memory
-- **Efficient XML Parsing**: Uses ElementTree for optimal performance
-- **Batch Operations**: Processes entire directories efficiently
-- **Progress Reporting**: Real-time processing feedback
-
 ## References
 
 - **Segmonto Ontology**: [https://segmonto.github.io/](https://segmonto.github.io/)
@@ -440,26 +370,6 @@ glob                  # File pattern matching
 - **ALTO Standard**: [https://www.loc.gov/standards/alto/](https://www.loc.gov/standards/alto/)
 - **eScriptorium**: [https://escriptorium.readthedocs.io](https://escriptorium.readthedocs.io/en/latest/)
 
-## Contributing
-
-When extending the converter:
-
-1. **Follow Segmonto**: Use standard Segmonto zone classifications
-2. **Use Extension Guide**: Refer to `EXTENDING_TYPES.md` for patterns
-3. **Test Configuration**: Use `python test_config.py` to validate YAML changes
-4. **Update YAML**: Add new configurations to the YAML file
-5. **Test Thoroughly**: Verify TEI output validity
-6. **Document Changes**: Update this README for new features
-7. **Maintain Fallbacks**: Ensure hardcoded fallbacks remain functional
-
-### Extension Workflow
-
-1. Identify the ALTO type you need to support
-2. Choose appropriate pattern from `EXTENDING_TYPES.md`
-3. Add configuration to `config/alto_tei_mapping.yaml`
-4. Test with `python test_config.py`
-5. Process sample files and verify TEI output
-6. Document your changes
 
 ## License
 
