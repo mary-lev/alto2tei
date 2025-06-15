@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from a6d4b025dfaf.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="12" facs="a6d4b025dfaf.jpeg" />
+      <p>не видитъ, что она его не
+      <lb />
+      имѣетъ.</p>
+      <p>Корыстолюбїе и тщеславїе
+      <lb />
+      суть единыя идолы, коимъ онъ
+      <lb />
+      приноситъ жертву; и въ награ-
+      <lb />
+      жденїе за то получаетъ на-
+      <lb />
+      смѣшки, презрѣнїе и неблаго-
+      <lb />
+      дарность. Наконецъ когда по
+      <lb />
+      добросердечїю своему примѣ-
+      <lb />
+      титъ нѣкоторые слѣды къ
+      <lb />
+      возвращенїю, то предается не-
+      <lb />
+      сказанной радости; а между
+      <lb />
+      тѣмъ какой-нибудь соперникъ,
+      <lb />
+      будучи не столько нѣженъ,
+      <lb />
+      пользуется ею безъ всякаго изъя-
+      <lb />
+      тїя.</p>
+      <p>Такїя женщины благосклон-
+      <lb />
+      ны къ тѣмъ, кто дастъ боль-
+      <lb />
+      ше; въ нихъ не должно искать
+      <lb />
+      горячности; сердце ихъ неоду-
+      <lb />
+      шевленно, и чувствительныя
+      <lb />
+      прїятности для нихъ чужды ;
+      <lb />
+      онѣ продаютъ прелести свои</p>
+      <fw type="catchword">за</fw>
+    </body>
+  </text>
+</TEI>

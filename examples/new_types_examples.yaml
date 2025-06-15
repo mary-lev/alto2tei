@@ -1,0 +1,246 @@
+# Example configurations for common ALTO types
+# Copy these examples to your config/alto_tei_mapping.yaml file
+
+# ===== NEWSPAPER CONTENT =====
+
+# Advertisement blocks
+AdvertisementZone:
+  description: "Advertisement blocks in newspapers"
+  process_lines: true
+  skip_content: false
+  tei_element: "div"
+  attributes:
+    type: "advertisement"
+
+# Article blocks  
+ArticleZone:
+  description: "News article blocks"
+  process_lines: true
+  skip_content: false
+
+# Headline blocks
+HeadlineZone:
+  description: "Newspaper headlines"
+  process_lines: true
+  skip_content: false
+  tei_element: "div"
+  attributes:
+    type: "headline"
+
+# ===== BOOK CONTENT =====
+
+# Chapter blocks
+ChapterZone:
+  description: "Book chapter content"
+  process_lines: true
+  skip_content: false
+
+# Table of contents
+TocZone:
+  description: "Table of contents"
+  process_lines: true
+  skip_content: false
+  tei_element: "div"
+  attributes:
+    type: "contents"
+
+# Index blocks
+IndexZone:
+  description: "Book index"
+  process_lines: true
+  skip_content: false
+  tei_element: "div"
+  attributes:
+    type: "index"
+
+# ===== DOCUMENT STRUCTURE =====
+
+# Table blocks
+TableZone:
+  description: "Table content"
+  process_lines: true
+  skip_content: false
+  tei_element: "table"
+
+# Caption blocks
+CaptionZone:
+  description: "Image/table captions"
+  process_lines: true
+  skip_content: false
+  tei_element: "figDesc"
+
+# Sidebar content
+SidebarZone:
+  description: "Sidebar or margin content"
+  process_lines: true
+  skip_content: false
+  tei_element: "div"
+  attributes:
+    type: "sidebar"
+    place: "margin"
+
+# ===== SPECIAL CONTENT =====
+
+# Drop capital zones
+DropCapitalZone:
+  description: "Decorative drop capitals"
+  process_lines: true
+  skip_content: false
+  tei_element: "hi"
+  attributes:
+    rend: "dropcap"
+
+# Stamp/seal zones
+StampZone:
+  description: "Official stamps or seals"
+  process_lines: true
+  skip_content: false
+  tei_element: "stamp"
+
+# Date/place zones  
+DateZone:
+  description: "Date information"
+  process_lines: true
+  skip_content: false
+  tei_element: "date"
+
+# ===== LINE TYPES =====
+
+# Newspaper line types
+"CustomLine:headline":
+  description: "Main headline text"
+  tei_element: "head"
+  attributes:
+    type: "main"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+"CustomLine:subheadline":
+  description: "Subheadline text"
+  tei_element: "head"
+  attributes:
+    type: "sub"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+"CustomLine:byline":
+  description: "Article byline"
+  tei_element: "byline"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+"CustomLine:dateline":
+  description: "Article dateline"
+  tei_element: "dateline"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+# Book line types
+"CustomLine:chapter_title":
+  description: "Chapter title"
+  tei_element: "head"
+  attributes:
+    type: "chapter"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+"CustomLine:section_title":
+  description: "Section title"
+  tei_element: "head"
+  attributes:
+    type: "section"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+"CustomLine:author_name":
+  description: "Author name"
+  tei_element: "author"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+# Table line types
+"CustomLine:table_header":
+  description: "Table header cell"
+  tei_element: "cell"
+  attributes:
+    role: "columnheader"
+  container: "row"
+  container_attributes:
+    role: "header"
+
+"CustomLine:table_data":
+  description: "Table data cell"
+  tei_element: "cell"
+  attributes:
+    role: "data"
+  container: "row"
+  container_attributes:
+    role: "data"
+
+# List line types
+"CustomLine:list_item":
+  description: "List item"
+  tei_element: "item"
+  container: "list"
+  container_attributes:
+    type: "unordered"
+  closes:
+    - "paragraph"
+
+"CustomLine:numbered_item":
+  description: "Numbered list item"
+  tei_element: "item"
+  container: "list"
+  container_attributes:
+    type: "ordered"
+  closes:
+    - "paragraph"
+
+# Quote line types  
+"CustomLine:quote":
+  description: "Quoted text"
+  tei_element: "quote"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+"CustomLine:quote_attribution":
+  description: "Quote attribution"
+  tei_element: "bibl"
+  closes:
+    - "paragraph"
+    - "poetry"
+  standalone: true
+
+# Special text types
+"CustomLine:emphasis":
+  description: "Emphasized text"
+  action: "add_to_paragraph"
+  wrapper_element: "hi"
+  wrapper_attributes:
+    rend: "emphasis"
+
+"CustomLine:foreign":
+  description: "Foreign language text"
+  action: "add_to_paragraph"
+  wrapper_element: "foreign"
+
+"CustomLine:abbreviation":
+  description: "Abbreviation"
+  action: "add_to_paragraph"
+  wrapper_element: "abbr"

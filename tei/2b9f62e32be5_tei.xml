@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 2b9f62e32be5.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <head rend="header">ПОСТОЯННАЯ</head>
+      <head rend="header">ЛЮБОВЬ</head>
+      <head rend="header">съ</head>
+      <head rend="header">ПОМОЩІЮ</head>
+      <head rend="header">НЕВИННОСТИ.</head>
+      <p>Въ семъ свѣтѣ находится нѣ-
+      <lb />
+      которой счастливой островъ,
+      <lb />
+      неизвѣстной большой части
+      <lb />
+      смертныхъ. Воздухъ на немъ всегда
+      <lb />
+      чистъ и свѣтелъ, погоды неподверже-
+      <lb />
+      ны тѣмъ страннымъ перемѣнамъ, кои
+      <lb />
+      мы чувствуемъ въ нашемъ полушарѣ,
+      <lb />
+      поверхности водъ касаются одни лишъ
+      <lb />
+      Зефиры, и сердце счастливыхъ обита-
+      <lb />
+      телей сего блаженнаго жилища ни-
+      <lb />
+      когда не познало треволненій, возбуж-
+      <lb />
+      даемыхъ силою страстей и неумерен-</p>
+      <fw type="catchword">ными</fw>
+    </body>
+  </text>
+</TEI>

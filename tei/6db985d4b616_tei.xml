@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 6db985d4b616.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <lg type="verse">
+        <l>„Волшебны силы Геркулесъ сразитъ,</l>
+        <l>„Сторукихъ Вріареевъ побѣдитъ,</l>
+        <l>„ Титановъ яко легкій прахъ разсѣетъ,</l>
+        <l>„Безсильны громы ихъ какъ пухъ развѣетъ,</l>
+        <l>„Коварны рати потребитъ мечемъ,</l>
+        <l>„И гибельныхъ слѣды пожжетъ огнемъ;</l>
+        <l>„Сотретъ главы злодѣевъ горделивыхъ</l>
+        <l>„Во узахъ тяжкихъ привлечетъ кичливыхъ,</l>
+        <l>„Повергнетъ ихъ Минервы ко стопамъ.</l>
+      </lg>
+      <p>ВЪ САНКТПЕТЕРБУРГѢ,
+      <lb />
+      печатано съ дозволенія Управы Благочиіня у І. К. Шнора. 1791.</p>
+    </body>
+  </text>
+</TEI>

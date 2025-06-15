@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 834bac3679c1.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>ЕГО СІЯТЕЛЬСТВУ
+      <lb />
+      КНЯЗЮ
+      <lb />
+      АЛЕКСАНДРУ БОРИСОВИЧУ
+      <lb />
+      КУРАКИНУ
+      <lb />
+      ЕЯ
+      <lb />
+      ІМПЕРАТОРСКАГО
+      <lb />
+      ВЕЛИЧЕСТВА
+      <lb />
+      САМОДЕРЖИЦЫ ВСЕРОССІЙСКІЯ
+      <lb />
+      Дѣйствителному
+      <lb />
+      КАМЕРГЕРУ,
+      <lb />
+      КАВАЛЕРУ
+      <lb />
+      Ордена Святаго Александра.
+      <lb />
+      и прочая.</p>
+    </body>
+  </text>
+</TEI>

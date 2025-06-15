@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from df85785ad559.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="92" facs="df85785ad559.jpeg" />
+      <p>вещи , что причиняетъ вели-
+      <lb />
+      кой вредъ Королевству; пое-
+      <lb />
+      лику въ немъ весьма умно-
+      <lb />
+      жается роскошь, а народъ въ
+      <lb />
+      рукодѣлїяхъ не упражняется.</p>
+      <head rend="header">Хронологическїя и политическїя при-</head>
+      <head rend="header">мѣчанїя :</head>
+      <p>Королевство Неаполитан-
+      <lb />
+      ское основано въ 1085 году, а
+      <lb />
+      Сицилїйское въ 1580.</p>
+      <p>Первое изъ сихъ по мно-
+      <lb />
+      гихъ перемѣнахъ вновь подда-
+      <lb />
+      лось Ишпанїи, съ тѣмъ усло-
+      <lb />
+      вїемъ: чтобъ оба сїи Королев-
+      <lb />
+      ства ни когда не были подъ
+      <lb />
+      властью одного Государства
+      <lb />
+      Въ слѣдствїе сего Карлъ ІІІ
+      <lb />
+      призванный въ 1759 году въ
+      <lb />
+      Ишпанїю, уступилъ Неаполь
+      <lb />
+      дону Фердинанду, и утвердилъ</p>
+      <fw type="catchword">право</fw>
+      <p>Хроно
+      <lb />
+      логи-
+      <lb />
+      ческїя
+      <lb />
+      и по-
+      <lb />
+      лити
+      <lb />
+      ческїя
+      <lb />
+      примѣ</p>
+      <p>чанїя.</p>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 57555a39635e.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="98" facs="57555a39635e.jpeg" />
+      <head rend="header">XVI.</head>
+      <head rend="header">ПИСЬМО</head>
+      <head rend="header">О изобрѣтеніи буквъ (*).</head>
+      <p>Государь мой!</p>
+      <p>Вы желаете знать мое мнѣніе о на-
+      <lb />
+      укѣ писанія. Я постараюсь васъ удоволь-
+      <lb />
+      ствовать, ища сего въ самомъ мракѣ
+      <lb />
+      древности. Меня не устрашаютъ пре-
+      <lb />
+      поны , когда надлежитъ оказать вамъ
+      <lb />
+      слабый опытъ дружества, а особливо
+      <lb />
+      когда я увѣренъ , что вы будете цѣнить
+      <lb />
+      его болѣе по усердію и доброму моему
+      <lb />
+      намѣренію, нежели по успѣху моихъ изы-
+      <lb />
+      сканій.</p>
+      <p>Нѣтъ ни одной, можетъ быть ,
+      <lb />
+      изъ всѣхъ наукъ, которая бы столько ,
+      <lb />
+      какъ сія, занимала ученыхъ. Чрезъ
+      <lb />
+      цѣлыя два столѣтія появлялись обшир-
+      <lb />
+      ныя сочиненія о сей матеріи; но со
+      <lb />
+      всемъ тѣмъ эпоха сей науки еще весь-
+      <lb />
+      ма сомнительна. По чемужь ? По тому,
+      <lb />
+      что мы оставляемъ всѣ тѣ драгоцѣнные
+      <lb />
+      памятники, которые бы могли снаб-
+      <lb />
+      дить насъ неоспоримыми доказатель-
+      <lb />
+      ствами. Чтожь съ ними произошло ?</p>
+      <fw type="catchword">Одни</fw>
+      <div type="notes">
+        <note type="footnote" n="(*)">Переводъ сь французскаго.</note>
+      </div>
+    </body>
+  </text>
+</TEI>

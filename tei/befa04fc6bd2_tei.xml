@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from befa04fc6bd2.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="38" facs="befa04fc6bd2.jpeg" />
+      <lg type="verse">
+        <l>Мой другъ! существенность бѣдна:</l>
+        <l>Играй въ душѣ своей мечтами,</l>
+        <l>Иначе будетъ жизнь скучна.</l>
+        <l>Не Крезъ съ мѣшками, сундуками,</l>
+        <l>Здѣсь можетъ веселѣе жить,</l>
+        <l>Но тотъ, кто въ бѣдности</l>
+        <l>умѣетъ</l>
+        <l>Себя богатствомъ веселить;</l>
+        <l>Кто даръ воображать имѣетъ</l>
+        <l>Въ карманѣ тысячу рублей,</l>
+        <l>Копѣйки въ домѣ не имѣя.</l>
+        <l>Поэтъ есть хитрый чародѣй:</l>
+        <l>Его живая мысль какъ Фея</l>
+        <l>Творитъ красавицъ изъ цвѣтка;</l>
+        <l>На соснѣ розы производитъ,</l>
+        <l>Въ крапивѣ нѣжный миртъ на-</l>
+        <l>ходитъ</l>
+        <l>И строитъ замки изъ песка.</l>
+        <l>Лукуллы въ нѣгѣ утонченной</l>
+        <l>Напрасно вкусъ свой притупленной</l>
+        <l>Хотятъ чѣмъ новымъ усладить!</l>
+        <l>Сатрапъ съ Лаисою зѣваетъ;</l>
+      </lg>
+    </body>
+  </text>
+</TEI>

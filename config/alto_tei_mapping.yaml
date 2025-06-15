@@ -1,0 +1,257 @@
+# ALTO to TEI Transformation Rules Configuration
+# Version: 1.0
+# Description: Defines how ALTO XML elements are converted to TEI format
+
+metadata:
+  version: "1.0"
+  description: "ALTO to TEI transformation rules"
+  author: "Generated from alto2tei.py"
+
+# How to handle different ALTO block types
+block_types:     
+  GraphicZone:
+    description: "Graphic/decorative elements"
+    process_lines: false
+    skip_content: true
+
+  MainZone:
+    description: "Main text content blocks"
+    process_lines: true
+    skip_content: false
+    
+  "MarginTextZone:note":
+    description: "Footnote blocks"
+    process_lines: false
+    skip_content: true
+    extract_footnote: true
+
+  "MarginTextZone:outer":
+    description: "Margin text content blocks"
+    process_lines: true
+    skip_content: false
+
+  NumberingZone:
+    description: "Page number blocks"
+    process_lines: false
+    skip_content: true
+    extract_page_number: true    
+  
+  RunningTitleZone:
+    description: "Running title blocks - preserved as form work"
+    process_lines: true
+    skip_content: false
+    tei_element: "fw"
+    attributes:
+      type: "running-title"
+      place: "top"
+
+  QuireMarksZone:
+    description: "QuireMarksZone"
+    process_lines: true
+    skip_content: false
+
+# How to handle different ALTO line types within processed blocks
+line_types:
+  HeadingLine:
+    description: "Header lines"
+    tei_element: "head"
+    attributes:
+      rend: "header"
+    closes:
+      - "paragraph"
+      - "poetry"
+    standalone: true
+    
+  "CustomLine:paragraph_start":
+    description: "Beginning of paragraph - starts a new paragraph group"
+    action: "start_paragraph"
+    tei_element: "p"
+    closes:
+      - "poetry"
+
+    
+  "CustomLine:verse":
+    description: "Poetry lines"
+    tei_element: "l"
+    container: "lg"
+    container_attributes:
+      type: "verse"
+    closes:
+      - "paragraph"
+
+  "CustomLine:speaker":
+    description: "Speaker identification"
+    tei_element: "speaker"
+    attributes:
+      rend: "speaker"
+    closes:
+      - "paragraph"
+      - "poetry"
+    
+  "CustomLine:catchword":
+    description: "Catchwords"
+    tei_element: "fw"
+    attributes:
+      type: "catchword"
+    closes:
+      - "paragraph"
+      - "poetry"
+    standalone: true
+
+  "CustomLine:signature":
+    description: "Signatures"
+    tei_element: "fw"
+    attributes:
+      type: "signature"
+    closes:
+      - "paragraph"
+      - "poetry"
+    standalone: true
+    
+  DefaultLine:
+    description: "Default line type"
+    action: "add_to_paragraph"
+    fallback_element: "p"
+  
+
+# Patterns for recognizing footnote symbols
+footnote_patterns:
+  - pattern: '^\(\*+\)\s*'
+    type: "asterisk"
+    description: "Parenthesized asterisks: (*), (**), etc."
+    
+  - pattern: '^\([0-9]+\)\s*'
+    type: "numeric"
+    description: "Parenthesized numbers: (1), (2), etc."
+    
+  - pattern: '^\([a-z]+\)\s*'
+    type: "alphabetic_lower"
+    description: "Parenthesized lowercase letters: (a), (b), etc."
+    
+  - pattern: '^\([A-Z]+\)\s*'
+    type: "alphabetic_upper"
+    description: "Parenthesized uppercase letters: (A), (B), etc."
+    
+  - pattern: '^\*+\s*'
+    type: "asterisk_plain"
+    description: "Plain asterisks: *, **, etc."
+    
+  - pattern: '^[0-9]+\)\s*'
+    type: "numeric_paren"
+    description: "Numbers with closing paren: 1), 2), etc."
+    
+  - pattern: '^[a-z]+\)\s*'
+    type: "alphabetic_paren"
+    description: "Letters with closing paren: a), b), etc."
+    
+  - pattern: '^[†‡§¶#]+\s*'
+    type: "special_symbols"
+    description: "Special symbols: †, ‡, §, ¶, #"
+    
+  - pattern: '^\[[0-9]+\]\s*'
+    type: "bracketed_numeric"
+    description: "Bracketed numbers: [1], [2], etc."
+    
+  - pattern: '^\[[a-z]+\]\s*'
+    type: "bracketed_alphabetic"
+    description: "Bracketed letters: [a], [b], etc."
+
+# Processing rules for specific conditions
+processing_rules:
+  - name: "default_paragraph_content"
+    conditions:
+      block_type: "Main"
+      line_type: "default"
+    actions:
+      - action: "add_to_paragraph"
+        
+  - name: "poetry_grouping"
+    conditions:
+      block_type: "Main"
+      line_type: "CustomLine:verse"
+    actions:
+      - action: "close_paragraph"
+      - action: "ensure_container"
+        element: "lg"
+        attributes:
+          type: "verse"
+      - action: "create_line"
+        element: "l"
+        
+  - name: "header_handling"
+    conditions:
+      line_type: "Header"
+    actions:
+      - action: "close_paragraph"
+      - action: "close_poetry"
+      - action: "create_standalone"
+        element: "head"
+
+# TEI element creation rules
+element_creation:
+  # Page break elements
+  page_number:
+    element: "pb"
+    attributes:
+      n: "page_number"  # Will be replaced with actual page number
+      facs: "source_image"  # Will be replaced with image filename
+  
+  # Footnote elements  
+  footnote:
+    element: "note"
+    attributes:
+      type: "footnote"
+      n: "symbol"  # Will be replaced with footnote symbol
+    container: "div"
+    container_attributes:
+      type: "notes"
+  
+  # Poetry container
+  poetry_container:
+    element: "lg"
+    attributes:
+      type: "verse"
+  
+  # Poetry line
+  poetry_line:
+    element: "l"
+  
+  # Form work elements (catchwords, signatures, etc.)
+  form_work:
+    element: "fw"
+    attributes:
+      type: "placeholder"  # Will be replaced by line_type mapping
+    type_mappings:
+      "CustomLine:catchword": "catchword"
+      "CustomLine:signature": "signature"
+      "default": "other"
+  
+  # Header elements
+  header:
+    element: "head"
+    default_attributes:
+      rend: "header"
+  
+  # Line break elements
+  line_break:
+    element: "lb"
+    self_closing: true
+
+# TEI document structure settings
+tei_structure:
+  root_element: "TEI"
+  namespace: "http://www.tei-c.org/ns/1.0"
+  
+  header:
+    required: true
+    title_source: "sourceImageInformation/fileName"
+    title_prefix: "Digital text from "
+    title_fallback: "Digital text from eScriptorium"
+    publisher: "eScriptorium"
+    source_description: "Transcribed from digital image using eScriptorium"
+    
+  body:
+    auto_paragraph: true
+    preserve_whitespace: false
+    preserve_line_breaks: true  # Add <lb/> elements to preserve original line structure
+    line_break_element: "lb"

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 0aefed141cd6.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="26" facs="0aefed141cd6.jpeg" />
+      <head rend="header">ЯВЛЕНІЕ ІV.</head>
+      <speaker rend="speaker">КИРЪ и ХРИЗАНФЪ</speaker>
+      <speaker rend="speaker">ХРИЗАНФЪ.</speaker>
+      <lg type="verse">
+        <l>Исполнилъ волю я твою и повелѣнье,</l>
+        <l>Я пленнымъ учинилъ ужъ всѣмъ освобожденье.</l>
+        <l>Ужъ радость чувствуютъ въ умершихъ всѣ серцахъ,</l>
+        <l>Что въ ихъ играя нынь смѣется ужъ глазахъ.</l>
+        <l>Едина лишъ изъ нихъ прекрасная Пантея</l>
+        <l>Единъ и нынѣ взоръ и равенъ духъ имѣя,</l>
+        <l>Равно взирала такъ какъ цепи я снималъ,</l>
+        <l>Когда я на ея тѣ прежде налагалъ.</l>
+        <l>Въ печали не взяла нималой перемѣны ,</l>
+        <l>Какъ прежде взоръ смущенъ такъ нынѣ огорченный.</l>
+      </lg>
+      <speaker rend="speaker">КИРЪ.</speaker>
+      <lg type="verse">
+        <l>Араспу ввѣрилъ я Пантеи чистоту,</l>
+        <l>Покой и жизнь ея здоровье красоту ;</l>
+        <l>Которой сохранять ту свято обѣщался ;</l>
+        <l>Но толькобъ въ самомъ онъ такъ дѣлѣ оказался.</l>
+      </lg>
+      <speaker rend="speaker">ХРИЗАНФЪ.</speaker>
+      <lg type="verse">
+        <l>Коль зыблется всегда кипящихъ младость лѣтъ;</l>
+        <l>Въ поползновенномъ семъ надежды дѣлѣ нѣтъ.</l>
+      </lg>
+      <speaker rend="speaker">КИРЪ.</speaker>
+      <p>хри-</p>
+      <lg type="verse">
+        <l>Но много увѣрялъ о твердости онъ духа ,</l>
+        <l>Что слабы заглушить слова прелестны слуха ,</l>
+        <l>Къ звучащимъ навсегда привыкшаго трубамъ;</l>
+        <l>И взору преданна пестреющимъ полямъ,</l>
+        <l>Не можетъ ослѣпить краса хоть рѣдка въ свѣтѣ.</l>
+        <l>Толь быть непобѣдимъ хотѣлъ въ своемъ предметѣ.</l>
+      </lg>
+    </body>
+  </text>
+</TEI>

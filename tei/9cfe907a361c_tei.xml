@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 9cfe907a361c.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="30" facs="9cfe907a361c.jpeg" />
+      <p>льзя инако отнять, какъ разбивъ ка-
+      <lb />
+      мень, что испытано въ большихъ ра-
+      <lb />
+      ботахъ г. Лїонто въ Рошеллѣ, и по
+      <lb />
+      тому можетъ употребленъ быть
+      <lb />
+      опытъ сей игры съ великою пользою
+      <lb />
+      вездѣ тамъ, гдѣ сѣра дешевлѣ свинцу,
+      <lb />
+      или гдѣ настоитъ важность въ твер-
+      <lb />
+      домъ сплоченїи желѣза съ камнемъ.</p>
+      <head rend="header">46.</head>
+      <head rend="header">Птицеловъ Волшебникъ.</head>
+      <p>Изкрошенная мѣлко и запеченная въ
+      <lb />
+      хлѣбѣ Чилибуха, именуемая также и
+      <lb />
+      Кучелябою, а въ Аптекахъ Вомикою,
+      <lb />
+      служитъ изрядною приманкою для мно-
+      <lb />
+      гихъ птицъ, и вскружая у нихъ го-
+      <lb />
+      ловы доставляетъ по тому прїятное
+      <lb />
+      охотникамъ удовольствїе ловить ихъ
+      <lb />
+      руками. Рыболовы и промышленники
+      <lb />
+      звѣриные могутъ средство сїе также
+      <lb />
+      употреблять съ пользою для подоб-
+      <lb />
+      наго ловленїя разныхъ рыбъ и жи-
+      <lb />
+      вотныхъ.</p>
+    </body>
+  </text>
+</TEI>

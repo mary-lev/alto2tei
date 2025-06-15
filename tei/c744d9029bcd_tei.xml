@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from c744d9029bcd.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="46" facs="c744d9029bcd.jpeg" />
+      <p>вѣрьте мнѣ; женидьба такихъ свойствъ
+      <lb />
+      человѣку, какъ вы, очень не пристала.
+      <lb />
+      Она полна безпокойствъ, и приключаетъ
+      <lb />
+      часто опасныя слѣдствія, которыя мо-
+      <lb />
+      гутъ васъ безпокоить.</p>
+      <speaker rend="speaker">Дулѣетъ.</speaker>
+      <p>Правда, мнѣ самому кажется также.
+      <lb />
+      А гдѣ мой слуга съ носилками?</p>
+      <head rend="header">ЯВЛЕНІЕ 12.</head>
+      <p>Тѣжъ и Жасменъ.</p>
+      <speaker rend="speaker">Жасменъ.</speaker>
+      <p>Они въ передней, прикажетель имъ
+      <lb />
+      сюда войти?</p>
+      <speaker rend="speaker">Дульетъ.</speaker>
+      <p>Добро! я ужъ приму трудъ до пе-
+      <lb />
+      редней-то самъ дойти.</p>
+      <speaker rend="speaker">Кларина.</speaker>
+      <p>И вѣдомо, хоть изрѣдка движеніе
+      <lb />
+      надобно дѣлать для здоровья.</p>
+      <speaker rend="speaker">Дулѣетъ (филандеру).</speaker>
+      <p>Государь мой! я вашъ слуга. (Аминтѣ)
+      <lb />
+      Ежели вашей дочери мужъ надобенъ, ко-
+      <lb />
+      торой бы работалъ, такъ я вамъ тако-
+      <lb />
+      го и желаю.</p>
+      <p>(отходитъ.)</p>
+      <fw type="catchword">Фи-</fw>
+    </body>
+  </text>
+</TEI>

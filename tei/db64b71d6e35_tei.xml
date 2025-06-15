@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from db64b71d6e35.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="112" facs="db64b71d6e35.jpeg" />
+      <p>живетъ онъ и поднесь еще
+      <lb />
+      въ пустынѣ. Супруга не оти-
+      <lb />
+      раетъ его слезы; сынъ не за-
+      <lb />
+      кроетъ очей ему.... Добро-
+      <lb />
+      дѣтельная жена подобна слад-
+      <lb />
+      кому плоду, которой ни одинъ
+      <lb />
+      путешественникъ безъ того
+      <lb />
+      сорвать не можетъ, чтобъ
+      <lb />
+      не лишить сей отрады дру-
+      <lb />
+      гаго странника, идущаго мо-
+      <lb />
+      жетъ быть близко позади его.
+      <lb />
+      Изнеможенъ и утомленный
+      <lb />
+      жаждою, бросается онъ подъ
+      <lb />
+      тѣнь дерева, и завидуетъ
+      <lb />
+      тому щастливцу, которой
+      <lb />
+      случайно предъ нимъ шелъ.</p>
+    </body>
+  </text>
+</TEI>

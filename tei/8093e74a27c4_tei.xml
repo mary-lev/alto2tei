@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 8093e74a27c4.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="12" facs="8093e74a27c4.jpeg" />
+      <head rend="header">ЯВЛЕНІЕ VI.</head>
+      <speaker rend="speaker">ЛИСКА и СЕНТАЛМЪ.</speaker>
+      <speaker rend="speaker">ЛИСКА.</speaker>
+      <p>Какъ ему сказать? Какую ужасную
+      <lb />
+      ведомость должна я ...</p>
+      <speaker rend="speaker">СЕНТАЛМЪ.</speaker>
+      <p>Ахъ, любезная Лиза! судьба моя
+      <lb />
+      рѣшилась! я теряю Юлію невозврат-
+      <lb />
+      но... и нынѣ... Гдѣ она? должно
+      <lb />
+      мнѣ съ нею поговорить, и умереть у
+      <lb />
+      ногъ ея. Гдѣ она?</p>
+      <speaker rend="speaker">ЛИСКА.</speaker>
+      <p>Состояніе ея не меньше вашего
+      <lb />
+      жалостно... Она плачетъ, она въ отчая-
+      <lb />
+      ніи; но щастіе безъ поправки. Воору-
+      <lb />
+      житесь, сударь! всемъ терпѣніемъ : Юлія
+      <lb />
+      васъ не увидитъ, и сія печаль для ней
+      <lb />
+      изъ всѣхъ несноснѣйшая. Она заклина-
+      <lb />
+      етъ васъ сохранять дни ваши, и вѣрить,
+      <lb />
+      что она вѣчно васъ не забудетъ; но
+      <lb />
+      притомъ требуетъ, чтобъ вы оставили
+      <lb />
+      вашъ замокъ, и не дѣлали неблаго-
+      <lb />
+      пристойности въ стараніи увидѣть ее,
+      <lb />
+      или переговорить съ нею.</p>
+      <speaker rend="speaker">СЕНТАЛМЪ.</speaker>
+      <p>Ахъ, Лиза! мнѣ нужно сказать
+      <lb />
+      ей только одно слово. Я увѣренъ въ
+      <lb />
+      непреодолимости моего нещастія, и
+      <lb />
+      что нѣтъ мнѣ никакой надежды. Но</p>
+      <fw type="catchword">чтобъ</fw>
+    </body>
+  </text>
+</TEI>

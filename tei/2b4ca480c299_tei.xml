@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 2b4ca480c299.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="62" facs="2b4ca480c299.jpeg" />
+      <p>ЛЕО. Можно ли что расказы-
+      <lb />
+      вать безъ того, чтобъ слово не
+      <lb />
+      прибавилось? (Уходитъ.)</p>
+      <p>ѲАЛА. Дай боже вамъ здрав-
+      <lb />
+      ствовать и съ хитрыми выдумка-
+      <lb />
+      ми. Правда когда нинаесть на-
+      <lb />
+      ружу выдетъ. (Уходитъ.)</p>
+      <head rend="header">ДѣЙСТВІЕ ТРЕТІЕ.</head>
+      <head rend="header">ЯВЛЕНІЕ І.</head>
+      <p>Рябикъ ѣдетъ, изъ котораго выходятъ
+      <lb />
+      БАЛАНЦОВЪ и ПАНТЕЛЕИ.</p>
+      <speaker rend="speaker">БАЛАН.</speaker>
+      <p>Радъ я очень, что ты приѣхалъ.</p>
+      <p>ПАНТ. Хотя я и состарѣлся;
+      <lb />
+      но однакожъ я сей разъ пустился
+      <lb />
+      скакать, какъ бывало съ молода.</p>
+      <p>БАЛАН. Когда мы съ тобою
+      <lb />
+      были молоды, все инако было не
+      <lb />
+      какъ нынѣ; а наипаче дороговизна
+      <lb />
+      теперешняя несносна.</p>
+      <fw type="catchword">ПАНТ.</fw>
+    </body>
+  </text>
+</TEI>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from fd5d9da28eba.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="92" facs="fd5d9da28eba.jpeg" />
+      <speaker rend="speaker">МИХЕЙ.</speaker>
+      <p>Дочка твоя ушла, мой кормилецъ?</p>
+      <speaker rend="speaker">Г МАРСАНЖЪ.</speaker>
+      <p>Можетъ быть я во вѣки ее не уви-
+      <lb />
+      жу... я очень нещастливъ! . . (Съ
+      <lb />
+      жаромъ) Михей! отдай дочь за Луку..
+      <lb />
+      я прошу тебя.. Сколькобъ терзала
+      <lb />
+      меня совѣсть, когдабъ примѣромъ сво-
+      <lb />
+      имъ вовлекъ я васъ въ ту пропасть,
+      <lb />
+      въ которую самъ опровергся! . . Доволь-
+      <lb />
+      ствуйтесь узнавать мои погрѣшности,
+      <lb />
+      но не подражайте имъ.</p>
+      <speaker rend="speaker">МИХЕЙ.</speaker>
+      <p>Исполню твою волю.. раскаянье
+      <lb />
+      твое чистосердечное; я остерегусь сдѣ-
+      <lb />
+      лать то же.</p>
+      <speaker rend="speaker">Г. МАРСАНЖЪ.</speaker>
+      <p>Ахъ, мой другъ! опасайся сего;
+      <lb />
+      ужасно приключить нещастіе.</p>
+      <speaker rend="speaker">МИХЕЙ.</speaker>
+      <p>Такъ! но очень весело сердцу рас-
+      <lb />
+      каяться. (Съ чувствительнымъ голосомъ)
+      <lb />
+      .. Хорошо! ты честной человѣкъ...
+      <lb />
+      Что ты ни дѣлай, а родился ты съ
+      <lb />
+      добрымъ сердцемъ... всѣ ваши барскіе
+      <lb />
+      обычьи не могли ево испортить. Не</p>
+      <fw type="catchword">пе-</fw>
+    </body>
+  </text>
+</TEI>

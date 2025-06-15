@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Digital text from 0e2a73f13785.jpeg</title>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>eScriptorium</publisher>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcribed from digital image using eScriptorium</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <pb n="330" facs="0e2a73f13785.jpeg" />
+      <p>чемъ известковатая земля селенита
+      <lb />
+      упадаетъ на дно , а масло не могши
+      <lb />
+      соединиться съ водою, разсѣвается въ
+      <lb />
+      видѣ маленькихъ звѣздочекъ, чему все-
+      <lb />
+      му и великому множеству другихъ
+      <lb />
+      подобныхъ явленїй ясно можно видѣть
+      <lb />
+      причину въ слѣдующей Части.</p>
+      <p>Конецъ третей Части.</p>
+    </body>
+  </text>
+</TEI>
