@@ -13,59 +13,52 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
+  <facsimile>
+    <surface>
+      <graphic url="df85785ad559.jpeg" />
+      <zone xml:id="tl1" ulx="199" uly="186" lrx="1400" lry="317" />
+      <zone xml:id="tl2" ulx="207" uly="286" lrx="1404" lry="404" />
+      <zone xml:id="tl3" ulx="214" uly="372" lrx="1403" lry="484" />
+      <zone xml:id="tl4" ulx="222" uly="455" lrx="1409" lry="570" />
+      <zone xml:id="tl5" ulx="224" uly="541" lrx="1406" lry="664" />
+      <zone xml:id="tl6" ulx="229" uly="666" lrx="1414" lry="787" />
+      <zone xml:id="tl7" ulx="688" uly="740" lrx="977" lry="826" />
+      <zone xml:id="tl8" ulx="375" uly="878" lrx="1418" lry="1020" />
+      <zone xml:id="tl9" ulx="255" uly="991" lrx="1422" lry="1109" />
+      <zone xml:id="tl10" ulx="260" uly="1075" lrx="1038" lry="1189" />
+      <zone xml:id="tl11" ulx="326" uly="1151" lrx="1412" lry="1271" />
+      <zone xml:id="tl12" ulx="258" uly="1237" lrx="1413" lry="1353" />
+      <zone xml:id="tl13" ulx="251" uly="1324" lrx="1417" lry="1440" />
+      <zone xml:id="tl14" ulx="242" uly="1410" lrx="1415" lry="1526" />
+      <zone xml:id="tl15" ulx="242" uly="1493" lrx="1425" lry="1612" />
+      <zone xml:id="tl16" ulx="237" uly="1579" lrx="1429" lry="1692" />
+      <zone xml:id="tl17" ulx="241" uly="1658" lrx="1429" lry="1777" />
+      <zone xml:id="tl18" ulx="238" uly="1744" lrx="1428" lry="1861" />
+      <zone xml:id="tl19" ulx="239" uly="1832" lrx="1428" lry="1942" />
+      <zone xml:id="tl20" ulx="244" uly="1911" lrx="1433" lry="2047" />
+      <zone xml:id="tl21" ulx="1199" uly="2025" lrx="1430" lry="2135" />
+      <zone xml:id="tl22" ulx="783" uly="88" lrx="878" lry="159" />
+      <zone xml:id="tl23" ulx="43" uly="886" lrx="235" lry="986" />
+      <zone xml:id="tl24" ulx="47" uly="968" lrx="207" lry="1040" />
+      <zone xml:id="tl25" ulx="49" uly="1018" lrx="245" lry="1097" />
+      <zone xml:id="tl26" ulx="47" uly="1081" lrx="210" lry="1153" />
+      <zone xml:id="tl27" ulx="47" uly="1138" lrx="233" lry="1211" />
+      <zone xml:id="tl28" ulx="54" uly="1195" lrx="254" lry="1269" />
+      <zone xml:id="tl29" ulx="53" uly="1255" lrx="250" lry="1327" />
+      <zone xml:id="tl30" ulx="56" uly="1310" lrx="242" lry="1400" />
+    </surface>
+  </facsimile>
   <text>
     <body>
       <pb n="92" facs="df85785ad559.jpeg" />
-      <p>вещи , что причиняетъ вели-
-      <lb />
-      кой вредъ Королевству; пое-
-      <lb />
-      лику въ немъ весьма умно-
-      <lb />
-      жается роскошь, а народъ въ
-      <lb />
-      рукодѣлїяхъ не упражняется.</p>
-      <head rend="header">Хронологическїя и политическїя при-</head>
-      <head rend="header">мѣчанїя :</head>
-      <p>Королевство Неаполитан-
-      <lb />
-      ское основано въ 1085 году, а
-      <lb />
-      Сицилїйское въ 1580.</p>
-      <p>Первое изъ сихъ по мно-
-      <lb />
-      гихъ перемѣнахъ вновь подда-
-      <lb />
-      лось Ишпанїи, съ тѣмъ усло-
-      <lb />
-      вїемъ: чтобъ оба сїи Королев-
-      <lb />
-      ства ни когда не были подъ
-      <lb />
-      властью одного Государства
-      <lb />
-      Въ слѣдствїе сего Карлъ ІІІ
-      <lb />
-      призванный въ 1759 году въ
-      <lb />
-      Ишпанїю, уступилъ Неаполь
-      <lb />
-      дону Фердинанду, и утвердилъ</p>
-      <fw type="catchword">право</fw>
-      <p>Хроно
-      <lb />
-      логи-
-      <lb />
-      ческїя
-      <lb />
-      и по-
-      <lb />
-      лити
-      <lb />
-      ческїя
-      <lb />
-      примѣ</p>
-      <p>чанїя.</p>
+      <p facs="#tl1">вещи , что причиняетъ вели-<lb facs="#tl2" />кой вредъ Королевству; пое-<lb facs="#tl3" />лику въ немъ весьма умно-<lb facs="#tl4" />жается роскошь, а народъ въ<lb facs="#tl5" />рукодѣлїяхъ не упражняется.</p>
+      <head facs="#tl6" rend="header">Хронологическїя и политическїя при-</head>
+      <head facs="#tl7" rend="header">мѣчанїя :</head>
+      <p facs="#tl8">Королевство Неаполитан-<lb facs="#tl9" />ское основано въ 1085 году, а<lb facs="#tl10" />Сицилїйское въ 1580.</p>
+      <p facs="#tl11">Первое изъ сихъ по мно-<lb facs="#tl12" />гихъ перемѣнахъ вновь подда-<lb facs="#tl13" />лось Ишпанїи, съ тѣмъ усло-<lb facs="#tl14" />вїемъ: чтобъ оба сїи Королев-<lb facs="#tl15" />ства ни когда не были подъ<lb facs="#tl16" />властью одного Государства<lb facs="#tl17" />Въ слѣдствїе сего Карлъ ІІІ<lb facs="#tl18" />призванный въ 1759 году въ<lb facs="#tl19" />Ишпанїю, уступилъ Неаполь<lb facs="#tl20" />дону Фердинанду, и утвердилъ</p>
+      <fw facs="#tl21" type="catchword">право</fw>
+      <p facs="#tl23">Хроно<lb facs="#tl24" />логи-<lb facs="#tl25" />ческїя<lb facs="#tl26" />и по-<lb facs="#tl27" />лити<lb facs="#tl28" />ческїя<lb facs="#tl29" />примѣ</p>
+      <p facs="#tl30">чанїя.</p>
     </body>
   </text>
 </TEI>

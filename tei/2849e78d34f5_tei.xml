@@ -13,15 +13,31 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
+  <facsimile>
+    <surface>
+      <graphic url="2849e78d34f5.jpeg" />
+      <zone xml:id="tl1" ulx="718" uly="374" lrx="811" lry="457" />
+      <zone xml:id="tl2" ulx="1049" uly="598" lrx="1589" lry="703" />
+      <zone xml:id="tl3" ulx="709" uly="742" lrx="1930" lry="847" />
+      <zone xml:id="tl4" ulx="834" uly="832" lrx="1926" lry="942" />
+      <zone xml:id="tl5" ulx="837" uly="962" lrx="1928" lry="1067" />
+      <zone xml:id="tl6" ulx="836" uly="1054" lrx="1581" lry="1158" />
+      <zone xml:id="tl7" ulx="720" uly="1185" lrx="1927" lry="1299" />
+      <zone xml:id="tl24" ulx="1700" uly="2505" lrx="1926" lry="2581" />
+      <zone xml:id="tl25" ulx="436" uly="1206" lrx="708" lry="1291" />
+      <zone xml:id="tl26" ulx="444" uly="1299" lrx="705" lry="1374" />
+      <zone xml:id="tl27" ulx="441" uly="1364" lrx="708" lry="1462" />
+    </surface>
+  </facsimile>
   <text>
     <body>
       <pb n="74" facs="2849e78d34f5.jpeg" />
-      <head rend="header">ГЛАВА ІІІ.</head>
-      <head rend="header">Приходъ Зизима на островъ Ро-</head>
-      <head rend="header">досъ. Принятїе здѣланное Ро-</head>
-      <head rend="header">доскимъ Княземъ. Пребыванїе</head>
-      <head rend="header">его на семъ островѣ.</head>
-      <p>Между тѣмъ Зизимъ, преплывая съ опас-
+      <head facs="#tl2" rend="header">ГЛАВА ІІІ.</head>
+      <head facs="#tl3" rend="header">Приходъ Зизима на островъ Ро-</head>
+      <head facs="#tl4" rend="header">досъ. Принятїе здѣланное Ро-</head>
+      <head facs="#tl5" rend="header">доскимъ Княземъ. Пребыванїе</head>
+      <head facs="#tl6" rend="header">его на семъ островѣ.</head>
+      <p facs="#tl7">Между тѣмъ Зизимъ, преплывая съ опас-
       <lb />
       ностїю свирѣпѣющее волнами море, прибли-
       <lb />
@@ -54,12 +70,8 @@
       ся изъ корабля; то вдругъ поколебался воз-
       <lb />
       духъ отъ барабаннаго бою, трубнаго звука и</p>
-      <fw type="catchword">другаго</fw>
-      <p>Баязетъ ІІ.
-      <lb />
-      въ 1482 го-
-      <lb />
-      ду по Р. Х.</p>
+      <fw facs="#tl24" type="catchword">другаго</fw>
+      <p facs="#tl25">Баязетъ ІІ.<lb facs="#tl26" />въ 1482 го-<lb facs="#tl27" />ду по Р. Х.</p>
     </body>
   </text>
 </TEI>

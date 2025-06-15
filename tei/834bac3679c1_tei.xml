@@ -13,33 +13,27 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
+  <facsimile>
+    <surface>
+      <graphic url="834bac3679c1.jpeg" />
+      <zone xml:id="tl1" ulx="137" uly="165" lrx="772" lry="258" />
+      <zone xml:id="tl2" ulx="314" uly="245" lrx="577" lry="324" />
+      <zone xml:id="tl3" ulx="55" uly="311" lrx="843" lry="424" />
+      <zone xml:id="tl4" ulx="261" uly="412" lrx="622" lry="510" />
+      <zone xml:id="tl5" ulx="401" uly="506" lrx="494" lry="584" />
+      <zone xml:id="tl6" ulx="93" uly="573" lrx="802" lry="668" />
+      <zone xml:id="tl7" ulx="227" uly="663" lrx="675" lry="751" />
+      <zone xml:id="tl8" ulx="45" uly="738" lrx="859" lry="844" />
+      <zone xml:id="tl9" ulx="157" uly="830" lrx="744" lry="914" />
+      <zone xml:id="tl10" ulx="280" uly="898" lrx="625" lry="979" />
+      <zone xml:id="tl11" ulx="248" uly="1038" lrx="646" lry="1137" />
+      <zone xml:id="tl12" ulx="57" uly="1133" lrx="859" lry="1236" />
+      <zone xml:id="tl13" ulx="333" uly="1221" lrx="580" lry="1305" />
+    </surface>
+  </facsimile>
   <text>
     <body>
-      <p>ЕГО СІЯТЕЛЬСТВУ
-      <lb />
-      КНЯЗЮ
-      <lb />
-      АЛЕКСАНДРУ БОРИСОВИЧУ
-      <lb />
-      КУРАКИНУ
-      <lb />
-      ЕЯ
-      <lb />
-      ІМПЕРАТОРСКАГО
-      <lb />
-      ВЕЛИЧЕСТВА
-      <lb />
-      САМОДЕРЖИЦЫ ВСЕРОССІЙСКІЯ
-      <lb />
-      Дѣйствителному
-      <lb />
-      КАМЕРГЕРУ,
-      <lb />
-      КАВАЛЕРУ
-      <lb />
-      Ордена Святаго Александра.
-      <lb />
-      и прочая.</p>
+      <p facs="#tl1">ЕГО СІЯТЕЛЬСТВУ<lb facs="#tl2" />КНЯЗЮ<lb facs="#tl3" />АЛЕКСАНДРУ БОРИСОВИЧУ<lb facs="#tl4" />КУРАКИНУ<lb facs="#tl5" />ЕЯ<lb facs="#tl6" />ІМПЕРАТОРСКАГО<lb facs="#tl7" />ВЕЛИЧЕСТВА<lb facs="#tl8" />САМОДЕРЖИЦЫ ВСЕРОССІЙСКІЯ<lb facs="#tl9" />Дѣйствителному<lb facs="#tl10" />КАМЕРГЕРУ,<lb facs="#tl11" />КАВАЛЕРУ<lb facs="#tl12" />Ордена Святаго Александра.<lb facs="#tl13" />и прочая.</p>
     </body>
   </text>
 </TEI>

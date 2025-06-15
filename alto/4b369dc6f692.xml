@@ -11,7 +11,7 @@
   </Description>
   <Tags>
     <OtherTag ID="BT1" LABEL="Title" DESCRIPTION="block type Title"/><OtherTag ID="BT3" LABEL="Commentary" DESCRIPTION="block type Commentary"/><OtherTag ID="BT4" LABEL="Illustration" DESCRIPTION="block type Illustration"/><OtherTag ID="BT134" LABEL="NumberingZone" DESCRIPTION="block type NumberingZone"/><OtherTag ID="BT137" LABEL="MarginTextZone:outer" DESCRIPTION="block type MarginTextZone:outer"/><OtherTag ID="BT135" LABEL="GraphicZone" DESCRIPTION="block type GraphicZone"/><OtherTag ID="BT138" LABEL="RunningTitleZone" DESCRIPTION="block type RunningTitleZone"/><OtherTag ID="BT2" LABEL="MainZone" DESCRIPTION="block type MainZone"/><OtherTag ID="BT136" LABEL="MarginTextZone:note" DESCRIPTION="block type MarginTextZone:note"/><OtherTag ID="BT50" LABEL="QuireMarksZone:catchwords" DESCRIPTION="block type QuireMarksZone:catchwords"/>
-    <OtherTag ID="LT85" LABEL="CustomLine:divider" DESCRIPTION="line type CustomLine:divider"/><OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT73" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT72" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/><OtherTag ID="LT82" LABEL="CustomLine:speaker" DESCRIPTION="line type CustomLine:speaker"/>
+    <OtherTag ID="LT85" LABEL="CustomLine:divider" DESCRIPTION="line type CustomLine:divider"/><OtherTag ID="LT86" LABEL="CustomLine:onstage" DESCRIPTION="line type CustomLine:onstage"/><OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT73" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT72" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/><OtherTag ID="LT82" LABEL="CustomLine:speaker" DESCRIPTION="line type CustomLine:speaker"/>
   </Tags>
   <Layout>
     <Page WIDTH="2200"
@@ -53,17 +53,17 @@
           <Shape><Polygon POINTS="738 239 1545 239 1545 404 738 404"/></Shape>
           <TextLine ID="line_27"
                     TAGREFS="LT74"
-                    BASELINE="778 367 1497 426" 
+                    BASELINE="778 367 1489 369" 
                     HPOS="772"
-                    VPOS="269"
-                    WIDTH="724"
-                    HEIGHT="171">
-            <Shape><Polygon POINTS="1487 404 1460 404 1432 404 1405 404 1377 404 1350 404 1322 404 1295 404 1267 404 1240 398 1212 398 1210 371 1163 368 1122 327 1080 291 1080 288 1078 288 1075 288 781 269 775 365 772 387 1009 390 1050 407 1080 415 1083 415 1086 415 1116 409 1146 404 1163 412 1182 423 1185 423 1188 423 1248 418 1284 415 1314 423 1386 440 1388 440 1391 440 1493 431 1496 423 1496 404 1487 404"/></Shape>
+                    VPOS="275"
+                    WIDTH="715"
+                    HEIGHT="126">
+            <Shape><Polygon POINTS="775 365 772 393 1097 385 1130 398 1133 398 1135 398 1138 398 1141 398 1144 398 1185 385 1201 398 1204 398 1207 398 1210 401 1353 401 1353 398 1358 398 1443 385 1479 398 1487 368 1485 277 775 275 775 365"/></Shape>
 	    <String CONTENT="Физическїя"
                     HPOS="772"
-                    VPOS="269"
-                    WIDTH="724"
-                    HEIGHT="171"></String>
+                    VPOS="275"
+                    WIDTH="715"
+                    HEIGHT="126"></String>
           </TextLine>
         </TextBlock>
         <TextBlock HPOS="347.0"

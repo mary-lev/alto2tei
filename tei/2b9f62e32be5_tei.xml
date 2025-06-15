@@ -13,37 +13,38 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
+  <facsimile>
+    <surface>
+      <graphic url="2b9f62e32be5.jpeg" />
+      <zone xml:id="tl1" ulx="467" uly="617" lrx="1172" lry="755" />
+      <zone xml:id="tl2" ulx="479" uly="760" lrx="1183" lry="883" />
+      <zone xml:id="tl3" ulx="779" uly="881" lrx="871" lry="968" />
+      <zone xml:id="tl4" ulx="614" uly="977" lrx="1064" lry="1081" />
+      <zone xml:id="tl5" ulx="458" uly="1089" lrx="1216" lry="1191" />
+      <zone xml:id="tl6" ulx="464" uly="1383" lrx="1362" lry="1479" />
+      <zone xml:id="tl7" ulx="497" uly="1462" lrx="1364" lry="1550" />
+      <zone xml:id="tl8" ulx="491" uly="1525" lrx="1375" lry="1612" />
+      <zone xml:id="tl9" ulx="256" uly="1583" lrx="1368" lry="1681" />
+      <zone xml:id="tl10" ulx="257" uly="1661" lrx="1361" lry="1745" />
+      <zone xml:id="tl11" ulx="252" uly="1726" lrx="1360" lry="1811" />
+      <zone xml:id="tl12" ulx="253" uly="1792" lrx="1362" lry="1882" />
+      <zone xml:id="tl13" ulx="253" uly="1856" lrx="1366" lry="1946" />
+      <zone xml:id="tl14" ulx="254" uly="1930" lrx="1367" lry="2013" />
+      <zone xml:id="tl15" ulx="254" uly="1996" lrx="1367" lry="2084" />
+      <zone xml:id="tl16" ulx="253" uly="2060" lrx="1368" lry="2145" />
+      <zone xml:id="tl17" ulx="254" uly="2127" lrx="1370" lry="2221" />
+      <zone xml:id="tl18" ulx="1245" uly="2183" lrx="1373" lry="2274" />
+    </surface>
+  </facsimile>
   <text>
     <body>
-      <head rend="header">ПОСТОЯННАЯ</head>
-      <head rend="header">ЛЮБОВЬ</head>
-      <head rend="header">съ</head>
-      <head rend="header">ПОМОЩІЮ</head>
-      <head rend="header">НЕВИННОСТИ.</head>
-      <p>Въ семъ свѣтѣ находится нѣ-
-      <lb />
-      которой счастливой островъ,
-      <lb />
-      неизвѣстной большой части
-      <lb />
-      смертныхъ. Воздухъ на немъ всегда
-      <lb />
-      чистъ и свѣтелъ, погоды неподверже-
-      <lb />
-      ны тѣмъ страннымъ перемѣнамъ, кои
-      <lb />
-      мы чувствуемъ въ нашемъ полушарѣ,
-      <lb />
-      поверхности водъ касаются одни лишъ
-      <lb />
-      Зефиры, и сердце счастливыхъ обита-
-      <lb />
-      телей сего блаженнаго жилища ни-
-      <lb />
-      когда не познало треволненій, возбуж-
-      <lb />
-      даемыхъ силою страстей и неумерен-</p>
-      <fw type="catchword">ными</fw>
+      <head facs="#tl1" rend="header">ПОСТОЯННАЯ</head>
+      <head facs="#tl2" rend="header">ЛЮБОВЬ</head>
+      <head facs="#tl3" rend="header">съ</head>
+      <head facs="#tl4" rend="header">ПОМОЩІЮ</head>
+      <head facs="#tl5" rend="header">НЕВИННОСТИ.</head>
+      <p facs="#tl6">Въ семъ свѣтѣ находится нѣ-<lb facs="#tl7" />которой счастливой островъ,<lb facs="#tl8" />неизвѣстной большой части<lb facs="#tl9" />смертныхъ. Воздухъ на немъ всегда<lb facs="#tl10" />чистъ и свѣтелъ, погоды неподверже-<lb facs="#tl11" />ны тѣмъ страннымъ перемѣнамъ, кои<lb facs="#tl12" />мы чувствуемъ въ нашемъ полушарѣ,<lb facs="#tl13" />поверхности водъ касаются одни лишъ<lb facs="#tl14" />Зефиры, и сердце счастливыхъ обита-<lb facs="#tl15" />телей сего блаженнаго жилища ни-<lb facs="#tl16" />когда не познало треволненій, возбуж-<lb facs="#tl17" />даемыхъ силою страстей и неумерен-</p>
+      <fw facs="#tl18" type="catchword">ными</fw>
     </body>
   </text>
 </TEI>

@@ -13,40 +13,44 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
+  <facsimile>
+    <surface>
+      <graphic url="2b4ca480c299.jpeg" />
+      <zone xml:id="tl1" ulx="285" uly="389" lrx="1477" lry="467" />
+      <zone xml:id="tl2" ulx="263" uly="470" lrx="1453" lry="529" />
+      <zone xml:id="tl3" ulx="259" uly="527" lrx="1088" lry="596" />
+      <zone xml:id="tl4" ulx="260" uly="603" lrx="1431" lry="662" />
+      <zone xml:id="tl5" ulx="260" uly="673" lrx="1437" lry="731" />
+      <zone xml:id="tl6" ulx="259" uly="742" lrx="1430" lry="797" />
+      <zone xml:id="tl7" ulx="256" uly="808" lrx="1130" lry="872" />
+      <zone xml:id="tl8" ulx="776" uly="256" lrx="900" lry="342" />
+      <zone xml:id="tl9" ulx="312" uly="1037" lrx="1366" lry="1192" />
+      <zone xml:id="tl10" ulx="415" uly="1197" lrx="1150" lry="1265" />
+      <zone xml:id="tl11" ulx="255" uly="1301" lrx="1431" lry="1354" />
+      <zone xml:id="tl12" ulx="255" uly="1387" lrx="1323" lry="1447" />
+      <zone xml:id="tl13" ulx="253" uly="1481" lrx="1096" lry="1549" />
+      <zone xml:id="tl14" ulx="254" uly="1577" lrx="1392" lry="1660" />
+      <zone xml:id="tl15" ulx="256" uly="1668" lrx="1432" lry="1738" />
+      <zone xml:id="tl16" ulx="254" uly="1750" lrx="1425" lry="1800" />
+      <zone xml:id="tl17" ulx="251" uly="1819" lrx="1403" lry="1870" />
+      <zone xml:id="tl18" ulx="263" uly="1893" lrx="1423" lry="1953" />
+      <zone xml:id="tl19" ulx="252" uly="1963" lrx="1426" lry="2024" />
+      <zone xml:id="tl20" ulx="248" uly="2036" lrx="1416" lry="2087" />
+      <zone xml:id="tl21" ulx="254" uly="2106" lrx="1398" lry="2156" />
+    </surface>
+  </facsimile>
   <text>
     <body>
       <pb n="62" facs="2b4ca480c299.jpeg" />
-      <p>ЛЕО. Можно ли что расказы-
-      <lb />
-      вать безъ того, чтобъ слово не
-      <lb />
-      прибавилось? (Уходитъ.)</p>
-      <p>ѲАЛА. Дай боже вамъ здрав-
-      <lb />
-      ствовать и съ хитрыми выдумка-
-      <lb />
-      ми. Правда когда нинаесть на-
-      <lb />
-      ружу выдетъ. (Уходитъ.)</p>
-      <head rend="header">ДѣЙСТВІЕ ТРЕТІЕ.</head>
-      <head rend="header">ЯВЛЕНІЕ І.</head>
-      <p>Рябикъ ѣдетъ, изъ котораго выходятъ
-      <lb />
-      БАЛАНЦОВЪ и ПАНТЕЛЕИ.</p>
-      <speaker rend="speaker">БАЛАН.</speaker>
-      <p>Радъ я очень, что ты приѣхалъ.</p>
-      <p>ПАНТ. Хотя я и состарѣлся;
-      <lb />
-      но однакожъ я сей разъ пустился
-      <lb />
-      скакать, какъ бывало съ молода.</p>
-      <p>БАЛАН. Когда мы съ тобою
-      <lb />
-      были молоды, все инако было не
-      <lb />
-      какъ нынѣ; а наипаче дороговизна
-      <lb />
-      теперешняя несносна.</p>
+      <p facs="#tl1">ЛЕО. Можно ли что расказы-<lb facs="#tl2" />вать безъ того, чтобъ слово не<lb facs="#tl3" />прибавилось? (Уходитъ.)</p>
+      <p facs="#tl4">ѲАЛА. Дай боже вамъ здрав-<lb facs="#tl5" />ствовать и съ хитрыми выдумка-<lb facs="#tl6" />ми. Правда когда нинаесть на-<lb facs="#tl7" />ружу выдетъ. (Уходитъ.)</p>
+      <head facs="#tl9" rend="header">ДѣЙСТВІЕ ТРЕТІЕ.</head>
+      <head facs="#tl10" rend="header">ЯВЛЕНІЕ І.</head>
+      <p facs="#tl11">Рябикъ ѣдетъ, изъ котораго выходятъ<lb facs="#tl12" />БАЛАНЦОВЪ и ПАНТЕЛЕИ.</p>
+      <speaker facs="#tl13" rend="speaker">БАЛАН.</speaker>
+      <p facs="#tl14">Радъ я очень, что ты приѣхалъ.</p>
+      <p facs="#tl15">ПАНТ. Хотя я и состарѣлся;<lb facs="#tl16" />но однакожъ я сей разъ пустился<lb facs="#tl17" />скакать, какъ бывало съ молода.</p>
+      <p facs="#tl18">БАЛАН. Когда мы съ тобою<lb facs="#tl19" />были молоды, все инако было не<lb facs="#tl20" />какъ нынѣ; а наипаче дороговизна<lb facs="#tl21" />теперешняя несносна.</p>
       <fw type="catchword">ПАНТ.</fw>
     </body>
   </text>

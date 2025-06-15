@@ -13,58 +13,56 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
+  <facsimile>
+    <surface>
+      <graphic url="8093e74a27c4.jpeg" />
+      <zone xml:id="tl1" ulx="423" uly="101" lrx="1001" lry="216" />
+      <zone xml:id="tl2" ulx="339" uly="189" lrx="1073" lry="313" />
+      <zone xml:id="tl3" ulx="574" uly="279" lrx="821" lry="391" />
+      <zone xml:id="tl4" ulx="235" uly="375" lrx="1316" lry="495" />
+      <zone xml:id="tl5" ulx="98" uly="461" lrx="894" lry="573" />
+      <zone xml:id="tl6" ulx="531" uly="541" lrx="903" lry="643" />
+      <zone xml:id="tl7" ulx="237" uly="610" lrx="1324" lry="729" />
+      <zone xml:id="tl8" ulx="106" uly="698" lrx="1323" lry="801" />
+      <zone xml:id="tl9" ulx="102" uly="775" lrx="1324" lry="878" />
+      <zone xml:id="tl10" ulx="99" uly="852" lrx="1316" lry="955" />
+      <zone xml:id="tl11" ulx="96" uly="923" lrx="694" lry="1023" />
+      <zone xml:id="tl12" ulx="594" uly="992" lrx="846" lry="1087" />
+      <zone xml:id="tl13" ulx="238" uly="1062" lrx="1326" lry="1169" />
+      <zone xml:id="tl14" ulx="103" uly="1139" lrx="1323" lry="1241" />
+      <zone xml:id="tl15" ulx="101" uly="1215" lrx="1324" lry="1313" />
+      <zone xml:id="tl16" ulx="102" uly="1283" lrx="1325" lry="1390" />
+      <zone xml:id="tl17" ulx="99" uly="1359" lrx="1327" lry="1464" />
+      <zone xml:id="tl18" ulx="99" uly="1433" lrx="1320" lry="1535" />
+      <zone xml:id="tl19" ulx="101" uly="1508" lrx="1324" lry="1604" />
+      <zone xml:id="tl20" ulx="103" uly="1581" lrx="1323" lry="1680" />
+      <zone xml:id="tl21" ulx="99" uly="1653" lrx="1324" lry="1751" />
+      <zone xml:id="tl22" ulx="100" uly="1727" lrx="1322" lry="1822" />
+      <zone xml:id="tl23" ulx="98" uly="1798" lrx="1322" lry="1901" />
+      <zone xml:id="tl24" ulx="99" uly="1875" lrx="880" lry="1980" />
+      <zone xml:id="tl25" ulx="524" uly="1944" lrx="902" lry="2045" />
+      <zone xml:id="tl26" ulx="236" uly="2022" lrx="1329" lry="2122" />
+      <zone xml:id="tl27" ulx="100" uly="2096" lrx="1329" lry="2196" />
+      <zone xml:id="tl28" ulx="98" uly="2169" lrx="1331" lry="2270" />
+      <zone xml:id="tl29" ulx="105" uly="2240" lrx="1332" lry="2354" />
+      <zone xml:id="tl30" ulx="1141" uly="2316" lrx="1333" lry="2437" />
+      <zone xml:id="tl31" ulx="664" uly="32" lrx="754" lry="116" />
+    </surface>
+  </facsimile>
   <text>
     <body>
       <pb n="12" facs="8093e74a27c4.jpeg" />
-      <head rend="header">ЯВЛЕНІЕ VI.</head>
-      <speaker rend="speaker">ЛИСКА и СЕНТАЛМЪ.</speaker>
-      <speaker rend="speaker">ЛИСКА.</speaker>
-      <p>Какъ ему сказать? Какую ужасную
-      <lb />
-      ведомость должна я ...</p>
-      <speaker rend="speaker">СЕНТАЛМЪ.</speaker>
-      <p>Ахъ, любезная Лиза! судьба моя
-      <lb />
-      рѣшилась! я теряю Юлію невозврат-
-      <lb />
-      но... и нынѣ... Гдѣ она? должно
-      <lb />
-      мнѣ съ нею поговорить, и умереть у
-      <lb />
-      ногъ ея. Гдѣ она?</p>
-      <speaker rend="speaker">ЛИСКА.</speaker>
-      <p>Состояніе ея не меньше вашего
-      <lb />
-      жалостно... Она плачетъ, она въ отчая-
-      <lb />
-      ніи; но щастіе безъ поправки. Воору-
-      <lb />
-      житесь, сударь! всемъ терпѣніемъ : Юлія
-      <lb />
-      васъ не увидитъ, и сія печаль для ней
-      <lb />
-      изъ всѣхъ несноснѣйшая. Она заклина-
-      <lb />
-      етъ васъ сохранять дни ваши, и вѣрить,
-      <lb />
-      что она вѣчно васъ не забудетъ; но
-      <lb />
-      притомъ требуетъ, чтобъ вы оставили
-      <lb />
-      вашъ замокъ, и не дѣлали неблаго-
-      <lb />
-      пристойности въ стараніи увидѣть ее,
-      <lb />
-      или переговорить съ нею.</p>
-      <speaker rend="speaker">СЕНТАЛМЪ.</speaker>
-      <p>Ахъ, Лиза! мнѣ нужно сказать
-      <lb />
-      ей только одно слово. Я увѣренъ въ
-      <lb />
-      непреодолимости моего нещастія, и
-      <lb />
-      что нѣтъ мнѣ никакой надежды. Но</p>
-      <fw type="catchword">чтобъ</fw>
+      <head facs="#tl1" rend="header">ЯВЛЕНІЕ VI.</head>
+      <p facs="#tl2">ЛИСКА и СЕНТАЛМЪ.</p>
+      <speaker facs="#tl3" rend="speaker">ЛИСКА.</speaker>
+      <p facs="#tl4">Какъ ему сказать? Какую ужасную<lb facs="#tl5" />ведомость должна я ...</p>
+      <speaker facs="#tl6" rend="speaker">СЕНТАЛМЪ.</speaker>
+      <p facs="#tl7">Ахъ, любезная Лиза! судьба моя<lb facs="#tl8" />рѣшилась! я теряю Юлію невозврат-<lb facs="#tl9" />но... и нынѣ... Гдѣ она? должно<lb facs="#tl10" />мнѣ съ нею поговорить, и умереть у<lb facs="#tl11" />ногъ ея. Гдѣ она?</p>
+      <speaker facs="#tl12" rend="speaker">ЛИСКА.</speaker>
+      <p facs="#tl13">Состояніе ея не меньше вашего<lb facs="#tl14" />жалостно... Она плачетъ, она въ отчая-<lb facs="#tl15" />ніи; но щастіе безъ поправки. Воору-<lb facs="#tl16" />житесь, сударь! всемъ терпѣніемъ : Юлія<lb facs="#tl17" />васъ не увидитъ, и сія печаль для ней<lb facs="#tl18" />изъ всѣхъ несноснѣйшая. Она заклина-<lb facs="#tl19" />етъ васъ сохранять дни ваши, и вѣрить,<lb facs="#tl20" />что она вѣчно васъ не забудетъ; но<lb facs="#tl21" />притомъ требуетъ, чтобъ вы оставили<lb facs="#tl22" />вашъ замокъ, и не дѣлали неблаго-<lb facs="#tl23" />пристойности въ стараніи увидѣть ее,<lb facs="#tl24" />или переговорить съ нею.</p>
+      <speaker facs="#tl25" rend="speaker">СЕНТАЛМЪ.</speaker>
+      <p facs="#tl26">Ахъ, Лиза! мнѣ нужно сказать<lb facs="#tl27" />ей только одно слово. Я увѣренъ въ<lb facs="#tl28" />непреодолимости моего нещастія, и<lb facs="#tl29" />что нѣтъ мнѣ никакой надежды. Но</p>
+      <fw facs="#tl30" type="catchword">чтобъ</fw>
     </body>
   </text>
 </TEI>
