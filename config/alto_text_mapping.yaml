@@ -20,9 +20,9 @@ block_types:
     skip_content: false
 
   NumberingZone:
-    description: "Page number blocks - skip for clean text"
-    process_lines: false
-    skip_content: true
+    description: "Page number blocks - include as separate lines"
+    process_lines: true
+    skip_content: false
   
   RunningTitleZone:
     description: "Running title blocks - preserved as separate lines"
@@ -98,6 +98,12 @@ line_types:
     text_format: "line"
     template: "{text}"
     paragraph_type: "paragraph"     # Default lines should be merged into paragraphs
+
+  PageNumberLine:
+    description: "Page number lines from NumberingZone"
+    text_format: "line"
+    template: "{text}"
+    paragraph_type: "page_number"   # Keep page numbers separate
 
 # Text structure configuration
 text_structure:

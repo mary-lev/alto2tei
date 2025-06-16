@@ -152,21 +152,26 @@ class AltoToTextConverter:
                     string_elem = textline.find('alto:String', self.alto_ns)
                     if string_elem is None:
                         continue
-                    
+
                     text_content = string_elem.get('CONTENT', '').strip()
                     if not text_content:
                         continue
-                    
+
                     # Get line type and text mapping
                     line_type = self.tei_converter.get_line_type(textline, tags_mapping)
+
+                    # Special handling: if line is in NumberingZone, treat as PageNumberLine
+                    if block_type == "NumberingZone":
+                        line_type = "PageNumberLine"
+
                     line_config = self.rule_engine.get_line_mapping(line_type)
-                    
+
                     # Process line to text
                     text_line = self._process_line_to_text(text_content, line_config)
-                    
+
                     if text_line:  # Only add non-empty lines
                         page_lines.append(text_line)
-            
+
             # Add page content if any
             if page_lines:
                 all_lines.extend(page_lines)
@@ -205,22 +210,27 @@ class AltoToTextConverter:
                     string_elem = textline.find('alto:String', self.alto_ns)
                     if string_elem is None:
                         continue
-                    
+
                     text_content = string_elem.get('CONTENT', '').strip()
                     if not text_content:
                         continue
-                    
+
                     # Get line type and text mapping
                     line_type = self.tei_converter.get_line_type(textline, tags_mapping)
+
+                    # Special handling: if line is in NumberingZone, treat as PageNumberLine
+                    if block_type == "NumberingZone":
+                        line_type = "PageNumberLine"
+
                     line_config = self.rule_engine.get_line_mapping(line_type)
-                    
+
                     # Skip lines marked for skipping
                     if line_config.get('text_format') == 'skip':
                         continue
-                    
+
                     # Get paragraph type, but also consider block type for zone separation
                     paragraph_type = line_config.get('paragraph_type', 'default')
-                    
+
                     # Special handling for paragraph_start: starts new paragraph, DefaultLine continues it
                     if paragraph_type == 'paragraph_start':
                         # Create unique paragraph group for each paragraph_start line
@@ -236,21 +246,21 @@ class AltoToTextConverter:
                         # Reset paragraph continuation for non-paragraph types
                         if paragraph_type not in ['paragraph', 'paragraph_start']:
                             current_paragraph_id = None
-                    
+
                     # Process line to text
                     text_line = self._process_line_to_text(text_content, line_config)
                     
                     if text_line:  # Only add non-empty lines
                         block_line_groups.append((paragraph_type_with_block, text_line))
-                
+
                 # Process this block's lines and add to overall collection
                 if block_line_groups:
                     block_merged_paragraphs = self._merge_line_groups(block_line_groups)
                     all_block_groups.extend(block_merged_paragraphs)
-        
+
         # Join all blocks with appropriate separation
         return self.rule_engine.get_paragraph_separator().join(all_block_groups)
-    
+
     def _process_line_to_text(self, text: str, config: Dict) -> Optional[str]:
         """Process a single line to text format"""
         
@@ -398,8 +408,7 @@ class AltoToTextConverter:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(text_content)
     
-    def process_all_alto_files(self, input_folder: str, output_folder: str, 
-                             suffix: str = "_txt") -> None:
+    def process_all_alto_files(self, input_folder: str, output_folder: str) -> None:
         """Process all ALTO files in a folder and convert to text"""
         
         input_path = Path(input_folder)
@@ -415,7 +424,7 @@ class AltoToTextConverter:
             print(f"No XML files found in {input_folder}")
             return
         
-        merge_status = "with line merging" if (self.merge_lines or self.rule_engine.should_merge_lines()) else "line-by-line"
+        merge_status = "merged" if (self.merge_lines or self.rule_engine.should_merge_lines()) else "lines"
         print(f"Converting {len(alto_files)} ALTO files to plain text ({merge_status})...")
         
         total_words = 0
@@ -430,7 +439,7 @@ class AltoToTextConverter:
                 total_words += word_count
                 
                 # Create output filename
-                output_filename = alto_file.stem + suffix + ".txt"
+                output_filename = alto_file.stem + "_" + merge_status + ".txt"
                 output_file = output_path / output_filename
                 
                 # Save text
@@ -482,7 +491,7 @@ def main():
     
     try:
         converter = AltoToTextConverter(args.config, merge_lines=args.merge_lines)
-        converter.process_all_alto_files(input_folder, output_folder, args.suffix)
+        converter.process_all_alto_files(input_folder, output_folder)
     except Exception as e:
         print(f"❌ Error: {e}")
         return 1
