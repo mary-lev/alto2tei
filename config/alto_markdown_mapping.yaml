@@ -53,12 +53,14 @@ line_types:
     markdown_format: "heading"
     template: "## {text}"
     standalone: true
+    paragraph_type: "heading"
     
   "CustomLine:paragraph_start":
     description: "Beginning of paragraph - starts a new paragraph group"
     markdown_format: "paragraph_start"
     template: "{text}"
     starts_paragraph: true
+    paragraph_type: "paragraph_start"
 
   "CustomLine:verse":
     description: "Poetry lines"
@@ -66,42 +68,49 @@ line_types:
     template: "> {text}"
     container: "poetry_block"
     container_separator: "\n"
+    paragraph_type: "verse"
 
   "CustomLine:speaker":
     description: "Speaker identification"
     markdown_format: "bold"
     template: "**{text}**"
     standalone: true
+    paragraph_type: "speaker"
 
   "CustomLine:onstage":
     description: "Stage directions or onstage text"
     markdown_format: "italic"
     template: "_{text}_"
     standalone: true
+    paragraph_type: "stage"
 
   "CustomLine:divider":
     description: "Divider or separator lines"
     markdown_format: "divider"
     template: "---"
     standalone: true
+    paragraph_type: "divider"
     
   "CustomLine:catchword":
     description: "Catchwords"
     markdown_format: "emphasis"
     template: "*{text}*"
     standalone: true
+    paragraph_type: "catchword"
 
   "CustomLine:signature":
     description: "Signatures"
     markdown_format: "code"
     template: "`{text}`"
     standalone: true
+    paragraph_type: "signature"
     
   DefaultLine:
     description: "Default line type"
     markdown_format: "paragraph"
     template: "{text}"
     add_to_paragraph: true
+    paragraph_type: "paragraph"
 
 # Markdown structure configuration
 markdown_structure:
@@ -110,6 +119,24 @@ markdown_structure:
   container_separator: "\n\n"
   preserve_line_breaks: true
   
+# Line merging configuration
+line_merging:
+  enabled: false                # Enable line merging within paragraphs
+  merge_paragraph_lines: true   # Merge consecutive lines of same paragraph type
+  merge_verse_lines: false      # Keep verse lines separate (poetry structure)
+  paragraph_separator: "\n\n"   # Separator between merged paragraphs
+  line_joiner: " "              # How to join lines within paragraphs
+  
+# Hyphenation handling
+hyphenation:
+  enabled: true                 # Enable dehyphenation
+  hyphen_patterns:              # Patterns that indicate hyphenation
+    - "-$"                      # Lines ending with hyphen
+    - "—$"                      # Lines ending with em-dash
+    - "–$"                      # Lines ending with en-dash
+  word_break_chars: ["-", "—", "–"]  # Characters to remove when joining
+  preserve_explicit_hyphens: true    # Keep hyphens that aren't word breaks
+
 # Page handling for markdown
 page_handling:
   include_page_breaks: true

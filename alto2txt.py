@@ -424,7 +424,7 @@ class AltoToTextConverter:
             print(f"No XML files found in {input_folder}")
             return
         
-        merge_status = "merged" if (self.merge_lines or self.rule_engine.should_merge_lines()) else "lines"
+        merge_status = "_para" if (self.merge_lines or self.rule_engine.should_merge_lines()) else ""
         print(f"Converting {len(alto_files)} ALTO files to plain text ({merge_status})...")
         
         total_words = 0
@@ -439,7 +439,7 @@ class AltoToTextConverter:
                 total_words += word_count
                 
                 # Create output filename
-                output_filename = alto_file.stem + "_" + merge_status + ".txt"
+                output_filename = alto_file.stem + merge_status + ".txt"
                 output_file = output_path / output_filename
                 
                 # Save text

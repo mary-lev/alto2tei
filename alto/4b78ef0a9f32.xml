@@ -22,6 +22,28 @@
                   VPOS="0"
                   WIDTH="1000"
                   HEIGHT="1800">
+        <TextBlock HPOS="291.0"
+                   VPOS="78.0"
+                   WIDTH="414.0"
+                   HEIGHT="93.0"
+                   ID="block_2"
+                   TAGREFS="BT134">
+          <Shape><Polygon POINTS="291 78 705 78 705 171 291 171"/></Shape>
+          <TextLine ID="line_33"
+                    TAGREFS="LT74"
+                    BASELINE="457 150 536 150" 
+                    HPOS="456"
+                    VPOS="100"
+                    WIDTH="78"
+                    HEIGHT="57">
+            <Shape><Polygon POINTS="456 157 534 157 534 150 534 106 524 100 522 100 521 100 519 100 456 106 456 150"/></Shape>
+	    <String CONTENT="41"
+                    HPOS="456"
+                    VPOS="100"
+                    WIDTH="78"
+                    HEIGHT="57"></String>
+          </TextLine>
+        </TextBlock>
         <TextBlock HPOS="24.0"
                    VPOS="190.0"
                    WIDTH="931.0"
@@ -71,20 +93,6 @@
                     WIDTH="893"
                     HEIGHT="75"></String>
           </TextLine>
-          <TextLine ID="line_4"
-                    TAGREFS="LT79"
-                    BASELINE="42 430 857 430" 
-                    HPOS="42"
-                    VPOS="364"
-                    WIDTH="815"
-                    HEIGHT="66">
-            <Shape><Polygon POINTS="42 364 857 364 857 430 42 430"/></Shape>
-	    <String CONTENT="Радости твои, сердце, пропали безвѣста:"
-                    HPOS="42"
-                    VPOS="364"
-                    WIDTH="815"
-                    HEIGHT="66"></String>
-          </TextLine>
           <TextLine ID="line_3"
                     TAGREFS="LT79"
                     BASELINE="799 388 935 388" 
@@ -98,6 +106,20 @@
                     VPOS="321"
                     WIDTH="136"
                     HEIGHT="67"></String>
+          </TextLine>
+          <TextLine ID="line_4"
+                    TAGREFS="LT79"
+                    BASELINE="42 430 857 430" 
+                    HPOS="42"
+                    VPOS="364"
+                    WIDTH="815"
+                    HEIGHT="66">
+            <Shape><Polygon POINTS="42 364 857 364 857 430 42 430"/></Shape>
+	    <String CONTENT="Радости твои, сердце, пропали безвѣста:"
+                    HPOS="42"
+                    VPOS="364"
+                    WIDTH="815"
+                    HEIGHT="66"></String>
           </TextLine>
           <TextLine ID="line_5"
                     TAGREFS="LT79"
@@ -281,20 +303,6 @@
                     WIDTH="892"
                     HEIGHT="57"></String>
           </TextLine>
-          <TextLine ID="line_19"
-                    TAGREFS="LT79"
-                    BASELINE="38 1066 932 1066" 
-                    HPOS="38"
-                    VPOS="1000"
-                    WIDTH="894"
-                    HEIGHT="66">
-            <Shape><Polygon POINTS="38 1000 932 1000 932 1066 38 1066"/></Shape>
-	    <String CONTENT="Ахъ! проклята, въ тебѣ ли мнѣ искать помоги:"
-                    HPOS="38"
-                    VPOS="1000"
-                    WIDTH="894"
-                    HEIGHT="66"></String>
-          </TextLine>
           <TextLine ID="line_18"
                     TAGREFS="LT79"
                     BASELINE="809 1023 927 1023" 
@@ -308,6 +316,20 @@
                     VPOS="965"
                     WIDTH="118"
                     HEIGHT="58"></String>
+          </TextLine>
+          <TextLine ID="line_19"
+                    TAGREFS="LT79"
+                    BASELINE="38 1066 932 1066" 
+                    HPOS="38"
+                    VPOS="1000"
+                    WIDTH="894"
+                    HEIGHT="66">
+            <Shape><Polygon POINTS="38 1000 932 1000 932 1066 38 1066"/></Shape>
+	    <String CONTENT="Ахъ! проклята, въ тебѣ ли мнѣ искать помоги:"
+                    HPOS="38"
+                    VPOS="1000"
+                    WIDTH="894"
+                    HEIGHT="66"></String>
           </TextLine>
           <TextLine ID="line_20"
                     TAGREFS="LT79"
@@ -463,20 +485,6 @@
                     WIDTH="909"
                     HEIGHT="78"></String>
           </TextLine>
-          <TextLine ID="line_32"
-                    TAGREFS="LT73"
-                    BASELINE="439 1673 534 1673" 
-                    HPOS="438"
-                    VPOS="1648"
-                    WIDTH="95"
-                    HEIGHT="42">
-            <Shape><Polygon POINTS="438 1672 439 1690 472 1683 531 1687 533 1672 533 1651 438 1648 438 1672"/></Shape>
-	    <String CONTENT="Б 9"
-                    HPOS="438"
-                    VPOS="1648"
-                    WIDTH="95"
-                    HEIGHT="42"></String>
-          </TextLine>
           <TextLine ID="line_31"
                     TAGREFS="LT72"
                     BASELINE="813 1663 933 1663" 
@@ -491,27 +499,19 @@
                     WIDTH="120"
                     HEIGHT="77"></String>
           </TextLine>
-        </TextBlock>
-        <TextBlock HPOS="291.0"
-                   VPOS="78.0"
-                   WIDTH="414.0"
-                   HEIGHT="93.0"
-                   ID="block_2"
-                   TAGREFS="BT134">
-          <Shape><Polygon POINTS="291 78 705 78 705 171 291 171"/></Shape>
-          <TextLine ID="line_33"
-                    TAGREFS="LT74"
-                    BASELINE="457 150 536 150" 
-                    HPOS="456"
-                    VPOS="100"
-                    WIDTH="78"
-                    HEIGHT="57">
-            <Shape><Polygon POINTS="456 157 534 157 534 150 534 106 524 100 522 100 521 100 519 100 456 106 456 150"/></Shape>
-	    <String CONTENT="41"
-                    HPOS="456"
-                    VPOS="100"
-                    WIDTH="78"
-                    HEIGHT="57"></String>
+          <TextLine ID="line_32"
+                    TAGREFS="LT73"
+                    BASELINE="439 1673 534 1673" 
+                    HPOS="438"
+                    VPOS="1648"
+                    WIDTH="95"
+                    HEIGHT="42">
+            <Shape><Polygon POINTS="438 1672 439 1690 472 1683 531 1687 533 1672 533 1651 438 1648 438 1672"/></Shape>
+	    <String CONTENT="Б 9"
+                    HPOS="438"
+                    VPOS="1648"
+                    WIDTH="95"
+                    HEIGHT="42"></String>
           </TextLine>
         </TextBlock>
       </PrintSpace>
