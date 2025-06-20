@@ -35,7 +35,11 @@ block_types:
     description: "Page number blocks"
     process_lines: false
     skip_content: true
-    extract_page_number: true    
+    extract_page_number: true
+    # Special rule: if this block contains signature lines, process them as content
+    process_special_lines:
+      - "CustomLine:signature"
+      - "CustomLine:catchword"    
   
   RunningTitleZone:
     description: "Running title blocks - preserved as form work"
@@ -55,7 +59,7 @@ block_types:
 line_types:
   HeadingLine:
     description: "Header lines"
-    element: "head"
+    tei_element: "head"
     attributes:
       rend: "header"
     closes:
@@ -65,15 +69,15 @@ line_types:
     
   "CustomLine:paragraph_start":
     description: "Beginning of paragraph - starts a new paragraph group"
-    start_paragraph: true
-    element: "p"
+    tei_element: "p"
+    action: "start_paragraph"
     closes:
       - "poetry"
 
     
   "CustomLine:verse":
     description: "Poetry lines"
-    element: "l"
+    tei_element: "l"
     container: "lg"
     container_attributes:
       type: "verse"
@@ -82,7 +86,7 @@ line_types:
 
   "CustomLine:speaker":
     description: "Speaker identification"
-    element: "speaker"
+    tei_element: "speaker"
     attributes:
       rend: "speaker"
     closes:
@@ -91,7 +95,7 @@ line_types:
 
   "CustomLine:onstage":
     description: "Stage directions or onstage text"
-    element: "stage"
+    tei_element: "stage"
     attributes:
       type: "onstage"
     closes:
@@ -101,7 +105,7 @@ line_types:
 
   "CustomLine:divider":
     description: "Divider or separator lines"
-    element: "milestone"
+    tei_element: "milestone"
     attributes:
       type: "divider"
       unit: "section"
@@ -112,7 +116,7 @@ line_types:
     
   "CustomLine:catchword":
     description: "Catchwords"
-    element: "fw"
+    tei_element: "fw"
     attributes:
       type: "catchword"
     closes:
@@ -122,7 +126,7 @@ line_types:
 
   "CustomLine:signature":
     description: "Signatures"
-    element: "fw"
+    tei_element: "fw"
     attributes:
       type: "signature"
     closes:
@@ -132,8 +136,8 @@ line_types:
     
   DefaultLine:
     description: "Default line type"
-    add_to_paragraph: true
-    fallback_element: "p"
+    tei_element: "p"
+    action: "add_to_paragraph"
   
 
 # Patterns for recognizing footnote symbols
@@ -258,6 +262,37 @@ element_creation:
   line_break:
     element: "lb"
     self_closing: true
+  
+  # Book-specific element creation rules
+  book_page_break:
+    element: "pb"
+    attributes:
+      n: "page_number"
+      facs: "facs_reference"  # Can be surface ID or image filename
+    supports_templates: true
+    
+  book_facsimile_surface:
+    element: "surface"
+    attributes:
+      xml:id: "surface_id"
+      lrx: "width"
+      lry: "height"
+    children:
+      - element: "graphic"
+        attributes:
+          url: "image_file"
+          
+  book_facsimile_zone:
+    element: "zone"
+    attributes:
+      xml:id: "zone_id"
+      ulx: "ulx"
+      uly: "uly"
+      lrx: "lrx"
+      lry: "lry"
+    optional_attributes:
+      baseline: "baseline"
+      points: "polygon"
 
 # TEI document structure settings
 tei_structure:
@@ -278,3 +313,56 @@ tei_structure:
     preserve_whitespace: false
     preserve_line_breaks: true  # Add <lb/> elements to preserve original line structure
     line_break_element: "lb"
+    
+# Book-specific processing configuration
+book_processing:
+  # Facsimile generation patterns
+  facsimile_patterns:
+    block_id: "facs_block_{page_number}_{block_index}"
+    line_id: "facs_line_{page_number}_{block_index}_{line_index}"
+    surface_id: "surface_{page_number}"
+    zone_reference: "#{zone_id}"
+    
+  # Page break configuration  
+  page_breaks:
+    element: "pb"
+    templates:
+      n_template: "{page_number}"
+      facs_template: "#{surface_id}"
+      facs_fallback: "{filename}.jpeg"
+      
+  # Cross-page content handling
+  cross_page_merging:
+    enabled: true
+    merge_paragraphs: true
+    preserve_line_structure: true
+    
+  # Book structure
+  structure:
+    create_book_div: true
+    div_type: "book"
+    header_title_template: "Book converted from ALTO (pages {first_page}-{last_page})"
+    
+  # Special processing rules for specific line types
+  special_line_detection:
+    signature_line_label: "CustomLine:signature"  # Look for this label in ALTO tags
+    catchword_line_label: "CustomLine:catchword"  # Could be used for catchwords too
+    
+  # Elements that should receive facsimile references
+  facsimile_eligible_elements:
+    - "p"
+    - "lg"
+    - "head"
+    - "fw"
+    - "div"
+    - "note"
+    
+  # Elements to skip during content processing
+  skip_elements:
+    - "pb"
+    - "{namespace}pb"
+    
+  # File format configuration
+  file_formats:
+    default_image_extension: ".jpeg"
+    alto_extension: ".xml"

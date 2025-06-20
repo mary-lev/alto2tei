@@ -68,6 +68,16 @@ class RuleEngine:
         block_config = self.block_types.get(block_type, {})
         return block_config.get('process_lines', False)
     
+    def get_special_lines_to_process(self, block_type: str) -> List[str]:
+        """Get list of special line types to process even in non-processing blocks"""
+        block_config = self.block_types.get(block_type, {})
+        return block_config.get('process_special_lines', [])
+    
+    def should_process_special_line(self, block_type: str, line_type: str) -> bool:
+        """Check if a special line type should be processed in this block type"""
+        special_lines = self.get_special_lines_to_process(block_type)
+        return line_type in special_lines
+    
     def should_skip_block(self, block_type: str) -> bool:
         """Check if a block type should be skipped entirely"""
         block_config = self.block_types.get(block_type, {})
@@ -145,6 +155,8 @@ class RuleEngine:
                 element.set(attr_name, kwargs['page_number'])
             elif attr_name == 'facs' and 'source_image' in kwargs:
                 element.set(attr_name, kwargs['source_image'])
+            elif attr_name == 'facs' and 'facs_reference' in kwargs:
+                element.set(attr_name, kwargs['facs_reference'])
             elif attr_name == 'type' and 'line_type' in kwargs and element_type == 'form_work':
                 # Handle form work type mappings
                 type_mappings = config.get('type_mappings', {})
@@ -162,6 +174,126 @@ class RuleEngine:
     def create_line_break(self) -> ET.Element:
         """Create a line break element"""
         return self.create_element('line_break')
+    
+    # Book-specific methods
+    def get_book_processing_config(self) -> Dict[str, Any]:
+        """Get book processing configuration"""
+        return self.config.config.get('book_processing', {})
+    
+    def get_facsimile_patterns(self) -> Dict[str, str]:
+        """Get facsimile ID generation patterns"""
+        return self.get_book_processing_config().get('facsimile_patterns', {})
+    
+    def get_page_break_config(self) -> Dict[str, Any]:
+        """Get page break configuration"""
+        return self.get_book_processing_config().get('page_breaks', {})
+    
+    def create_book_page_break(self, page_number: int, **kwargs) -> ET.Element:
+        """Create a page break element using book configuration"""
+        # Use enhanced create_element with book-specific logic
+        facs_ref = kwargs.get('facs_reference')
+        if not facs_ref and 'surface_id' in kwargs:
+            patterns = self.get_facsimile_patterns()
+            surface_pattern = patterns.get('surface_id', 'surface_{page_number}')
+            surface_id = surface_pattern.format(page_number=page_number)
+            facs_ref = f"#{surface_id}"
+        elif not facs_ref and 'filename' in kwargs:
+            # Fallback to filename-based reference
+            facs_ref = f"{kwargs['filename']}.jpeg"
+            
+        return self.create_element('book_page_break', 
+                                 page_number=str(page_number),
+                                 facs_reference=facs_ref)
+    
+    def generate_facsimile_id(self, id_type: str, page_number: int, **kwargs) -> str:
+        """Generate facsimile zone IDs using configured patterns"""
+        patterns = self.get_facsimile_patterns()
+        pattern = patterns.get(f"{id_type}_id", f"facs_{id_type}_{page_number}")
+        return pattern.format(page_number=page_number, **kwargs)
+    
+    def get_book_structure_config(self) -> Dict[str, Any]:
+        """Get book structure configuration"""
+        return self.get_book_processing_config().get('structure', {})
+    
+    def get_book_facsimile_config(self) -> Dict[str, Any]:
+        """Get book facsimile configuration from YAML"""
+        book_config = self.get_book_processing_config()
+        default_facsimile = {
+            'include_graphic': True,
+            'include_textblocks': True,
+            'include_textlines': True,
+            'include_strings': False,
+            'include_baselines': True,
+            'use_polygons': True
+        }
+        # Merge with book-specific facsimile config if available
+        facsimile_config = book_config.get('facsimile_config', {})
+        default_facsimile.update(facsimile_config)
+        return default_facsimile
+    
+    def get_output_config(self) -> Dict[str, Any]:
+        """Get output formatting configuration"""
+        return self.get_book_processing_config().get('output', {
+            'pretty_print': True,
+            'encoding': 'utf-8',
+            'xml_declaration': True,
+            'preserve_whitespace': False
+        })
+    
+    def get_special_line_detection_config(self) -> Dict[str, str]:
+        """Get special line detection configuration"""
+        return self.get_book_processing_config().get('special_line_detection', {})
+    
+    def find_tag_id_by_label(self, tags_mapping: Dict[str, str], target_label: str) -> Optional[str]:
+        """Find the tag ID that corresponds to a specific label"""
+        for tag_id, label in tags_mapping.items():
+            if label == target_label:
+                return tag_id
+        return None
+    
+    def get_facsimile_eligible_elements(self) -> List[str]:
+        """Get list of element types that should receive facsimile references"""
+        book_config = self.get_book_processing_config()
+        return book_config.get('facsimile_eligible_elements', ['p', 'lg', 'head', 'fw'])
+    
+    def get_skip_elements(self) -> List[str]:
+        """Get list of element types to skip during processing"""
+        book_config = self.get_book_processing_config()
+        return book_config.get('skip_elements', ['pb', '{namespace}pb'])
+    
+    def should_skip_element(self, element_tag: str, namespace: str = None) -> bool:
+        """Check if an element should be skipped during processing"""
+        skip_elements = self.get_skip_elements()
+        
+        # Check direct tag name
+        if element_tag in skip_elements:
+            return True
+            
+        # Check namespace-qualified tags
+        if namespace:
+            namespaced_tag = f'{{{namespace}}}{element_tag.split("}")[-1]}'
+            if namespaced_tag in skip_elements:
+                return True
+                
+        # Check namespace placeholder patterns
+        tag_without_namespace = element_tag.split("}")[-1] if "}" in element_tag else element_tag
+        namespace_pattern = "{namespace}" + tag_without_namespace
+        if namespace_pattern in skip_elements:
+            return True
+            
+        return False
+    
+    def is_block_type(self, actual_block_type: str, expected_block_type: str) -> bool:
+        """Check if a block type matches expected type (case-insensitive)"""
+        return actual_block_type.lower() == expected_block_type.lower()
+    
+    def get_file_formats_config(self) -> Dict[str, str]:
+        """Get file format configuration"""
+        book_config = self.get_book_processing_config()
+        return book_config.get('file_formats', {
+            'default_image_extension': '.jpeg',
+            'alto_extension': '.xml'
+        })
     
     def _validate_configuration(self) -> None:
         """Validate YAML configuration for common errors"""

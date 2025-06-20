@@ -13,54 +13,45 @@
       </sourceDesc>
     </fileDesc>
   </teiHeader>
-  <facsimile>
-    <surface>
-      <graphic url="c744d9029bcd.jpeg" />
-      <zone xml:id="tl1" ulx="93" uly="93" lrx="168" lry="135" />
-      <zone xml:id="tl2" ulx="79" uly="233" lrx="1638" lry="302" />
-      <zone xml:id="tl3" ulx="82" uly="324" lrx="1637" lry="386" />
-      <zone xml:id="tl4" ulx="81" uly="403" lrx="1640" lry="475" />
-      <zone xml:id="tl5" ulx="82" uly="495" lrx="1636" lry="558" />
-      <zone xml:id="tl6" ulx="80" uly="584" lrx="1046" lry="641" />
-      <zone xml:id="tl7" ulx="219" uly="672" lrx="1286" lry="744" />
-      <zone xml:id="tl8" ulx="77" uly="756" lrx="1642" lry="841" />
-      <zone xml:id="tl9" ulx="86" uly="853" lrx="1619" lry="915" />
-      <zone xml:id="tl10" ulx="527" uly="1064" lrx="1186" lry="1132" />
-      <zone xml:id="tl11" ulx="272" uly="1144" lrx="1195" lry="1245" />
-      <zone xml:id="tl12" ulx="75" uly="1268" lrx="1054" lry="1331" />
-      <zone xml:id="tl13" ulx="78" uly="1345" lrx="1624" lry="1452" />
-      <zone xml:id="tl14" ulx="72" uly="1439" lrx="1002" lry="1535" />
-      <zone xml:id="tl15" ulx="314" uly="1523" lrx="1227" lry="1610" />
-      <zone xml:id="tl16" ulx="79" uly="1634" lrx="1623" lry="1705" />
-      <zone xml:id="tl17" ulx="69" uly="1722" lrx="1131" lry="1794" />
-      <zone xml:id="tl18" ulx="315" uly="1808" lrx="1035" lry="1892" />
-      <zone xml:id="tl19" ulx="209" uly="1926" lrx="1626" lry="1997" />
-      <zone xml:id="tl20" ulx="67" uly="2018" lrx="1227" lry="2083" />
-      <zone xml:id="tl21" ulx="71" uly="2117" lrx="1606" lry="2194" />
-      <zone xml:id="tl22" ulx="107" uly="2214" lrx="1630" lry="2288" />
-      <zone xml:id="tl23" ulx="63" uly="2309" lrx="1619" lry="2372" />
-      <zone xml:id="tl24" ulx="63" uly="2397" lrx="1619" lry="2456" />
-      <zone xml:id="tl25" ulx="72" uly="2489" lrx="1047" lry="2551" />
-      <zone xml:id="tl26" ulx="1065" uly="2564" lrx="1617" lry="2622" />
-    </surface>
-  </facsimile>
   <text>
     <body>
       <pb n="46" facs="c744d9029bcd.jpeg" />
-      <p facs="#tl2">вѣрьте мнѣ; женидьба такихъ свойствъ<lb facs="#tl3" />человѣку, какъ вы, очень не пристала.<lb facs="#tl4" />Она полна безпокойствъ, и приключаетъ<lb facs="#tl5" />часто опасныя слѣдствія, которыя мо-<lb facs="#tl6" />гутъ васъ безпокоить.</p>
-      <speaker rend="speaker" facs="#tl7">Дулѣетъ.</speaker>
-      <p facs="#tl8">Правда, мнѣ самому кажется также.<lb facs="#tl9" />А гдѣ мой слуга съ носилками?</p>
-      <head rend="header" facs="#tl10">ЯВЛЕНІЕ 12.</head>
-      <stage type="onstage" facs="#tl11">Тѣжъ и Жасменъ.</stage>
-      <speaker rend="speaker" facs="#tl12">Жасменъ.</speaker>
-      <p facs="#tl13">Они въ передней, прикажетель имъ<lb facs="#tl14" />сюда войти?</p>
-      <speaker rend="speaker" facs="#tl15">Дульетъ.</speaker>
-      <p facs="#tl16">Добро! я ужъ приму трудъ до пе-<lb facs="#tl17" />редней-то самъ дойти.</p>
-      <speaker rend="speaker" facs="#tl18">Кларина.</speaker>
-      <p facs="#tl19">И вѣдомо, хоть изрѣдка движеніе<lb facs="#tl20" />надобно дѣлать для здоровья.</p>
-      <speaker rend="speaker" facs="#tl21">Дулѣетъ (филандеру).</speaker>
-      <p facs="#tl22">Государь мой! я вашъ слуга. (Аминтѣ)<lb facs="#tl23" />Ежели вашей дочери мужъ надобенъ, ко-<lb facs="#tl24" />торой бы работалъ, такъ я вамъ тако-<lb facs="#tl25" />го и желаю.</p>
-      <p facs="#tl26">(отходитъ.)</p>
+      <p>вѣрьте мнѣ; женидьба такихъ свойствъ
+      <lb />
+      человѣку, какъ вы, очень не пристала.
+      <lb />
+      Она полна безпокойствъ, и приключаетъ
+      <lb />
+      часто опасныя слѣдствія, которыя мо-
+      <lb />
+      гутъ васъ безпокоить.</p>
+      <speaker rend="speaker">Дулѣетъ.</speaker>
+      <p>Правда, мнѣ самому кажется также.
+      <lb />
+      А гдѣ мой слуга съ носилками?</p>
+      <head rend="header">ЯВЛЕНІЕ 12.</head>
+      <stage type="onstage">Тѣжъ и Жасменъ.</stage>
+      <speaker rend="speaker">Жасменъ.</speaker>
+      <p>Они въ передней, прикажетель имъ
+      <lb />
+      сюда войти?</p>
+      <speaker rend="speaker">Дульетъ.</speaker>
+      <p>Добро! я ужъ приму трудъ до пе-
+      <lb />
+      редней-то самъ дойти.</p>
+      <speaker rend="speaker">Кларина.</speaker>
+      <p>И вѣдомо, хоть изрѣдка движеніе
+      <lb />
+      надобно дѣлать для здоровья.</p>
+      <speaker rend="speaker">Дулѣетъ (филандеру).</speaker>
+      <p>Государь мой! я вашъ слуга. (Аминтѣ)
+      <lb />
+      Ежели вашей дочери мужъ надобенъ, ко-
+      <lb />
+      торой бы работалъ, такъ я вамъ тако-
+      <lb />
+      го и желаю.</p>
+      <p>(отходитъ.)</p>
       <fw type="catchword">Фи-</fw>
     </body>
   </text>

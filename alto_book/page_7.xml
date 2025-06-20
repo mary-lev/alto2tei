@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.loc.gov/standards/alto/ns-v4#"
+      xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-2.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>page_7.jpg</fileName>
+    </sourceImageInformation>
+  </Description>
+  <Tags>
+    <OtherTag ID="BT80" LABEL="NumberingZone" DESCRIPTION="block type NumberingZone"/><OtherTag ID="BT79" LABEL="GraphicZone" DESCRIPTION="block type GraphicZone"/><OtherTag ID="BT82" LABEL="RunningTitleZone" DESCRIPTION="block type RunningTitleZone"/><OtherTag ID="BT2" LABEL="MainZone" DESCRIPTION="block type MainZone"/><OtherTag ID="BT81" LABEL="MarginTextZone:note" DESCRIPTION="block type MarginTextZone:note"/><OtherTag ID="BT144" LABEL="QuireMarksZone:signature" DESCRIPTION="block type QuireMarksZone:signature"/><OtherTag ID="BT50" LABEL="QuireMarksZone:catchwords" DESCRIPTION="block type QuireMarksZone:catchwords"/>
+    <OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT49" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT50" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/>
+  </Tags>
+  <Layout>
+    <Page WIDTH="1500"
+          HEIGHT="2800"
+          PHYSICAL_IMG_NR="6"
+          ID="eSc_dummypage_">
+      <PrintSpace HPOS="0"
+                  VPOS="0"
+                  WIDTH="1500"
+                  HEIGHT="2800">
+        <TextBlock HPOS="84.0"
+                   VPOS="498.0"
+                   WIDTH="1249.0"
+                   HEIGHT="1644.0"
+                   ID="block_1"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="84 498 1333 498 1333 2142 84 2142"/></Shape>
+          <TextLine ID="line_4"
+                    TAGREFS="LT77"
+                    BASELINE="624 728 801 728" 
+                    HPOS="624"
+                    VPOS="657"
+                    WIDTH="177"
+                    HEIGHT="71">
+            <Shape><Polygon POINTS="624 657 801 657 801 728 624 728"/></Shape>
+	    <String CONTENT="ЕЯ"
+                    HPOS="624"
+                    VPOS="657"
+                    WIDTH="177"
+                    HEIGHT="71"></String>
+          </TextLine>
+          <TextLine ID="line_1"
+                    TAGREFS="LT74"
+                    BASELINE="157 967 1298 967" 
+                    HPOS="157"
+                    VPOS="882"
+                    WIDTH="1141"
+                    HEIGHT="85">
+            <Shape><Polygon POINTS="157 882 1298 882 1298 967 157 967"/></Shape>
+	    <String CONTENT="ПРЕВОСХОДИТЕЛЬСТВУ"
+                    HPOS="157"
+                    VPOS="882"
+                    WIDTH="1141"
+                    HEIGHT="85"></String>
+          </TextLine>
+          <TextLine ID="line_0"
+                    TAGREFS="LT74"
+                    BASELINE="188 1200 1280 1200" 
+                    HPOS="188"
+                    VPOS="1110"
+                    WIDTH="1092"
+                    HEIGHT="90">
+            <Shape><Polygon POINTS="188 1110 1280 1110 1280 1200 188 1200"/></Shape>
+	    <String CONTENT="милостивой государынѣ"
+                    HPOS="188"
+                    VPOS="1110"
+                    WIDTH="1092"
+                    HEIGHT="90"></String>
+          </TextLine>
+          <TextLine ID="line_2"
+                    TAGREFS="LT74"
+                    BASELINE="147 1470 1355 1470" 
+                    HPOS="147"
+                    VPOS="1353"
+                    WIDTH="1208"
+                    HEIGHT="117">
+            <Shape><Polygon POINTS="147 1353 1355 1353 1355 1470 147 1470"/></Shape>
+	    <String CONTENT="ПАЛАГЬЕ ИВАНОВНЪ"
+                    HPOS="147"
+                    VPOS="1353"
+                    WIDTH="1208"
+                    HEIGHT="117"></String>
+          </TextLine>
+          <TextLine ID="line_3"
+                    TAGREFS="LT74"
+                    BASELINE="208 1771 1276 1771" 
+                    HPOS="208"
+                    VPOS="1602"
+                    WIDTH="1068"
+                    HEIGHT="169">
+            <Shape><Polygon POINTS="208 1602 1276 1602 1276 1771 208 1771"/></Shape>
+	    <String CONTENT="ЧЕРТКОВОЙ."
+                    HPOS="208"
+                    VPOS="1602"
+                    WIDTH="1068"
+                    HEIGHT="169"></String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock HPOS="188.0"
+                   VPOS="1110.0"
+                   WIDTH="1092.0"
+                   HEIGHT="90.0"
+                   ID="block_0"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="188 1110 1280 1110 1280 1200 188 1200"/></Shape>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

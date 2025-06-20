@@ -1,0 +1,99 @@
+# ALTO to TEI Book Conversion Configuration
+# This file defines how entire books are converted from ALTO XML to TEI format
+# Extends the basic ALTO-TEI mapping with book-specific features
+
+metadata:
+  version: "1.0"
+  description: "ALTO to TEI book conversion rules"
+  format: "complete_book"
+
+# Inherit basic block and line type mappings from alto_tei_mapping.yaml
+# This configuration extends those rules with book-specific handling
+
+# Book structure configuration
+book_structure:
+  # How to handle the overall book organization
+  create_book_div: true              # Wrap content in <div type="book">
+  include_page_breaks: true          # Insert <pb/> elements between pages
+  page_break_element: "pb"           # Element name for page breaks
+  page_break_attributes:             # Attributes for page break elements
+    facs_template: "{filename}.jpeg" # Template for facs attribute
+    n_template: "{page_number}"      # Template for n attribute
+  
+  # TEI header configuration
+  generate_header: true              # Create comprehensive TEI header
+  header_title_template: "Book converted from ALTO (pages {first_page}-{last_page})"
+  include_source_info: true          # Include source file information
+
+# Cross-page content handling
+cross_page_handling:
+  enabled: true                     # Enable cross-page content merging (future feature)
+  merge_split_paragraphs: true      # Merge paragraphs split across pages
+  handle_hyphenated_words: true     # Join hyphenated words across page boundaries
+  preserve_line_breaks: false        # Maintain original line structure
+  
+  # Patterns for detecting content continuation
+  paragraph_continuation_patterns:
+    - "^[a-zа-я]"                   # Lines starting with lowercase (continuation)
+    - "^[^A-ZА-Я§¶]"               # Lines not starting with capitals or section marks
+  
+  # Word break patterns for cross-page hyphenation
+  hyphen_patterns:
+    - "-$"                          # Lines ending with hyphen
+    - "—$"                          # Lines ending with em-dash
+    - "–$"                          # Lines ending with en-dash
+
+# Metadata extraction from first few pages
+metadata_extraction:
+  extract_from_pages: 3             # Number of initial pages to scan for metadata
+  title_sources:                    # Sources for extracting book title
+    - "HeadingLine"
+    - "RunningTitleZone"
+  author_sources:                   # Sources for extracting author information
+    - "HeadingLine"
+  date_sources:                     # Sources for extracting publication dates
+    - "NumberingZone"
+    - "HeadingLine"
+  
+  # Patterns for metadata recognition
+  title_patterns:
+    - "^[A-ZА-Я][A-ZА-Я\\s]{10,}"  # Long uppercase text (likely titles)
+  author_patterns:
+    - "Соч\\."                      # "Сочинение" (work/composition)
+    - "Авт\\."                      # "Автор" (author)
+
+# Quality control and validation
+validation:
+  check_page_sequence: true         # Verify page numbers are sequential
+  warn_missing_pages: true          # Warn about gaps in page sequence
+  validate_cross_references: false  # Check footnote and reference consistency (future)
+  
+# Facsimile configuration
+facsimile:
+  # Enable/disable facsimile section generation
+  enabled: true
+  
+  # Include graphic elements in surfaces
+  include_graphic: true
+  
+  # Zone types to include
+  include_textblocks: true
+  include_textlines: true
+  include_strings: false  # Word-level zones (creates large files)
+  
+  # Additional spatial information
+  include_baselines: true  # Baseline coordinates for textlines
+  use_polygons: true      # Precise polygon boundaries when available
+  
+  # Linking configuration (for future enhancement)
+  linking:
+    paragraphs_to_textblocks: true
+    lines_to_textlines: true
+    page_breaks_to_surfaces: true
+
+# Output formatting
+output:
+  pretty_print: true                # Format XML with proper indentation
+  encoding: "utf-8"                 # Output file encoding
+  xml_declaration: true             # Include XML declaration
+  preserve_whitespace: false        # Normalize whitespace in text content

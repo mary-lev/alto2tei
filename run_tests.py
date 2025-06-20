@@ -11,13 +11,24 @@ Usage:
 
 import sys
 import argparse
-from test_alto2tei import run_tests
 import unittest
-from test_alto2tei import (
+from pathlib import Path
+
+# Add tests directory to path
+sys.path.insert(0, str(Path(__file__).parent / 'tests'))
+
+from tests.test_alto2tei import run_tests
+from tests.test_alto2teibook import run_book_tests
+from tests.test_alto2tei import (
     TestConfigurationLoader, TestRuleEngine, TestTagParsing, 
     TestLineProcessing, TestTextBlockConversion, TestMultipleParagraphs,
     TestRealWorldMultipleParagraphs, TestIntegration,
     TestErrorHandling, TestRegressionFixes
+)
+from tests.test_alto2teibook import (
+    TestMetsParser, TestAltoBookToTeiConverter, TestBookConversionIntegration,
+    TestLineMergingFunctionality, TestEdgeCasesAndErrorHandling,
+    TestCLIArgumentParsing, TestBookConfiguration
 )
 
 
@@ -40,6 +51,7 @@ def main():
     parser.add_argument('--unit', action='store_true', help='Run unit tests only')
     parser.add_argument('--integration', action='store_true', help='Run integration tests only')
     parser.add_argument('--quick', action='store_true', help='Run quick tests (no integration)')
+    parser.add_argument('--book', action='store_true', help='Run alto2teibook tests only')
     parser.add_argument('--verbose', '-v', action='store_true', help='Verbose output')
     
     args = parser.parse_args()
@@ -48,13 +60,17 @@ def main():
         print("🧪 Running Unit Tests...")
         test_classes = [
             TestConfigurationLoader, TestRuleEngine, TestTagParsing,
-            TestLineProcessing, TestTextBlockConversion, TestMultipleParagraphs
+            TestLineProcessing, TestTextBlockConversion, TestMultipleParagraphs,
+            TestMetsParser, TestAltoBookToTeiConverter
         ]
         success = run_test_category(test_classes, args.verbose)
         
     elif args.integration:
         print("🔗 Running Integration Tests...")
-        test_classes = [TestIntegration, TestRealWorldMultipleParagraphs]
+        test_classes = [
+            TestIntegration, TestRealWorldMultipleParagraphs,
+            TestBookConversionIntegration, TestLineMergingFunctionality
+        ]
         success = run_test_category(test_classes, args.verbose)
         
     elif args.quick:
@@ -62,13 +78,23 @@ def main():
         test_classes = [
             TestConfigurationLoader, TestRuleEngine, TestTagParsing,
             TestLineProcessing, TestTextBlockConversion, TestMultipleParagraphs,
-            TestErrorHandling, TestRegressionFixes
+            TestErrorHandling, TestRegressionFixes,
+            TestMetsParser, TestAltoBookToTeiConverter, TestCLIArgumentParsing
         ]
         success = run_test_category(test_classes, args.verbose)
         
+    elif args.book:
+        print("📚 Running Alto2TeiBook Tests...")
+        success = run_book_tests()
+        
     else:
         print("🚀 Running All Tests...")
-        success = run_tests()
+        # Run both test suites
+        print("\n📄 Running alto2tei tests...")
+        success1 = run_tests()
+        print("\n📚 Running alto2teibook tests...")
+        success2 = run_book_tests()
+        success = success1 and success2
     
     if success:
         print("✅ All tests passed!")

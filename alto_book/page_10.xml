@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.loc.gov/standards/alto/ns-v4#"
+      xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-2.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>page_10.jpg</fileName>
+    </sourceImageInformation>
+  </Description>
+  <Tags>
+    <OtherTag ID="BT80" LABEL="NumberingZone" DESCRIPTION="block type NumberingZone"/><OtherTag ID="BT79" LABEL="GraphicZone" DESCRIPTION="block type GraphicZone"/><OtherTag ID="BT82" LABEL="RunningTitleZone" DESCRIPTION="block type RunningTitleZone"/><OtherTag ID="BT2" LABEL="MainZone" DESCRIPTION="block type MainZone"/><OtherTag ID="BT81" LABEL="MarginTextZone:note" DESCRIPTION="block type MarginTextZone:note"/><OtherTag ID="BT144" LABEL="QuireMarksZone:signature" DESCRIPTION="block type QuireMarksZone:signature"/><OtherTag ID="BT50" LABEL="QuireMarksZone:catchwords" DESCRIPTION="block type QuireMarksZone:catchwords"/>
+    <OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT49" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT50" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/>
+  </Tags>
+  <Layout>
+    <Page WIDTH="1500"
+          HEIGHT="2800"
+          PHYSICAL_IMG_NR="9"
+          ID="eSc_dummypage_">
+      <PrintSpace HPOS="0"
+                  VPOS="0"
+                  WIDTH="1500"
+                  HEIGHT="2800">
+        <TextBlock HPOS="131.0"
+                   VPOS="1387.0"
+                   WIDTH="1303.0"
+                   HEIGHT="1134.0"
+                   ID="block_1"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="131 1387 1434 1387 1434 2521 131 2521"/></Shape>
+          <TextLine ID="line_3"
+                    TAGREFS="LT74"
+                    BASELINE="187 1501 1432 1501" 
+                    HPOS="187"
+                    VPOS="1427"
+                    WIDTH="1245"
+                    HEIGHT="74">
+            <Shape><Polygon POINTS="187 1427 1432 1427 1432 1501 187 1501"/></Shape>
+	    <String CONTENT="дарности и почтенiя, съ како-"
+                    HPOS="187"
+                    VPOS="1427"
+                    WIDTH="1245"
+                    HEIGHT="74"></String>
+          </TextLine>
+          <TextLine ID="line_1"
+                    TAGREFS="LT74"
+                    BASELINE="190 1612 1125 1612" 
+                    HPOS="190"
+                    VPOS="1551"
+                    WIDTH="935"
+                    HEIGHT="61">
+            <Shape><Polygon POINTS="190 1551 1125 1551 1125 1612 190 1612"/></Shape>
+	    <String CONTENT="вымъ навсегда останется"
+                    HPOS="190"
+                    VPOS="1551"
+                    WIDTH="935"
+                    HEIGHT="61"></String>
+          </TextLine>
+          <TextLine ID="line_0"
+                    TAGREFS="LT77"
+                    BASELINE="312 1835 1418 1835" 
+                    HPOS="312"
+                    VPOS="1762"
+                    WIDTH="1106"
+                    HEIGHT="73">
+            <Shape><Polygon POINTS="312 1762 1418 1762 1418 1835 312 1835"/></Shape>
+	    <String CONTENT="вашего Превосходительства"
+                    HPOS="312"
+                    VPOS="1762"
+                    WIDTH="1106"
+                    HEIGHT="73"></String>
+          </TextLine>
+          <TextLine ID="line_2"
+                    TAGREFS="LT74"
+                    BASELINE="448 1989 1416 1989" 
+                    HPOS="448"
+                    VPOS="1919"
+                    WIDTH="968"
+                    HEIGHT="70">
+            <Shape><Polygon POINTS="448 1919 1416 1919 1416 1989 448 1989"/></Shape>
+	    <String CONTENT="Милостивой Государыни"
+                    HPOS="448"
+                    VPOS="1919"
+                    WIDTH="968"
+                    HEIGHT="70"></String>
+          </TextLine>
+          <TextLine ID="line_4"
+                    TAGREFS="LT74"
+                    BASELINE="637 2222 1358 2222" 
+                    HPOS="637"
+                    VPOS="2155"
+                    WIDTH="721"
+                    HEIGHT="67">
+            <Shape><Polygon POINTS="637 2155 1358 2155 1358 2222 637 2222"/></Shape>
+	    <String CONTENT="Всепокорнѣйшїй слуга"
+                    HPOS="637"
+                    VPOS="2155"
+                    WIDTH="721"
+                    HEIGHT="67"></String>
+          </TextLine>
+          <TextLine ID="eSc_line_1f4e01a2"
+                    TAGREFS="LT74"
+                    BASELINE="889 2438 1142 2438" 
+                    HPOS="887"
+                    VPOS="2347"
+                    WIDTH="253"
+                    HEIGHT="133">
+            <Shape><Polygon POINTS="887 2480 1140 2466 1140 2436 1140 2349 1063 2347 1060 2347 1058 2347 1039 2356 1025 2366 1016 2359 1000 2347 997 2347 995 2347 992 2347 990 2347 957 2363 948 2370 887 2370 887 2436"/></Shape>
+	    <String CONTENT="И. С."
+                    HPOS="887"
+                    VPOS="2347"
+                    WIDTH="253"
+                    HEIGHT="133"></String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock HPOS="312.0"
+                   VPOS="1762.0"
+                   WIDTH="1106.0"
+                   HEIGHT="73.0"
+                   ID="block_0"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="312 1762 1418 1762 1418 1835 312 1835"/></Shape>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

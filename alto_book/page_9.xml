@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.loc.gov/standards/alto/ns-v4#"
+      xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-2.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>page_9.jpg</fileName>
+    </sourceImageInformation>
+  </Description>
+  <Tags>
+    <OtherTag ID="BT80" LABEL="NumberingZone" DESCRIPTION="block type NumberingZone"/><OtherTag ID="BT79" LABEL="GraphicZone" DESCRIPTION="block type GraphicZone"/><OtherTag ID="BT82" LABEL="RunningTitleZone" DESCRIPTION="block type RunningTitleZone"/><OtherTag ID="BT2" LABEL="MainZone" DESCRIPTION="block type MainZone"/><OtherTag ID="BT81" LABEL="MarginTextZone:note" DESCRIPTION="block type MarginTextZone:note"/><OtherTag ID="BT144" LABEL="QuireMarksZone:signature" DESCRIPTION="block type QuireMarksZone:signature"/><OtherTag ID="BT50" LABEL="QuireMarksZone:catchwords" DESCRIPTION="block type QuireMarksZone:catchwords"/>
+    <OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT49" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT50" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/>
+  </Tags>
+  <Layout>
+    <Page WIDTH="1500"
+          HEIGHT="2800"
+          PHYSICAL_IMG_NR="8"
+          ID="eSc_dummypage_">
+      <PrintSpace HPOS="0"
+                  VPOS="0"
+                  WIDTH="1500"
+                  HEIGHT="2800">
+        <TextBlock HPOS="174.0"
+                   VPOS="351.0"
+                   WIDTH="1165.0"
+                   HEIGHT="86.0"
+                   ID="block_0"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="174 351 1339 351 1339 437 174 437"/></Shape>
+          <TextLine ID="line_0"
+                    TAGREFS="LT77"
+                    BASELINE="174 437 1339 437" 
+                    HPOS="174"
+                    VPOS="351"
+                    WIDTH="1165"
+                    HEIGHT="86">
+            <Shape><Polygon POINTS="174 351 1339 351 1339 437 174 437"/></Shape>
+	    <String CONTENT="МИЛОСТИВАЯ ГОСУДАРЫНЯ!"
+                    HPOS="174"
+                    VPOS="351"
+                    WIDTH="1165"
+                    HEIGHT="86"></String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock HPOS="71.0"
+                   VPOS="1195.0"
+                   WIDTH="1302.0"
+                   HEIGHT="1281.0"
+                   ID="block_1"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="71 1195 1373 1195 1373 2476 71 2476"/></Shape>
+          <TextLine ID="line_4"
+                    TAGREFS="LT77"
+                    BASELINE="177 1469 1341 1469" 
+                    HPOS="177"
+                    VPOS="1397"
+                    WIDTH="1164"
+                    HEIGHT="72">
+            <Shape><Polygon POINTS="177 1397 1341 1397 1341 1469 177 1469"/></Shape>
+	    <String CONTENT="Чувствуемая мною благодар-"
+                    HPOS="177"
+                    VPOS="1397"
+                    WIDTH="1164"
+                    HEIGHT="72"></String>
+          </TextLine>
+          <TextLine ID="line_5"
+                    TAGREFS="LT74"
+                    BASELINE="117 1589 1350 1589" 
+                    HPOS="117"
+                    VPOS="1519"
+                    WIDTH="1233"
+                    HEIGHT="70">
+            <Shape><Polygon POINTS="117 1519 1350 1519 1350 1589 117 1589"/></Shape>
+	    <String CONTENT="ность за оказанныя Вами и се-"
+                    HPOS="117"
+                    VPOS="1519"
+                    WIDTH="1233"
+                    HEIGHT="70"></String>
+          </TextLine>
+          <TextLine ID="line_1"
+                    TAGREFS="LT74"
+                    BASELINE="114 1707 1348 1707" 
+                    HPOS="114"
+                    VPOS="1633"
+                    WIDTH="1234"
+                    HEIGHT="74">
+            <Shape><Polygon POINTS="114 1633 1348 1633 1348 1707 114 1707"/></Shape>
+	    <String CONTENT="мействомъ Вашимъ благодѣянiя,"
+                    HPOS="114"
+                    VPOS="1633"
+                    WIDTH="1234"
+                    HEIGHT="74"></String>
+          </TextLine>
+          <TextLine ID="line_8"
+                    TAGREFS="LT74"
+                    BASELINE="110 1820 1353 1820" 
+                    HPOS="110"
+                    VPOS="1752"
+                    WIDTH="1243"
+                    HEIGHT="68">
+            <Shape><Polygon POINTS="110 1752 1353 1752 1353 1820 110 1820"/></Shape>
+	    <String CONTENT="понудила меня маловажной пере-"
+                    HPOS="110"
+                    VPOS="1752"
+                    WIDTH="1243"
+                    HEIGHT="68"></String>
+          </TextLine>
+          <TextLine ID="line_2"
+                    TAGREFS="LT74"
+                    BASELINE="113 1939 1356 1939" 
+                    HPOS="113"
+                    VPOS="1865"
+                    WIDTH="1243"
+                    HEIGHT="74">
+            <Shape><Polygon POINTS="113 1865 1356 1865 1356 1939 113 1939"/></Shape>
+	    <String CONTENT="водъ сей книжки посвятить Особѣ"
+                    HPOS="113"
+                    VPOS="1865"
+                    WIDTH="1243"
+                    HEIGHT="74"></String>
+          </TextLine>
+          <TextLine ID="line_9"
+                    TAGREFS="LT74"
+                    BASELINE="113 2055 1060 2055" 
+                    HPOS="113"
+                    VPOS="1985"
+                    WIDTH="947"
+                    HEIGHT="70">
+            <Shape><Polygon POINTS="113 1985 1060 1985 1060 2055 113 2055"/></Shape>
+	    <String CONTENT="Вашего Превосходительства."
+                    HPOS="113"
+                    VPOS="1985"
+                    WIDTH="947"
+                    HEIGHT="70"></String>
+          </TextLine>
+          <TextLine ID="line_3"
+                    TAGREFS="LT77"
+                    BASELINE="208 2202 1348 2202" 
+                    HPOS="208"
+                    VPOS="2126"
+                    WIDTH="1140"
+                    HEIGHT="76">
+            <Shape><Polygon POINTS="208 2126 1348 2126 1348 2202 208 2202"/></Shape>
+	    <String CONTENT="Удостойте, Милостивая Госу-"
+                    HPOS="208"
+                    VPOS="2126"
+                    WIDTH="1140"
+                    HEIGHT="76"></String>
+          </TextLine>
+          <TextLine ID="line_7"
+                    TAGREFS="LT74"
+                    BASELINE="113 2322 1350 2322" 
+                    HPOS="113"
+                    VPOS="2246"
+                    WIDTH="1237"
+                    HEIGHT="76">
+            <Shape><Polygon POINTS="113 2246 1350 2246 1350 2322 113 2322"/></Shape>
+	    <String CONTENT="дарыня! благосклонно принять"
+                    HPOS="113"
+                    VPOS="2246"
+                    WIDTH="1237"
+                    HEIGHT="76"></String>
+          </TextLine>
+          <TextLine ID="line_6"
+                    TAGREFS="LT74"
+                    BASELINE="117 2439 1356 2439" 
+                    HPOS="117"
+                    VPOS="2361"
+                    WIDTH="1239"
+                    HEIGHT="78">
+            <Shape><Polygon POINTS="117 2361 1356 2361 1356 2439 117 2439"/></Shape>
+	    <String CONTENT="оной знакомъ моей къ Вамъ благо-"
+                    HPOS="117"
+                    VPOS="2361"
+                    WIDTH="1239"
+                    HEIGHT="78"></String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock HPOS="136.0"
+                   VPOS="0.0"
+                   WIDTH="1229.0"
+                   HEIGHT="546.0"
+                   ID="block_2"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="136 0 1365 0 1365 546 136 546"/></Shape>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

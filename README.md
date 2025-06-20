@@ -1,6 +1,19 @@
 # ALTO-to-TEI Converter
 
-A Python tool for converting eScriptorium ALTO XML files to TEI (Text Encoding Initiative) format, with support for the **Segmonto ontology** for document structure classification.
+A comprehensive Python toolkit for converting eScriptorium ALTO XML files to TEI (Text Encoding Initiative) format, with support for the **Segmonto ontology** for document structure classification.
+
+## Two Conversion Modes
+
+**📄 Page-Level Converter (`alto2tei.py`)**
+- Converts individual ALTO files to corresponding TEI files
+- Preserves original document structure and line breaks
+- Ideal for analyzing individual pages or small collections
+
+**📚 Book-Level Converter (`alto2teibook.py`)**
+- Converts entire books using METS.xml for page ordering
+- Advanced cross-page paragraph merging with hyphenation handling
+- Generates single TEI document with optional facsimile zones
+- Perfect for creating machine-readable complete texts
 
 ## Core Principles
 
@@ -179,7 +192,7 @@ Example configurations available in `examples/new_types_examples.yaml`
 
 ## Usage
 
-### Basic Conversion
+### Basic Page-Level Conversion
 
 ```bash
 # Convert all ALTO files in 'alto' folder to 'tei' folder
@@ -192,8 +205,27 @@ python alto2tei.py manuscripts output_tei
 python alto2tei.py --config custom_mapping.yaml
 ```
 
+### Book-Level Conversion (NEW)
+
+Convert entire books from multiple ALTO pages to a single TEI document with advanced cross-page processing:
+
+```bash
+# Convert entire book using METS.xml for page ordering
+python alto2teibook.py alto_book/
+
+# Specify output file
+python alto2teibook.py alto_book/ --output book.xml
+
+# Enable cross-page paragraph merging with facsimile zones
+python alto2teibook.py alto_book/ --merge-lines True --facsimile True
+
+# Process without facsimile for pure text output
+python alto2teibook.py alto_book/ --merge-lines True --facsimile False
+```
+
 ### Command Line Options
 
+#### Page-Level Converter (`alto2tei.py`)
 ```bash
 python alto2tei.py [input_folder] [output_folder] [options]
 
@@ -205,18 +237,42 @@ Options:
   --help, -h       Show help message
 ```
 
-### Configuration Validation
+#### Book-Level Converter (`alto2teibook.py`)
+```bash
+python alto2teibook.py [input_path] [options]
+
+Arguments:
+  input_path               Input directory with ALTO files and METS.xml, or path to METS.xml
+
+Options:
+  --mets, -m METS         Path to METS.xml file (alternative to auto-detection)
+  --output, -o OUTPUT     Output TEI XML file (default: output/book.xml)
+  --merge-lines {True,False}
+                          Merge lines into paragraphs and handle hyphenation (default: True)
+  --facsimile {True,False}
+                          Include facsimile zones with spatial coordinates (default: True)
+  --help, -h              Show help message
+```
+
+### Testing
 
 ```bash
-# Test configuration before processing
-python test_config.py config/alto_tei_mapping.yaml
+# Run all tests
+python3 run_tests.py
 
-# Test custom configuration
-python test_config.py examples/newspaper_config.yaml
+# Run specific test categories  
+python3 run_tests.py --unit           # Unit tests only
+python3 run_tests.py --integration    # Integration tests only
+python3 run_tests.py --quick          # Quick tests (no integration)
+python3 run_tests.py --book           # Book-level tests only
+
+# Using pytest (if installed)
+pytest tests/
 ```
 
 ### Examples
 
+#### Page-Level Processing
 ```bash
 # Basic usage
 python alto2tei.py manuscripts tei_output
@@ -228,9 +284,73 @@ python alto2tei.py -i alto -o tei -s _converted -c segmonto_config.yaml
 python alto2tei.py --input manuscripts --output tei_files
 ```
 
+#### Book-Level Processing
+```bash
+# Convert complete book with cross-page paragraph merging
+python alto2teibook.py alto_book/ --output complete_book.xml
+
+# Text-only output for machine processing
+python alto2teibook.py alto_book/ --merge-lines True --facsimile False --output clean_text.xml
+
+# Full facsimile output with coordinates
+python alto2teibook.py alto_book/ --merge-lines True --facsimile True --output annotated_book.xml
+
+# Use specific METS file
+python alto2teibook.py --mets /path/to/METS.xml --output book.xml
+```
+
+## Advanced Book Processing Features
+
+### Cross-Page Paragraph Merging
+
+The book converter (`alto2teibook.py`) includes sophisticated text processing capabilities:
+
+**Smart Paragraph Detection:**
+- Uses `CustomLine:paragraph_start` markers to identify paragraph boundaries
+- Automatically merges paragraphs that span multiple pages
+- Handles paragraphs without explicit end markers
+- Stops merging at headings (`HeadingLine`) or new paragraph starts
+
+**Hyphenation Handling:**
+- Detects hyphenated words split across page boundaries
+- Removes hyphens (`-`, `—`, `–`) and joins word parts seamlessly
+- Preserves proper spacing for non-hyphenated text
+- Example: `wonder-` + `ful` → `wonderful`
+
+**Smart Page Break Positioning:**
+- Places `<pb>` elements at natural breaking points within text flow
+- Maintains reading flow while preserving page structure
+- Handles both hyphenated and non-hyphenated page breaks correctly
+
+### METS.xml Integration
+
+**Automatic Page Ordering:**
+- Reads METS.xml to determine correct page sequence
+- Supports both absolute and relative file paths
+- Handles missing or malformed ALTO files gracefully
+- Processes 25+ page books efficiently
+
+**Metadata Extraction:**
+- Extracts book-level metadata from METS.xml
+- Generates appropriate TEI headers with page counts
+- Includes source file information and processing details
+
+### Facsimile Zone Support
+
+**Coordinate Preservation:**
+- Extracts spatial coordinates from ALTO files
+- Maps text elements to image regions
+- Generates TEI facsimile zones with polygons and baselines
+- Links text content to corresponding image areas
+
+**Flexible Output Modes:**
+- `--facsimile True`: Include complete coordinate information
+- `--facsimile False`: Generate clean text-only output
+- Automatic zone detection and mapping
+
 ## Output Features
 
-### TEI Structure
+### Page-Level TEI Structure
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -260,6 +380,50 @@ python alto2tei.py --input manuscripts --output tei_files
       <fw type="catchword">catchword</fw>
       <div type="notes">
         <note type="footnote" n="*">Footnote content</note>
+      </div>
+    </body>
+  </text>
+</TEI>
+```
+
+### Book-Level TEI Structure
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Book converted from ALTO (pages 1-25)</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Converted from ALTO XML using alto2teibook.py - 25 pages</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Source: alto_book/METS.xml</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface xml:id="facs_page_5" source="page_5.jpg">
+      <graphic url="page_5.jpg" width="1500" height="2800" />
+      <zone xml:id="facs_block_5_1" ulx="197" uly="310" lrx="1320" lry="2392" type="textblock" />
+    </surface>
+    <!-- Additional pages... -->
+  </facsimile>
+  <text>
+    <body>
+      <div type="book">
+        <pb n="5" facs="page_5.jpeg" />
+        <p>ПРИМѢРЪ Добродѣтельныя Женщины, Гонимая нещастїемъ ИЛИ МИССЪ ЛОНІИ.</p>
+        <p>Сочиненїе АгЛИНСКОЕ. Переводъ съ французскаго языка. Съ Указнаго дозволенiя.</p>
+        <p>МОСКВА. Въ Типографiи при Театрѣ у Христофора Клаудгя, 1793 года. <pb n="7" facs="page_7.jpeg" />
+        </p>
+        <p>ЕЯ ПРЕВОСХОДИТЕЛЬСТВУ милостивой государынѣ ПАЛАГЬЕ ИВАНОВНЪ ЧЕРТКОВОЙ. <pb n="9" facs="page_9.jpeg" />
+        </p>
+        <!-- Cross-page paragraphs merged seamlessly -->
+        <p>Удостойте, Милостивая Государыня! благосклонно принять оной знакомъ моей къ Вамъ благо<pb n="10" facs="page_10.jpeg" />дарности и почтенiя, съ каковымъ навсегда останется</p>
+        <!-- Hyphenated words joined: "благо-" + "дарности" → "благодарности" -->
       </div>
     </body>
   </text>
@@ -333,6 +497,57 @@ argparse              # Command-line interface
 re                    # Regular expressions for footnote patterns
 glob                  # File pattern matching
 ```
+
+### Testing Framework
+
+The project includes a comprehensive test suite with 63 tests covering:
+
+```
+tests/
+├── test_alto2tei.py         # Page-level converter tests (34 tests)
+├── test_alto2teibook.py     # Book-level converter tests (29 tests)
+└── README.md               # Detailed testing documentation
+```
+
+**Test Coverage:**
+- Configuration loading and validation
+- ALTO XML parsing and TEI generation  
+- Cross-page paragraph merging
+- Hyphenation handling
+- METS.xml integration
+- Error handling and edge cases
+- CLI functionality
+
+## Quick Start
+
+### For Individual Pages
+```bash
+# Convert all ALTO files in current directory
+python alto2tei.py
+
+# Convert specific folder
+python alto2tei.py manuscripts/ tei_output/
+```
+
+### For Complete Books
+```bash
+# Convert entire book with cross-page merging
+python alto2teibook.py alto_book/
+
+# Text-only output for NLP processing
+python alto2teibook.py alto_book/ --facsimile False --output clean_book.xml
+```
+
+## Key Features Summary
+
+✅ **Segmonto Ontology Support** - Standard document zone classification  
+✅ **YAML-Driven Configuration** - Easy customization without code changes  
+✅ **Cross-Page Paragraph Merging** - Intelligent text flow reconstruction  
+✅ **Hyphenation Handling** - Automatic word joining across page breaks  
+✅ **METS.xml Integration** - Proper page ordering and metadata extraction  
+✅ **Facsimile Zone Support** - Optional coordinate preservation  
+✅ **TEI Best Practices** - Standards-compliant output  
+✅ **Historical Text Support** - Handles 18th century Cyrillic and special characters
 
 ## References
 

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.loc.gov/standards/alto/ns-v4#"
+      xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-2.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>page_5.jpg</fileName>
+    </sourceImageInformation>
+  </Description>
+  <Tags>
+    <OtherTag ID="BT80" LABEL="NumberingZone" DESCRIPTION="block type NumberingZone"/><OtherTag ID="BT79" LABEL="GraphicZone" DESCRIPTION="block type GraphicZone"/><OtherTag ID="BT82" LABEL="RunningTitleZone" DESCRIPTION="block type RunningTitleZone"/><OtherTag ID="BT2" LABEL="MainZone" DESCRIPTION="block type MainZone"/><OtherTag ID="BT81" LABEL="MarginTextZone:note" DESCRIPTION="block type MarginTextZone:note"/><OtherTag ID="BT144" LABEL="QuireMarksZone:signature" DESCRIPTION="block type QuireMarksZone:signature"/><OtherTag ID="BT50" LABEL="QuireMarksZone:catchwords" DESCRIPTION="block type QuireMarksZone:catchwords"/>
+    <OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT49" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT50" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/>
+  </Tags>
+  <Layout>
+    <Page WIDTH="1500"
+          HEIGHT="2800"
+          PHYSICAL_IMG_NR="4"
+          ID="eSc_dummypage_">
+      <PrintSpace HPOS="0"
+                  VPOS="0"
+                  WIDTH="1500"
+                  HEIGHT="2800">
+        <TextBlock HPOS="197"
+                   VPOS="310"
+                   WIDTH="1123"
+                   HEIGHT="2082"
+                   ID="block_1"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="197 310 1265 310 1320 2392 231 2389"/></Shape>
+          <TextLine ID="line_6"
+                    TAGREFS="LT77"
+                    BASELINE="416 462 1056 462" 
+                    HPOS="416"
+                    VPOS="376"
+                    WIDTH="640"
+                    HEIGHT="86">
+            <Shape><Polygon POINTS="416 376 1056 376 1056 462 416 462"/></Shape>
+	    <String CONTENT="ПРИМТРЪ"
+                    HPOS="416"
+                    VPOS="376"
+                    WIDTH="640"
+                    HEIGHT="86"></String>
+          </TextLine>
+          <TextLine ID="line_7"
+                    TAGREFS="LT74"
+                    BASELINE="270 599 1178 599" 
+                    HPOS="270"
+                    VPOS="517"
+                    WIDTH="908"
+                    HEIGHT="82">
+            <Shape><Polygon POINTS="270 517 1178 517 1178 599 270 599"/></Shape>
+	    <String CONTENT="Добродѣтельныя"
+                    HPOS="270"
+                    VPOS="517"
+                    WIDTH="908"
+                    HEIGHT="82"></String>
+          </TextLine>
+          <TextLine ID="line_10"
+                    TAGREFS="LT74"
+                    BASELINE="292 757 1113 757" 
+                    HPOS="292"
+                    VPOS="649"
+                    WIDTH="821"
+                    HEIGHT="108">
+            <Shape><Polygon POINTS="292 649 1113 649 1113 757 292 757"/></Shape>
+	    <String CONTENT="Женщины,"
+                    HPOS="292"
+                    VPOS="649"
+                    WIDTH="821"
+                    HEIGHT="108"></String>
+          </TextLine>
+          <TextLine ID="line_4"
+                    TAGREFS="LT74"
+                    BASELINE="217 979 1261 979" 
+                    HPOS="217"
+                    VPOS="912"
+                    WIDTH="1044"
+                    HEIGHT="67">
+            <Shape><Polygon POINTS="217 912 1261 912 1261 979 217 979"/></Shape>
+	    <String CONTENT="Гонимая нещастїемъ"
+                    HPOS="217"
+                    VPOS="912"
+                    WIDTH="1044"
+                    HEIGHT="67"></String>
+          </TextLine>
+          <TextLine ID="line_11"
+                    TAGREFS="LT74"
+                    BASELINE="572 864 845 864" 
+                    HPOS="572"
+                    VPOS="810"
+                    WIDTH="273"
+                    HEIGHT="54">
+            <Shape><Polygon POINTS="572 810 845 810 845 864 572 864"/></Shape>
+	    <String CONTENT="ИЛИ"
+                    HPOS="572"
+                    VPOS="810"
+                    WIDTH="273"
+                    HEIGHT="54"></String>
+          </TextLine>
+          <TextLine ID="line_9"
+                    TAGREFS="LT74"
+                    BASELINE="224 1197 1254 1197" 
+                    HPOS="224"
+                    VPOS="1051"
+                    WIDTH="1030"
+                    HEIGHT="146">
+            <Shape><Polygon POINTS="224 1051 1254 1051 1254 1197 224 1197"/></Shape>
+	    <String CONTENT="МИССЪ ЛОНІИ."
+                    HPOS="224"
+                    VPOS="1051"
+                    WIDTH="1030"
+                    HEIGHT="146"></String>
+          </TextLine>
+          <TextLine ID="line_1"
+                    TAGREFS="LT77"
+                    BASELINE="255 1464 1236 1464" 
+                    HPOS="255"
+                    VPOS="1399"
+                    WIDTH="981"
+                    HEIGHT="65">
+            <Shape><Polygon POINTS="255 1399 1236 1399 1236 1464 255 1464"/></Shape>
+	    <String CONTENT="Сочиненїе АгЛИНСКОЕ."
+                    HPOS="255"
+                    VPOS="1399"
+                    WIDTH="981"
+                    HEIGHT="65"></String>
+          </TextLine>
+          <TextLine ID="line_0"
+                    TAGREFS="LT74"
+                    BASELINE="252 1596 1258 1596" 
+                    HPOS="252"
+                    VPOS="1537"
+                    WIDTH="1006"
+                    HEIGHT="59">
+            <Shape><Polygon POINTS="252 1537 1258 1537 1258 1596 252 1596"/></Shape>
+	    <String CONTENT="Переводъ съ французскаго языка."
+                    HPOS="252"
+                    VPOS="1537"
+                    WIDTH="1006"
+                    HEIGHT="59"></String>
+          </TextLine>
+          <TextLine ID="line_3"
+                    TAGREFS="LT74"
+                    BASELINE="286 1816 1246 1816" 
+                    HPOS="286"
+                    VPOS="1766"
+                    WIDTH="960"
+                    HEIGHT="50">
+            <Shape><Polygon POINTS="286 1766 1246 1766 1246 1816 286 1816"/></Shape>
+	    <String CONTENT="Съ Указнаго дозволенiя."
+                    HPOS="286"
+                    VPOS="1766"
+                    WIDTH="960"
+                    HEIGHT="50"></String>
+          </TextLine>
+          <TextLine ID="line_2"
+                    TAGREFS="LT77"
+                    BASELINE="476 2029 1028 2029" 
+                    HPOS="476"
+                    VPOS="1959"
+                    WIDTH="552"
+                    HEIGHT="70">
+            <Shape><Polygon POINTS="476 1959 1028 1959 1028 2029 476 2029"/></Shape>
+	    <String CONTENT="МОСКВА."
+                    HPOS="476"
+                    VPOS="1959"
+                    WIDTH="552"
+                    HEIGHT="70"></String>
+          </TextLine>
+          <TextLine ID="line_5"
+                    TAGREFS="LT74"
+                    BASELINE="316 2163 1303 2163" 
+                    HPOS="316"
+                    VPOS="2100"
+                    WIDTH="987"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="316 2100 1303 2100 1303 2163 316 2163"/></Shape>
+	    <String CONTENT="Въ Типографiи при Театрѣ"
+                    HPOS="316"
+                    VPOS="2100"
+                    WIDTH="987"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_8"
+                    TAGREFS="LT74"
+                    BASELINE="355 2232 1189 2232" 
+                    HPOS="355"
+                    VPOS="2171"
+                    WIDTH="834"
+                    HEIGHT="61">
+            <Shape><Polygon POINTS="355 2171 1189 2171 1189 2232 355 2232"/></Shape>
+	    <String CONTENT="у Христофора Клаудгя,"
+                    HPOS="355"
+                    VPOS="2171"
+                    WIDTH="834"
+                    HEIGHT="61"></String>
+          </TextLine>
+          <TextLine ID="line_12"
+                    TAGREFS="LT74"
+                    BASELINE="484 2344 1074 2344" 
+                    HPOS="484"
+                    VPOS="2257"
+                    WIDTH="590"
+                    HEIGHT="87">
+            <Shape><Polygon POINTS="484 2257 1074 2257 1074 2344 484 2344"/></Shape>
+	    <String CONTENT="1793 года."
+                    HPOS="484"
+                    VPOS="2257"
+                    WIDTH="590"
+                    HEIGHT="87"></String>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>
