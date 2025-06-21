@@ -318,11 +318,17 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
 
         # Process and combine all pages with cross-page paragraph merging
         if self.merge_lines:
-            self._add_pages_with_cross_page_paragraph_merging(book_div)
+            if self.enable_facsimile:
+                self._add_pages_with_cross_page_merging_and_facsimile(book_div)
+            else:
+                self._add_pages_with_cross_page_paragraph_merging(book_div)
         else:
             # Original behavior: process pages separately
             for page_data in self.pages_data:
-                self._add_page_to_book_with_facsimile(book_div, page_data)
+                if self.enable_facsimile:
+                    self._add_page_to_book_with_facsimile(book_div, page_data)
+                else:
+                    self._add_page_to_book(book_div, page_data)
 
         return tei_root
 
@@ -561,18 +567,20 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
 
         return new_elem
 
-    def _add_facsimile_reference(self, _tei_elem: ET.Element, _original_elem: ET.Element) -> None:
+    def _add_facsimile_reference(self, tei_elem: ET.Element, original_elem: ET.Element) -> None:
         """Add facsimile reference to TEI element if possible"""
         if not self.enable_facsimile or not self.zone_mapping:
             return
 
-        # For now, we'll implement basic facsimile linking
-        # More sophisticated linking would require preserving ALTO element IDs
-        # through the conversion process, which is a complex enhancement
+        # Try to find facsimile reference based on ALTO element ID
+        alto_id = original_elem.get('ID')
+        if alto_id and alto_id in self.zone_mapping:
+            zone_id = self.zone_mapping[alto_id]
+            tei_elem.set('facs', f'#{zone_id}')
+            return
 
-        # This is a placeholder for future enhancement where ALTO element IDs
-        # are preserved during conversion and can be used for precise linking
-        pass
+        # Note: getparent() is not available in standard ElementTree
+        # Fallback facsimile linking would require additional element tracking
 
     def _add_pages_with_cross_page_paragraph_merging(self, book_div: ET.Element) -> None:
         """Add all pages with proper cross-page paragraph merging for clean text output"""
@@ -670,6 +678,12 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
                     
                     page_break_inserted = True
                 
+                # Generate line facsimile ID if needed
+                line_facs_id = None
+                if self.enable_facsimile:
+                    # Use a simple line counter for facsimile IDs in merge mode
+                    line_facs_id = f"facs_line_{page_number}_{len(completed_elements) + 1}_{len([l for l in textlines[:textlines.index(textline)+1] if self.extract_text_from_line(l).strip()])}"
+
                 # Handle different line types for paragraph boundaries
                 if line_type == 'CustomLine:paragraph_start':
                     # Explicit paragraph start - close current and start new
@@ -677,7 +691,11 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
                         completed_elements.append(current_paragraph)
                     
                     current_paragraph = ET.Element('p')
-                    self._add_text_to_paragraph(current_paragraph, line_text)
+                    if self.enable_facsimile:
+                        # Add block-level facsimile reference
+                        block_facs_id = f"facs_block_{page_number}_{len(completed_elements) + 1}"
+                        current_paragraph.set('facs', f'#{block_facs_id}')
+                    self._add_text_to_paragraph(current_paragraph, line_text, line_facs_id)
                     paragraph_state['in_paragraph'] = True
                     paragraph_state['paragraph_started_explicitly'] = True
                     
@@ -698,12 +716,23 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
                     if current_paragraph is None:
                         # No current paragraph - start a new implicit one
                         current_paragraph = ET.Element('p')
-                        self._add_text_to_paragraph(current_paragraph, line_text)
+                        if self.enable_facsimile:
+                            # Add block-level facsimile reference
+                            block_facs_id = f"facs_block_{page_number}_{len(completed_elements) + 1}"
+                            current_paragraph.set('facs', f'#{block_facs_id}')
+                        self._add_text_to_paragraph(current_paragraph, line_text, line_facs_id)
                         paragraph_state['in_paragraph'] = True
                         paragraph_state['paragraph_started_explicitly'] = False
                     else:
+                        # Add line break and continue existing paragraph
+                        if self.enable_facsimile and line_facs_id:
+                            lb = ET.SubElement(current_paragraph, 'lb')
+                            lb.set('facs', f'#{line_facs_id}')
+                        else:
+                            # Add line break without facsimile
+                            ET.SubElement(current_paragraph, 'lb')
                         # Add to existing paragraph
-                        self._add_text_to_paragraph(current_paragraph, line_text)
+                        self._add_text_to_paragraph(current_paragraph, line_text, line_facs_id)
         
         return {
             'completed_elements': completed_elements,
@@ -723,21 +752,28 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
         ]
         return block_type in skip_blocks
 
-    def _add_text_to_paragraph(self, paragraph: ET.Element, text: str) -> None:
+    def _add_text_to_paragraph(self, paragraph: ET.Element, text: str, line_facs_id: str = None) -> None:
         """Add text to a paragraph, handling cases where paragraph has child elements and hyphen merging"""
-        if len(paragraph) == 0:
-            # No child elements, add to text directly
-            if paragraph.text:
-                paragraph.text = self._merge_text_with_hyphen_handling(paragraph.text, text)
-            else:
-                paragraph.text = text
+        if self.enable_facsimile and line_facs_id:
+            # Add text as seg element with facsimile reference
+            seg = ET.SubElement(paragraph, 'seg')
+            seg.set('facs', f'#{line_facs_id}')
+            seg.text = text
         else:
-            # Has child elements (like page breaks), add to tail of last child
-            last_child = paragraph[-1]
-            if last_child.tail:
-                last_child.tail = self._merge_text_with_hyphen_handling(last_child.tail, text)
+            # Original text handling without facsimile
+            if len(paragraph) == 0:
+                # No child elements, add to text directly
+                if paragraph.text:
+                    paragraph.text = self._merge_text_with_hyphen_handling(paragraph.text, text)
+                else:
+                    paragraph.text = text
             else:
-                last_child.tail = text
+                # Has child elements (like page breaks), add to tail of last child
+                last_child = paragraph[-1]
+                if last_child.tail:
+                    last_child.tail = self._merge_text_with_hyphen_handling(last_child.tail, text)
+                else:
+                    last_child.tail = text
 
     def _merge_text_with_hyphen_handling(self, existing_text: str, new_text: str) -> str:
         """Merge text while handling hyphenated words split across pages"""
@@ -908,23 +944,89 @@ class AltoBookToTeiConverter(AltoToTeiConverter):
             # If facsimile is disabled, use parent's method directly
             return self.convert_textblock(textblock, tags_mapping)
         
-        # Use parent's YAML-driven conversion
-        elements = self.convert_textblock(textblock, tags_mapping)
+        # Use custom conversion with facsimile support
+        return self._convert_textblock_with_seg_facsimile(textblock, tags_mapping, page_number, block_index)
+    
+    def _convert_textblock_with_seg_facsimile(self, textblock: ET.Element, tags_mapping: Dict[str, str], 
+                                            page_number: int, block_index: int) -> List[ET.Element]:
+        """Convert TextBlock to TEI with seg elements and facsimile linking"""
+        textlines = textblock.findall('.//alto:TextLine', self.alto_ns)
+        if not textlines:
+            return []
         
-        # Post-process to add facsimile references
+        elements = []
+        state = {'current_p': None, 'current_lg': None}
+        line_index = 1
+        
+        # Generate block facsimile ID for paragraphs
         block_facs_id = self.rule_engine.generate_facsimile_id('block', page_number, block_index=block_index)
         
-        # Add block-level facsimile references to main containers
-        facsimile_eligible = self.rule_engine.get_facsimile_eligible_elements()
-        for element in elements:
-            if element.tag in facsimile_eligible:
-                element.set('facs', f'#{block_facs_id}')
+        for textline in textlines:
+            line_type = self.get_line_type(textline, tags_mapping)
+            string_elem = textline.find('alto:String', self.alto_ns)
+            
+            if string_elem is None:
+                continue
                 
-                # Add line-level facsimile to child elements if they contain text lines
-                self._add_line_level_facsimile(element, page_number, block_index)
+            text_content = string_elem.get('CONTENT', '').strip()
+            if not text_content:
+                continue
+            
+            # Generate line facsimile ID
+            line_facs_id = self.rule_engine.generate_facsimile_id('line', page_number, 
+                                                               block_index=block_index, 
+                                                               line_index=line_index)
+            
+            # Get line configuration
+            line_config = self._get_line_mapping(line_type)
+            
+            # Process based on line type
+            if line_config['action'] == 'line_break':
+                # Add line break with facsimile reference
+                if state['current_p'] is not None:
+                    lb = ET.SubElement(state['current_p'], 'lb')
+                    lb.set('facs', f'#{line_facs_id}')
+                    # Add text as seg element after line break
+                    seg = ET.SubElement(state['current_p'], 'seg')
+                    seg.set('facs', f'#{line_facs_id}')
+                    seg.text = text_content
+            elif line_config['element'] == 'head':
+                # Close any open paragraphs
+                if state['current_p'] is not None:
+                    elements.append(state['current_p'])
+                    state['current_p'] = None
+                # Create header element
+                head = ET.Element('head')
+                head.text = text_content
+                elements.append(head)
+            elif line_config['element'] == 'p' or line_config['action'] == 'create_element':
+                # Handle paragraph content
+                if state['current_p'] is None:
+                    # Start new paragraph
+                    state['current_p'] = ET.Element('p')
+                    state['current_p'].set('facs', f'#{block_facs_id}')
+                    # Add first seg element
+                    seg = ET.SubElement(state['current_p'], 'seg')
+                    seg.set('facs', f'#{line_facs_id}')
+                    seg.text = text_content
+                else:
+                    # Continue existing paragraph with line break
+                    lb = ET.SubElement(state['current_p'], 'lb')
+                    lb.set('facs', f'#{line_facs_id}')
+                    # Add text as new seg element
+                    seg = ET.SubElement(state['current_p'], 'seg')
+                    seg.set('facs', f'#{line_facs_id}')
+                    seg.text = text_content
+            
+            line_index += 1
+        
+        # Close any remaining open elements
+        if state['current_p'] is not None:
+            elements.append(state['current_p'])
+        if state['current_lg'] is not None:
+            elements.append(state['current_lg'])
         
         return elements
-    
 
     def _extract_special_lines_from_block(self, textblock: ET.Element, tags_mapping: Dict[str, str], block_type: str) -> List[ET.Element]:
         """Extract special lines (like signatures) from blocks that don't normally process content"""

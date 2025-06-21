@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alto xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://www.loc.gov/standards/alto/ns-v4#"
+      xsi:schemaLocation="http://www.loc.gov/standards/alto/ns-v4# http://www.loc.gov/standards/alto/v4/alto-4-2.xsd">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>page_42.jpg</fileName>
+    </sourceImageInformation>
+  </Description>
+  <Tags>
+    <OtherTag ID="BT80" LABEL="NumberingZone" DESCRIPTION="block type NumberingZone"/><OtherTag ID="BT79" LABEL="GraphicZone" DESCRIPTION="block type GraphicZone"/><OtherTag ID="BT82" LABEL="RunningTitleZone" DESCRIPTION="block type RunningTitleZone"/><OtherTag ID="BT2" LABEL="MainZone" DESCRIPTION="block type MainZone"/><OtherTag ID="BT81" LABEL="MarginTextZone:note" DESCRIPTION="block type MarginTextZone:note"/><OtherTag ID="BT144" LABEL="QuireMarksZone:signature" DESCRIPTION="block type QuireMarksZone:signature"/><OtherTag ID="BT50" LABEL="QuireMarksZone:catchwords" DESCRIPTION="block type QuireMarksZone:catchwords"/>
+    <OtherTag ID="LT74" LABEL="DefaultLine" DESCRIPTION="line type DefaultLine"/><OtherTag ID="LT83" LABEL="HeadingLine" DESCRIPTION="line type HeadingLine"/><OtherTag ID="LT77" LABEL="CustomLine:paragraph_start" DESCRIPTION="line type CustomLine:paragraph_start"/><OtherTag ID="LT49" LABEL="CustomLine:signature" DESCRIPTION="line type CustomLine:signature"/><OtherTag ID="LT50" LABEL="CustomLine:catchword" DESCRIPTION="line type CustomLine:catchword"/><OtherTag ID="LT79" LABEL="CustomLine:verse" DESCRIPTION="line type CustomLine:verse"/>
+  </Tags>
+  <Layout>
+    <Page WIDTH="1500"
+          HEIGHT="2800"
+          PHYSICAL_IMG_NR="41"
+          ID="eSc_dummypage_">
+      <PrintSpace HPOS="0"
+                  VPOS="0"
+                  WIDTH="1500"
+                  HEIGHT="2800">
+        <TextBlock HPOS="114.0"
+                   VPOS="342.0"
+                   WIDTH="1330.0"
+                   HEIGHT="2226.0"
+                   ID="block_0"
+                   TAGREFS="BT2">
+          <Shape><Polygon POINTS="114 342 1444 342 1444 2568 114 2568"/></Shape>
+          <TextLine ID="line_19"
+                    BASELINE="164 415 1391 415" 
+                    HPOS="164"
+                    VPOS="355"
+                    WIDTH="1227"
+                    HEIGHT="60">
+            <Shape><Polygon POINTS="164 355 1391 355 1391 415 164 415"/></Shape>
+	    <String CONTENT="своей горячности; - - Я никогда того"
+                    HPOS="164"
+                    VPOS="355"
+                    WIDTH="1227"
+                    HEIGHT="60"></String>
+          </TextLine>
+          <TextLine ID="line_6"
+                    BASELINE="163 507 1397 507" 
+                    HPOS="163"
+                    VPOS="443"
+                    WIDTH="1234"
+                    HEIGHT="64">
+            <Shape><Polygon POINTS="163 443 1397 443 1397 507 163 507"/></Shape>
+	    <String CONTENT="не примѣтила: но правда я не всегда"
+                    HPOS="163"
+                    VPOS="443"
+                    WIDTH="1234"
+                    HEIGHT="64"></String>
+          </TextLine>
+          <TextLine ID="line_2"
+                    BASELINE="164 596 1398 596" 
+                    HPOS="164"
+                    VPOS="530"
+                    WIDTH="1234"
+                    HEIGHT="66">
+            <Shape><Polygon POINTS="164 530 1398 530 1398 596 164 596"/></Shape>
+	    <String CONTENT="бывала съ вами, а Миссъ Салѣли со-"
+                    HPOS="164"
+                    VPOS="530"
+                    WIDTH="1234"
+                    HEIGHT="66"></String>
+          </TextLine>
+          <TextLine ID="line_16"
+                    BASELINE="164 685 1398 685" 
+                    HPOS="164"
+                    VPOS="620"
+                    WIDTH="1234"
+                    HEIGHT="65">
+            <Shape><Polygon POINTS="164 620 1398 620 1398 685 164 685"/></Shape>
+	    <String CONTENT="вершенная красавица. Они были нѣ-"
+                    HPOS="164"
+                    VPOS="620"
+                    WIDTH="1234"
+                    HEIGHT="65"></String>
+          </TextLine>
+          <TextLine ID="line_13"
+                    BASELINE="165 773 1404 773" 
+                    HPOS="165"
+                    VPOS="709"
+                    WIDTH="1239"
+                    HEIGHT="64">
+            <Shape><Polygon POINTS="165 709 1404 709 1404 773 165 773"/></Shape>
+	    <String CONTENT="сколько времени въ молчании; Лони"
+                    HPOS="165"
+                    VPOS="709"
+                    WIDTH="1239"
+                    HEIGHT="64"></String>
+          </TextLine>
+          <TextLine ID="line_7"
+                    BASELINE="164 863 1404 863" 
+                    HPOS="164"
+                    VPOS="799"
+                    WIDTH="1240"
+                    HEIGHT="64">
+            <Shape><Polygon POINTS="164 799 1404 799 1404 863 164 863"/></Shape>
+	    <String CONTENT="прервала его перьвая: Можетъ быть"
+                    HPOS="164"
+                    VPOS="799"
+                    WIDTH="1240"
+                    HEIGHT="64"></String>
+          </TextLine>
+          <TextLine ID="line_18"
+                    BASELINE="162 950 1398 950" 
+                    HPOS="162"
+                    VPOS="886"
+                    WIDTH="1236"
+                    HEIGHT="64">
+            <Shape><Polygon POINTS="162 886 1398 886 1398 950 162 950"/></Shape>
+	    <String CONTENT="сіе письмо было назначено Миссъ"
+                    HPOS="162"
+                    VPOS="886"
+                    WIDTH="1236"
+                    HEIGHT="64"></String>
+          </TextLine>
+          <TextLine ID="line_10"
+                    BASELINE="161 1039 1400 1039" 
+                    HPOS="161"
+                    VPOS="974"
+                    WIDTH="1239"
+                    HEIGHT="65">
+            <Shape><Polygon POINTS="161 974 1400 974 1400 1039 161 1039"/></Shape>
+	    <String CONTENT="Сальли, скажите Сиръ Редаллу, онъ"
+                    HPOS="161"
+                    VPOS="974"
+                    WIDTH="1239"
+                    HEIGHT="65"></String>
+          </TextLine>
+          <TextLine ID="line_22"
+                    BASELINE="159 1129 1399 1129" 
+                    HPOS="159"
+                    VPOS="1064"
+                    WIDTH="1240"
+                    HEIGHT="65">
+            <Shape><Polygon POINTS="159 1064 1399 1064 1399 1129 159 1129"/></Shape>
+	    <String CONTENT="не можетъ быть обманщикомъ ; видъ"
+                    HPOS="159"
+                    VPOS="1064"
+                    WIDTH="1240"
+                    HEIGHT="65"></String>
+          </TextLine>
+          <TextLine ID="line_17"
+                    BASELINE="158 1227 1397 1227" 
+                    HPOS="158"
+                    VPOS="1161"
+                    WIDTH="1239"
+                    HEIGHT="66">
+            <Shape><Polygon POINTS="158 1161 1397 1161 1397 1227 158 1227"/></Shape>
+	    <String CONTENT="его благороденъ, но и онъ подверженъ,"
+                    HPOS="158"
+                    VPOS="1161"
+                    WIDTH="1239"
+                    HEIGHT="66"></String>
+          </TextLine>
+          <TextLine ID="line_20"
+                    BASELINE="158 1318 1400 1318" 
+                    HPOS="158"
+                    VPOS="1255"
+                    WIDTH="1242"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="158 1255 1400 1255 1400 1318 158 1318"/></Shape>
+	    <String CONTENT="такъ какъ и всѣ люди, заблужденію."
+                    HPOS="158"
+                    VPOS="1255"
+                    WIDTH="1242"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_8"
+                    BASELINE="159 1405 1401 1405" 
+                    HPOS="159"
+                    VPOS="1341"
+                    WIDTH="1242"
+                    HEIGHT="64">
+            <Shape><Polygon POINTS="159 1341 1401 1341 1401 1405 159 1405"/></Shape>
+	    <String CONTENT="Благородная душа! вскричалъ Си-"
+                    HPOS="159"
+                    VPOS="1341"
+                    WIDTH="1242"
+                    HEIGHT="64"></String>
+          </TextLine>
+          <TextLine ID="line_21"
+                    BASELINE="161 1494 1397 1494" 
+                    HPOS="161"
+                    VPOS="1429"
+                    WIDTH="1236"
+                    HEIGHT="65">
+            <Shape><Polygon POINTS="161 1429 1397 1429 1397 1494 161 1494"/></Shape>
+	    <String CONTENT="моисъ съ чувствiемъ добродѣтельна-"
+                    HPOS="161"
+                    VPOS="1429"
+                    WIDTH="1236"
+                    HEIGHT="65"></String>
+          </TextLine>
+          <TextLine ID="line_3"
+                    BASELINE="159 1582 1398 1582" 
+                    HPOS="159"
+                    VPOS="1519"
+                    WIDTH="1239"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="159 1519 1398 1519 1398 1582 159 1582"/></Shape>
+	    <String CONTENT="го наставника. Лони взяла его руки."
+                    HPOS="159"
+                    VPOS="1519"
+                    WIDTH="1239"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_5"
+                    BASELINE="160 1675 1396 1675" 
+                    HPOS="160"
+                    VPOS="1612"
+                    WIDTH="1236"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="160 1612 1396 1612 1396 1675 160 1675"/></Shape>
+	    <String CONTENT="для чего вы показываете въ сіе вре-"
+                    HPOS="160"
+                    VPOS="1612"
+                    WIDTH="1236"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_0"
+                    BASELINE="159 1765 1394 1765" 
+                    HPOS="159"
+                    VPOS="1701"
+                    WIDTH="1235"
+                    HEIGHT="64">
+            <Shape><Polygon POINTS="159 1701 1394 1701 1394 1765 159 1765"/></Shape>
+	    <String CONTENT="мя столько безпокойства? Подумай-"
+                    HPOS="159"
+                    VPOS="1701"
+                    WIDTH="1235"
+                    HEIGHT="64"></String>
+          </TextLine>
+          <TextLine ID="line_9"
+                    BASELINE="160 1862 1393 1862" 
+                    HPOS="160"
+                    VPOS="1796"
+                    WIDTH="1233"
+                    HEIGHT="66">
+            <Shape><Polygon POINTS="160 1796 1393 1796 1393 1862 160 1862"/></Shape>
+	    <String CONTENT="те вы, говорила она, удерживая свои"
+                    HPOS="160"
+                    VPOS="1796"
+                    WIDTH="1233"
+                    HEIGHT="66"></String>
+          </TextLine>
+          <TextLine ID="line_4"
+                    BASELINE="157 1950 1392 1950" 
+                    HPOS="157"
+                    VPOS="1888"
+                    WIDTH="1235"
+                    HEIGHT="62">
+            <Shape><Polygon POINTS="157 1888 1392 1888 1392 1950 157 1950"/></Shape>
+	    <String CONTENT="слезы, которыя на подобіе жемчужа"
+                    HPOS="157"
+                    VPOS="1888"
+                    WIDTH="1235"
+                    HEIGHT="62"></String>
+          </TextLine>
+          <TextLine ID="line_23"
+                    BASELINE="158 2036 1394 2036" 
+                    HPOS="158"
+                    VPOS="1978"
+                    WIDTH="1236"
+                    HEIGHT="58">
+            <Shape><Polygon POINTS="158 1978 1394 1978 1394 2036 158 2036"/></Shape>
+	    <String CONTENT="ныхъ перловъ катились по ея луцу."
+                    HPOS="158"
+                    VPOS="1978"
+                    WIDTH="1236"
+                    HEIGHT="58"></String>
+          </TextLine>
+          <TextLine ID="line_15"
+                    BASELINE="159 2126 1394 2126" 
+                    HPOS="159"
+                    VPOS="2063"
+                    WIDTH="1235"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="159 2063 1394 2063 1394 2126 159 2126"/></Shape>
+	    <String CONTENT="Сиръ Редаллъ обманулся, приславъ ко"
+                    HPOS="159"
+                    VPOS="2063"
+                    WIDTH="1235"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_11"
+                    BASELINE="157 2218 1392 2218" 
+                    HPOS="157"
+                    VPOS="2155"
+                    WIDTH="1235"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="157 2155 1392 2155 1392 2218 157 2218"/></Shape>
+	    <String CONTENT="мнѣ письмо, которое было назначено"
+                    HPOS="157"
+                    VPOS="2155"
+                    WIDTH="1235"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_14"
+                    BASELINE="159 2308 1393 2308" 
+                    HPOS="159"
+                    VPOS="2245"
+                    WIDTH="1234"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="159 2245 1393 2245 1393 2308 159 2308"/></Shape>
+	    <String CONTENT="Миссъ Сальли. Я желаю отъ всего"
+                    HPOS="159"
+                    VPOS="2245"
+                    WIDTH="1234"
+                    HEIGHT="63"></String>
+          </TextLine>
+          <TextLine ID="line_12"
+                    BASELINE="159 2401 1395 2401" 
+                    HPOS="159"
+                    VPOS="2332"
+                    WIDTH="1236"
+                    HEIGHT="69">
+            <Shape><Polygon POINTS="159 2332 1395 2332 1395 2401 159 2401"/></Shape>
+	    <String CONTENT="моего серда, чтобъ сей превосходныхъ"
+                    HPOS="159"
+                    VPOS="2332"
+                    WIDTH="1236"
+                    HEIGHT="69"></String>
+          </TextLine>
+          <TextLine ID="line_1"
+                    BASELINE="161 2501 1391 2501" 
+                    HPOS="161"
+                    VPOS="2427"
+                    WIDTH="1230"
+                    HEIGHT="74">
+            <Shape><Polygon POINTS="161 2427 1391 2427 1391 2501 161 2501"/></Shape>
+	    <String CONTENT="качествъ человѣкъ сдѣлалъ ее ща-"
+                    HPOS="161"
+                    VPOS="2427"
+                    WIDTH="1230"
+                    HEIGHT="74"></String>
+          </TextLine>
+        </TextBlock>
+        <TextBlock HPOS="557.0"
+                   VPOS="185.0"
+                   WIDTH="452.0"
+                   HEIGHT="124.0"
+                   ID="block_1"
+                   TAGREFS="BT80">
+          <Shape><Polygon POINTS="557 185 1009 185 1009 309 557 309"/></Shape>
+          <TextLine ID="line_24"
+                    BASELINE="599 288 963 288" 
+                    HPOS="599.0"
+                    VPOS="219.0"
+                    WIDTH="364.0"
+                    HEIGHT="69.0">
+            <Shape><Polygon POINTS="599 219 963 219 963 288 599 288"/></Shape>
+	    <String CONTENT="Я 38 Ко"
+                    HPOS="599.0"
+                    VPOS="219.0"
+                    WIDTH="364.0"
+                    HEIGHT="69.0"></String>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

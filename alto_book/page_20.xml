@@ -168,6 +168,76 @@
                     WIDTH="1247"
                     HEIGHT="65"></String>
           </TextLine>
+          <TextLine ID="line_19"
+                    TAGREFS="LT74"
+                    BASELINE="169 1298 1418 1298" 
+                    HPOS="169"
+                    VPOS="1236"
+                    WIDTH="1249"
+                    HEIGHT="62">
+            <Shape><Polygon POINTS="169 1236 1418 1236 1418 1298 169 1298"/></Shape>
+	    <String CONTENT="ли власть, которую должна имѣть"
+                    HPOS="169"
+                    VPOS="1236"
+                    WIDTH="1249"
+                    HEIGHT="62"></String>
+          </TextLine>
+          <TextLine ID="line_21"
+                    TAGREFS="LT74"
+                    BASELINE="171 1384 1407 1384" 
+                    HPOS="171"
+                    VPOS="1322"
+                    WIDTH="1236"
+                    HEIGHT="62">
+            <Shape><Polygon POINTS="171 1322 1407 1322 1407 1384 171 1384"/></Shape>
+	    <String CONTENT="добродѣтель надъ прiятностями сла-"
+                    HPOS="171"
+                    VPOS="1322"
+                    WIDTH="1236"
+                    HEIGHT="62"></String>
+          </TextLine>
+          <TextLine ID="line_17"
+                    TAGREFS="LT74"
+                    BASELINE="176 1472 1413 1472" 
+                    HPOS="176"
+                    VPOS="1412"
+                    WIDTH="1237"
+                    HEIGHT="60">
+            <Shape><Polygon POINTS="176 1412 1413 1412 1413 1472 176 1472"/></Shape>
+	    <String CONTENT="столюбивой красоты и надъ свирѣ-"
+                    HPOS="176"
+                    VPOS="1412"
+                    WIDTH="1237"
+                    HEIGHT="60"></String>
+          </TextLine>
+          <TextLine ID="line_22"
+                    TAGREFS="LT74"
+                    BASELINE="174 1564 782 1564" 
+                    HPOS="174"
+                    VPOS="1504"
+                    WIDTH="608"
+                    HEIGHT="60">
+            <Shape><Polygon POINTS="174 1504 782 1504 782 1564 174 1564"/></Shape>
+	    <String CONTENT="Постїю нещастїй."
+                    HPOS="174"
+                    VPOS="1504"
+                    WIDTH="608"
+                    HEIGHT="60"></String>
+          </TextLine>
+          <TextLine ID="line_18"
+                    TAGREFS="LT77"
+                    BASELINE="220 1729 1417 1729" 
+                    HPOS="220"
+                    VPOS="1663"
+                    WIDTH="1197"
+                    HEIGHT="66">
+            <Shape><Polygon POINTS="220 1663 1417 1663 1417 1729 220 1729"/></Shape>
+	    <String CONTENT="Миссъ Лони одѣта была въ дву-"
+                    HPOS="220"
+                    VPOS="1663"
+                    WIDTH="1197"
+                    HEIGHT="66"></String>
+          </TextLine>
           <TextLine ID="line_11"
                     TAGREFS="LT74"
                     BASELINE="177 1818 1422 1818" 
@@ -182,6 +252,20 @@
                     WIDTH="1245"
                     HEIGHT="62"></String>
           </TextLine>
+          <TextLine ID="line_20"
+                    TAGREFS="LT74"
+                    BASELINE="171 1909 1423 1909" 
+                    HPOS="171"
+                    VPOS="1846"
+                    WIDTH="1252"
+                    HEIGHT="63">
+            <Shape><Polygon POINTS="171 1846 1423 1846 1423 1909 171 1909"/></Shape>
+	    <String CONTENT="лымъ цвѣту платье, бѣлой перед-"
+                    HPOS="171"
+                    VPOS="1846"
+                    WIDTH="1252"
+                    HEIGHT="63"></String>
+          </TextLine>
           <TextLine ID="line_4"
                     TAGREFS="LT74"
                     BASELINE="172 1993 1423 1993" 
@@ -195,6 +279,20 @@
                     VPOS="1932"
                     WIDTH="1251"
                     HEIGHT="61"></String>
+          </TextLine>
+          <TextLine ID="line_16"
+                    TAGREFS="LT74"
+                    BASELINE="173 2080 1423 2080" 
+                    HPOS="173"
+                    VPOS="2018"
+                    WIDTH="1250"
+                    HEIGHT="62">
+            <Shape><Polygon POINTS="173 2018 1423 2018 1423 2080 173 2080"/></Shape>
+	    <String CONTENT="токъ, на головѣ была простая соло-"
+                    HPOS="173"
+                    VPOS="2018"
+                    WIDTH="1250"
+                    HEIGHT="62"></String>
           </TextLine>
           <TextLine ID="line_9"
                     TAGREFS="LT74"
@@ -272,104 +370,6 @@
                     VPOS="168"
                     WIDTH="381"
                     HEIGHT="114"></String>
-          </TextLine>
-          <TextLine ID="line_19"
-                    TAGREFS="LT74"
-                    BASELINE="169 1298 1418 1298" 
-                    HPOS="169"
-                    VPOS="1236"
-                    WIDTH="1249"
-                    HEIGHT="62">
-            <Shape><Polygon POINTS="169 1236 1418 1236 1418 1298 169 1298"/></Shape>
-	    <String CONTENT="ли власть, которую должна имѣть"
-                    HPOS="169"
-                    VPOS="1236"
-                    WIDTH="1249"
-                    HEIGHT="62"></String>
-          </TextLine>
-          <TextLine ID="line_21"
-                    TAGREFS="LT74"
-                    BASELINE="171 1384 1407 1384" 
-                    HPOS="171"
-                    VPOS="1322"
-                    WIDTH="1236"
-                    HEIGHT="62">
-            <Shape><Polygon POINTS="171 1322 1407 1322 1407 1384 171 1384"/></Shape>
-	    <String CONTENT="добродѣтель надъ прiятностями сла-"
-                    HPOS="171"
-                    VPOS="1322"
-                    WIDTH="1236"
-                    HEIGHT="62"></String>
-          </TextLine>
-          <TextLine ID="line_17"
-                    TAGREFS="LT74"
-                    BASELINE="176 1472 1413 1472" 
-                    HPOS="176"
-                    VPOS="1412"
-                    WIDTH="1237"
-                    HEIGHT="60">
-            <Shape><Polygon POINTS="176 1412 1413 1412 1413 1472 176 1472"/></Shape>
-	    <String CONTENT="столюбивой красоты и надъ свирѣ-"
-                    HPOS="176"
-                    VPOS="1412"
-                    WIDTH="1237"
-                    HEIGHT="60"></String>
-          </TextLine>
-          <TextLine ID="line_22"
-                    TAGREFS="LT74"
-                    BASELINE="174 1564 782 1564" 
-                    HPOS="174"
-                    VPOS="1504"
-                    WIDTH="608"
-                    HEIGHT="60">
-            <Shape><Polygon POINTS="174 1504 782 1504 782 1564 174 1564"/></Shape>
-	    <String CONTENT="Постїю нещастїй."
-                    HPOS="174"
-                    VPOS="1504"
-                    WIDTH="608"
-                    HEIGHT="60"></String>
-          </TextLine>
-          <TextLine ID="line_18"
-                    TAGREFS="LT77"
-                    BASELINE="220 1729 1417 1729" 
-                    HPOS="220"
-                    VPOS="1663"
-                    WIDTH="1197"
-                    HEIGHT="66">
-            <Shape><Polygon POINTS="220 1663 1417 1663 1417 1729 220 1729"/></Shape>
-	    <String CONTENT="Миссъ Лони одѣта была въ дву-"
-                    HPOS="220"
-                    VPOS="1663"
-                    WIDTH="1197"
-                    HEIGHT="66"></String>
-          </TextLine>
-          <TextLine ID="line_20"
-                    TAGREFS="LT74"
-                    BASELINE="171 1909 1423 1909" 
-                    HPOS="171"
-                    VPOS="1846"
-                    WIDTH="1252"
-                    HEIGHT="63">
-            <Shape><Polygon POINTS="171 1846 1423 1846 1423 1909 171 1909"/></Shape>
-	    <String CONTENT="лымъ цвѣту платье, бѣлой перед-"
-                    HPOS="171"
-                    VPOS="1846"
-                    WIDTH="1252"
-                    HEIGHT="63"></String>
-          </TextLine>
-          <TextLine ID="line_16"
-                    TAGREFS="LT74"
-                    BASELINE="173 2080 1423 2080" 
-                    HPOS="173"
-                    VPOS="2018"
-                    WIDTH="1250"
-                    HEIGHT="62">
-            <Shape><Polygon POINTS="173 2018 1423 2018 1423 2080 173 2080"/></Shape>
-	    <String CONTENT="токъ, на головѣ была простая соло-"
-                    HPOS="173"
-                    VPOS="2018"
-                    WIDTH="1250"
-                    HEIGHT="62"></String>
           </TextLine>
         </TextBlock>
       </PrintSpace>
